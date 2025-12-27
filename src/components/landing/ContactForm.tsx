@@ -1,0 +1,187 @@
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { useToast } from "@/hooks/use-toast";
+import { Send, MessageCircle, Mail, Phone } from "lucide-react";
+
+const contactSchema = z.object({
+  name: z.string().trim().min(2, "Nome deve ter pelo menos 2 caracteres").max(100, "Nome muito longo"),
+  email: z.string().trim().email("Email inválido").max(255, "Email muito longo"),
+  phone: z.string().trim().min(10, "Telefone inválido").max(20, "Telefone muito longo"),
+  message: z.string().trim().min(10, "Mensagem deve ter pelo menos 10 caracteres").max(1000, "Mensagem muito longa"),
+});
+
+type ContactFormData = z.infer<typeof contactSchema>;
+
+const ContactForm = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<ContactFormData>({
+    resolver: zodResolver(contactSchema),
+  });
+
+  const onSubmit = async (data: ContactFormData) => {
+    setIsSubmitting(true);
+
+    // Simulate form submission
+    await new Promise((resolve) => setTimeout(resolve, 1500));
+
+    toast({
+      title: "Mensagem enviada!",
+      description: "Entraremos em contato em breve. Obrigado!",
+    });
+
+    reset();
+    setIsSubmitting(false);
+  };
+
+  return (
+    <section id="contato" className="py-20 md:py-32">
+      <div className="container mx-auto px-4">
+        <div className="max-w-5xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left Content */}
+            <div>
+              <span className="text-primary font-semibold text-sm uppercase tracking-wider">
+                Contato
+              </span>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-4 mb-6">
+                Pronto para{" "}
+                <span className="text-gradient">transformar</span> seu atendimento?
+              </h2>
+              <p className="text-lg text-muted-foreground mb-8">
+                Preencha o formulário e nossa equipe entrará em contato para mostrar como o DuBrasil Nexa pode ajudar seu negócio.
+              </p>
+
+              {/* Contact Info */}
+              <div className="space-y-4">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                    <MessageCircle className="w-6 h-6 text-primary" />
+                  </div>
+                  <div>
+                    <p className="font-medium text-foreground">WhatsApp</p>
+                    <p className="text-muted-foreground">(11) 99999-9999</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                    <Mail className="w-6 h-6 text-primary" />
+                  </div>
+                  <div>
+                    <p className="font-medium text-foreground">Email</p>
+                    <p className="text-muted-foreground">contato@dubrasilnexa.com.br</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                    <Phone className="w-6 h-6 text-primary" />
+                  </div>
+                  <div>
+                    <p className="font-medium text-foreground">Telefone</p>
+                    <p className="text-muted-foreground">(11) 3333-3333</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Content - Form */}
+            <div className="bg-card rounded-2xl p-6 md:p-8 border border-border shadow-card">
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
+                    Nome completo
+                  </label>
+                  <Input
+                    id="name"
+                    placeholder="Seu nome"
+                    {...register("name")}
+                    className={errors.name ? "border-destructive" : ""}
+                  />
+                  {errors.name && (
+                    <p className="text-destructive text-sm mt-1">{errors.name.message}</p>
+                  )}
+                </div>
+
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
+                    Email
+                  </label>
+                  <Input
+                    id="email"
+                    type="email"
+                    placeholder="seu@email.com"
+                    {...register("email")}
+                    className={errors.email ? "border-destructive" : ""}
+                  />
+                  {errors.email && (
+                    <p className="text-destructive text-sm mt-1">{errors.email.message}</p>
+                  )}
+                </div>
+
+                <div>
+                  <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-2">
+                    WhatsApp
+                  </label>
+                  <Input
+                    id="phone"
+                    placeholder="(11) 99999-9999"
+                    {...register("phone")}
+                    className={errors.phone ? "border-destructive" : ""}
+                  />
+                  {errors.phone && (
+                    <p className="text-destructive text-sm mt-1">{errors.phone.message}</p>
+                  )}
+                </div>
+
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
+                    Mensagem
+                  </label>
+                  <Textarea
+                    id="message"
+                    placeholder="Conte-nos sobre seu negócio e como podemos ajudar..."
+                    rows={4}
+                    {...register("message")}
+                    className={errors.message ? "border-destructive" : ""}
+                  />
+                  {errors.message && (
+                    <p className="text-destructive text-sm mt-1">{errors.message.message}</p>
+                  )}
+                </div>
+
+                <Button
+                  type="submit"
+                  size="lg"
+                  className="w-full gradient-primary shadow-glow"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? (
+                    "Enviando..."
+                  ) : (
+                    <>
+                      Enviar Mensagem
+                      <Send className="ml-2 w-5 h-5" />
+                    </>
+                  )}
+                </Button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default ContactForm;
