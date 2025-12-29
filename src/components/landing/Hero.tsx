@@ -16,7 +16,7 @@ const Hero = () => {
           <div className="space-y-8">
             <Badge variant="secondary" className="px-4 py-2 text-sm font-medium animate-fade-in">
               <Sparkles className="w-4 h-4 mr-2 text-primary" />
-              WHITE LABEL
+              PERSONALIZAÇÃO EXCLUSIVA
             </Badge>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight animate-fade-in" style={{ animationDelay: "0.1s" }}>
@@ -45,23 +45,6 @@ const Hero = () => {
               </Button>
             </div>
 
-            {/* Social Proof */}
-            <div className="flex items-center gap-6 pt-4 animate-fade-in" style={{ animationDelay: "0.4s" }}>
-              <div className="flex -space-x-3">
-                {[1, 2, 3, 4].map((i) => (
-                  <div
-                    key={i}
-                    className="w-10 h-10 rounded-full bg-muted border-2 border-background flex items-center justify-center text-xs font-medium text-muted-foreground"
-                  >
-                    {String.fromCharCode(64 + i)}
-                  </div>
-                ))}
-              </div>
-              <div className="text-sm">
-                <span className="font-semibold text-foreground">+4.800 clientes</span>
-                <span className="text-muted-foreground"> confiam na nossa plataforma</span>
-              </div>
-            </div>
           </div>
 
           {/* Right Content - Chat Mockup */}
