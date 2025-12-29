@@ -1,4 +1,4 @@
-import { Bot, Users, Palette, Brain, MessageSquare, BarChart3 } from "lucide-react";
+import { Users, Brain, MessageSquare, BarChart3 } from "lucide-react";
 
 const features = [
   {
@@ -14,12 +14,6 @@ const features = [
     tag: "CRM",
   },
   {
-    icon: Bot,
-    title: "Chatbot Avançado",
-    description: "Automatize seu atendimento com fluxos personalizados, qualificação automática de demandas e suporte 24/7.",
-    tag: "Automação",
-  },
-  {
     icon: Brain,
     title: "Agente Supervisor",
     description: "Identifica a intenção da conversa, aciona o agente ideal da equipe e garante a efetividade do atendimento.",
@@ -30,12 +24,6 @@ const features = [
     title: "Gestão de Equipes",
     description: "Filas de atendimento com controle total da distribuição. Acesse via web ou app, com agilidade e organização.",
     tag: "Gestão",
-  },
-  {
-    icon: Palette,
-    title: "White Label",
-    description: "Ofereça soluções com sua marca. Altere logotipo, domínio e mensagens. Cada parceiro com identidade própria.",
-    tag: "Personalização",
   },
 ];
 

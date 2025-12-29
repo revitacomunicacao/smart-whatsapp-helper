@@ -26,10 +26,11 @@ const ParallaxCTA = () => {
       ref={sectionRef}
       className="relative min-h-[70vh] flex items-center justify-center overflow-hidden"
     >
-      {/* Background with parallax effect - using primary blue */}
+      {/* Background with parallax effect - lighter at edges, darker in middle */}
       <div
-        className="absolute inset-0 bg-gradient-to-br from-primary via-accent to-primary transition-transform duration-100 ease-out"
+        className="absolute inset-0 transition-transform duration-100 ease-out"
         style={{
+          background: 'radial-gradient(ellipse at center, hsl(var(--primary)) 0%, hsl(var(--accent)) 50%, hsl(var(--primary-glow)) 100%)',
           transform: `translateY(${parallaxOffset}px) scale(1.1)`,
         }}
       />

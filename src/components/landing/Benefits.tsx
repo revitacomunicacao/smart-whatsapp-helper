@@ -35,14 +35,14 @@ const benefits = [
 
 const Benefits = () => {
   return (
-    <section id="funcionalidades" className="py-20 md:py-32 bg-muted/30">
+    <section id="funcionalidades" className="py-20 md:py-32" style={{ backgroundColor: '#686868' }}>
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-white">
             Soluções para construir{" "}
-            <span className="text-gradient">o seu negócio</span>
+            <span className="text-accent">o seu negócio</span>
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-lg text-white/80">
             Plataforma completa para desenvolver o seu negócio com atendimento, CRM e inteligência artificial.
           </p>
         </div>
