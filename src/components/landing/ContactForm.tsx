@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { Send, MessageCircle, Mail, Phone } from "lucide-react";
+import { Send, MessageCircle, Mail, Phone, MapPin } from "lucide-react";
 
 const contactSchema = z.object({
   name: z.string().trim().min(2, "Nome deve ter pelo menos 2 caracteres").max(100, "Nome muito longo"),
@@ -90,6 +90,15 @@ const ContactForm = () => {
                   <div>
                     <p className="font-medium text-foreground">Telefone</p>
                     <p className="text-muted-foreground">(11) 3333-3333</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                    <MapPin className="w-6 h-6 text-primary" />
+                  </div>
+                  <div>
+                    <p className="font-medium text-foreground">Endereço</p>
+                    <p className="text-muted-foreground">Av. Paulista, 1000 - São Paulo, SP</p>
                   </div>
                 </div>
               </div>
