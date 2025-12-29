@@ -26,13 +26,10 @@ const ParallaxCTA = () => {
       ref={sectionRef}
       className="relative min-h-[70vh] flex items-center justify-center overflow-hidden"
     >
-      {/* Background with parallax effect - lighter at edges, darker in middle */}
+      {/* Background with parallax effect - using primary blue */}
       <div
-        className="absolute inset-0 transition-transform duration-100 ease-out"
-        style={{
-          background: 'radial-gradient(ellipse at center, hsl(var(--primary)) 0%, hsl(var(--accent)) 50%, hsl(var(--primary-glow)) 100%)',
-          transform: `translateY(${parallaxOffset}px) scale(1.1)`,
-        }}
+        className="absolute inset-0 bg-gradient-to-br from-accent via-primary to-accent transition-transform duration-100 ease-out"
+        style={{ transform: `translateY(${parallaxOffset}px) scale(1.1)` }}
       />
 
       {/* Animated background patterns */}
@@ -47,7 +44,11 @@ const ParallaxCTA = () => {
         />
         <div
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/20 rounded-full blur-3xl"
-          style={{ transform: `translate(-50%, -50%) translateY(${parallaxOffset * 0.2}px)` }}
+          style={{
+            transform: `translate(-50%, -50%) translateY(${
+              parallaxOffset * 0.2
+            }px)`,
+          }}
         />
       </div>
 
@@ -63,19 +64,28 @@ const ParallaxCTA = () => {
           className="absolute top-[25%] right-[15%] text-white/15"
           style={{ transform: `translateY(${parallaxOffset * -0.6}px)` }}
         >
-          <Sparkles className="w-12 h-12 animate-float" style={{ animationDelay: "1s" }} />
+          <Sparkles
+            className="w-12 h-12 animate-float"
+            style={{ animationDelay: "1s" }}
+          />
         </div>
         <div
           className="absolute bottom-[20%] left-[20%] text-white/10"
           style={{ transform: `translateY(${parallaxOffset * -0.4}px)` }}
         >
-          <Zap className="w-20 h-20 animate-float" style={{ animationDelay: "2s" }} />
+          <Zap
+            className="w-20 h-20 animate-float"
+            style={{ animationDelay: "2s" }}
+          />
         </div>
         <div
           className="absolute bottom-[30%] right-[10%] text-white/20"
           style={{ transform: `translateY(${parallaxOffset * -0.7}px)` }}
         >
-          <MessageSquare className="w-10 h-10 animate-float" style={{ animationDelay: "0.5s" }} />
+          <MessageSquare
+            className="w-10 h-10 animate-float"
+            style={{ animationDelay: "0.5s" }}
+          />
         </div>
       </div>
 
@@ -87,7 +97,9 @@ const ParallaxCTA = () => {
         >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
             Dê adeus às respostas
-            <span className="block mt-2 text-white/90">robóticas e engessadas</span>
+            <span className="block mt-2 text-white/90">
+              robóticas e engessadas
+            </span>
           </h2>
 
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-6 py-3 mb-8">
@@ -97,9 +109,12 @@ const ParallaxCTA = () => {
           </div>
 
           <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed">
-            Nossa IA adequa as respostas a cada contexto da conversa, conduzindo atendimentos, 
-            agendamentos e vendas com total naturalidade — 
-            <strong className="text-white"> como se fosse uma pessoa de verdade.</strong>
+            Nossa IA adequa as respostas a cada contexto da conversa, conduzindo
+            atendimentos, agendamentos e vendas com total naturalidade —
+            <strong className="text-white">
+              {" "}
+              como se fosse uma pessoa de verdade.
+            </strong>
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -113,7 +128,7 @@ const ParallaxCTA = () => {
             <Button
               size="lg"
               variant="outline"
-              className="border-2 border-white/30 text-white hover:bg-white/10 font-semibold px-8 py-6 text-lg rounded-full backdrop-blur-sm transition-all duration-300"
+              className="border-2 border-white/30 text-primary hover:bg-white/10 font-semibold px-8 py-6 text-lg rounded-full backdrop-blur-sm transition-all duration-300"
               asChild
             >
               <a href="#como-funciona">Veja uma Demo</a>
@@ -121,7 +136,8 @@ const ParallaxCTA = () => {
           </div>
 
           <p className="mt-8 text-white/70 text-sm">
-            ✨ Seus clientes serão melhor atendidos e ficarão muito mais satisfeitos!
+            ✨ Seus clientes serão melhor atendidos e ficarão muito mais
+            satisfeitos!
           </p>
         </div>
       </div>

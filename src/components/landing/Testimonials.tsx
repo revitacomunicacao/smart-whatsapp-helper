@@ -10,7 +10,7 @@ const PARALLAX_BG_IMAGE = "https://images.unsplash.com/photo-1557804506-669a6796
 const testimonials = [
   {
     name: "Agência Marketing Digital",
-    role: "Parceiro White Label",
+    role: "Parceiro Personalizado",
     content: "Revendemos a plataforma com nossa marca e nossos clientes adoram. A escalabilidade e personalização nos permitiram criar um novo fluxo de receita.",
     rating: 5,
   },
@@ -103,9 +103,6 @@ const Testimonials = () => {
             Clientes que{" "}
             <span className="text-accent">confiam em nós</span>
           </h2>
-          <p className="text-lg text-primary-foreground/80">
-            Mais de 4.800 empresas já transformaram seu atendimento com nossa plataforma.
-          </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">

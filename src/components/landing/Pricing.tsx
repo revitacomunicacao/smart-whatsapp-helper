@@ -35,7 +35,7 @@ const plans = [
     popular: true,
   },
   {
-    name: "White Label",
+    name: "Empresarial",
     description: "Revenda com sua marca e expanda seu negócio",
     price: "Consulte",
     period: "",

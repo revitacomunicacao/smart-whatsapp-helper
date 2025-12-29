@@ -1,0 +1,45 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g1" x1="160" y1="80" x2="1040" y2="820" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#002047"></stop>
+      <stop offset="0.55" stop-color="#0A4A9C"></stop>
+      <stop offset="1" stop-color="#00B0FF"></stop>
+    </linearGradient>
+    <linearGradient id="g2" x1="260" y1="200" x2="940" y2="780" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.18"></stop>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0.04"></stop>
+    </linearGradient>
+    <filter id="blur" x="-200" y="-200" width="1600" height="1300" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="60"></feGaussianBlur>
+    </filter>
+  </defs>
+
+  <rect x="80" y="60" width="1040" height="780" rx="56" fill="url(#g1)"></rect>
+
+  <!-- Soft glows -->
+  <circle cx="320" cy="250" r="170" fill="#00B0FF" fill-opacity="0.25" filter="url(#blur)"></circle>
+  <circle cx="910" cy="650" r="200" fill="#0A4A9C" fill-opacity="0.35" filter="url(#blur)"></circle>
+
+  <!-- Chat bubbles -->
+  <path d="M330 250C282 250 244 288 244 336C244 384 282 422 330 422H420C468 422 506 384 506 336C506 288 468 250 420 250H330Z" fill="url(#g2)"></path>
+  <path d="M342 422L298 462C292 468 295 478 304 480C342 490 380 484 410 468" fill="url(#g2)"></path>
+
+  <path d="M646 414C598 414 560 452 560 500C560 548 598 586 646 586H820C868 586 906 548 906 500C906 452 868 414 820 414H646Z" fill="url(#g2)"></path>
+  <path d="M862 586L906 626C912 632 909 642 900 644C862 654 824 648 794 632" fill="url(#g2)"></path>
+
+  <!-- Dots (messages) -->
+  <circle cx="315" cy="336" r="12" fill="#FFFFFF" fill-opacity="0.85"></circle>
+  <circle cx="355" cy="336" r="12" fill="#FFFFFF" fill-opacity="0.85"></circle>
+  <circle cx="395" cy="336" r="12" fill="#FFFFFF" fill-opacity="0.85"></circle>
+
+  <circle cx="650" cy="500" r="12" fill="#FFFFFF" fill-opacity="0.85"></circle>
+  <circle cx="690" cy="500" r="12" fill="#FFFFFF" fill-opacity="0.85"></circle>
+  <circle cx="730" cy="500" r="12" fill="#FFFFFF" fill-opacity="0.85"></circle>
+
+  <!-- Small badge -->
+  <rect x="280" y="650" width="240" height="84" rx="42" fill="#FFFFFF" fill-opacity="0.14"></rect>
+  <rect x="304" y="676" width="36" height="36" rx="12" fill="#00B0FF" fill-opacity="0.75"></rect>
+  <path d="M314 695L321 702L333 690" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
+  <rect x="352" y="684" width="148" height="10" rx="5" fill="#FFFFFF" fill-opacity="0.70"></rect>
+  <rect x="352" y="704" width="110" height="10" rx="5" fill="#FFFFFF" fill-opacity="0.55"></rect>
+</svg>

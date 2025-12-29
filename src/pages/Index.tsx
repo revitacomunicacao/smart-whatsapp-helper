@@ -8,12 +8,14 @@ import Testimonials from "@/components/landing/Testimonials";
 import Pricing from "@/components/landing/Pricing";
 import ContactForm from "@/components/landing/ContactForm";
 import Footer from "@/components/landing/Footer";
+import AboutUs from "@/components/landing/AboutUs";
 
 const Index = () => {
   return (
     <main className="min-h-screen">
       <Navbar />
       <Hero />
+      <AboutUs />
       <Benefits />
       <Features />
       <ParallaxCTA />

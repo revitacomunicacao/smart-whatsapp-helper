@@ -33,7 +33,6 @@ const ContactForm = () => {
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
 
-    // Simulate form submission
     await new Promise((resolve) => setTimeout(resolve, 1500));
 
     toast({
@@ -46,8 +45,14 @@ const ContactForm = () => {
   };
 
   return (
-    <section id="contato" className="py-20 md:py-32" style={{ backgroundColor: '#686868' }}>
-      <div className="container mx-auto px-4">
+    <section id="contato" className="relative py-20 md:py-32 overflow-hidden">
+      {/* Background (cinza com efeito) */}
+      <div className="absolute inset-0 bg-[#919191]" />
+      <div className="absolute inset-0 bg-gradient-to-br from-black/25 via-transparent to-white/10" />
+      <div className="absolute -top-24 -left-24 w-96 h-96 bg-white/10 rounded-full blur-3xl" />
+      <div className="absolute -bottom-24 -right-24 w-[28rem] h-[28rem] bg-black/20 rounded-full blur-3xl" />
+
+      <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-5xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
@@ -56,8 +61,7 @@ const ContactForm = () => {
                 Contato
               </span>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-4 mb-6 text-white">
-                Pronto para{" "}
-                <span className="text-accent">transformar</span> seu atendimento?
+                Pronto para <span className="text-[#002047]">transformar</span> seu atendimento?
               </h2>
               <p className="text-lg text-white/80 mb-8">
                 Preencha o formulário e nossa equipe entrará em contato para mostrar como o DuBrasil Nexa pode ajudar seu negócio.
@@ -71,9 +75,10 @@ const ContactForm = () => {
                   </div>
                   <div>
                     <p className="font-medium text-white">WhatsApp</p>
-                    <p className="text-white/70">(11) 99999-9999</p>
+                    <p className="text-white/70">(34) 99636-7430</p>
                   </div>
                 </div>
+
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center">
                     <Mail className="w-6 h-6 text-white" />
@@ -83,22 +88,28 @@ const ContactForm = () => {
                     <p className="text-white/70">contato@dubrasilnexa.com.br</p>
                   </div>
                 </div>
+
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center">
                     <Phone className="w-6 h-6 text-white" />
                   </div>
                   <div>
                     <p className="font-medium text-white">Telefone</p>
-                    <p className="text-white/70">(11) 3333-3333</p>
+                    <p className="text-white/70">(34) 99636-7430</p>
                   </div>
                 </div>
+
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center">
                     <MapPin className="w-6 h-6 text-white" />
                   </div>
                   <div>
                     <p className="font-medium text-white">Endereço</p>
-                    <p className="text-white/70">Av. Paulista, 1000 - São Paulo, SP</p>
+                    <p className="text-white/70">
+                      Av. Leopoldino de Oliveira, 4252 - Fabrício
+                      <br />
+                      Uberaba - MG, 38065-165
+                    </p>
                   </div>
                 </div>
               </div>

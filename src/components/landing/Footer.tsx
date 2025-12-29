@@ -10,6 +10,7 @@ const Footer = () => {
       { label: "Como Funciona", href: "#como-funciona" },
       { label: "Preços", href: "#precos" },
       { label: "FAQ", href: "#" },
+      { label: "Sobre nós", href: "#sobre" },
     ],
     empresa: [
       { label: "Sobre Nós", href: "#" },
@@ -60,25 +61,9 @@ const Footer = () => {
 
           {/* Links */}
           <div>
-            <h4 className="font-semibold mb-4">Produto</h4>
+            <h4 className="font-semibold mb-4">Solução</h4>
             <ul className="space-y-3">
               {footerLinks.produto.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-background/70 hover:text-background transition-colors text-sm"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="font-semibold mb-4">Empresa</h4>
-            <ul className="space-y-3">
-              {footerLinks.empresa.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
@@ -112,9 +97,6 @@ const Footer = () => {
         <div className="pt-8 border-t border-background/10 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-background/60 text-sm">
             © {currentYear} DuBrasil Nexa. Todos os direitos reservados.
-          </p>
-          <p className="text-background/60 text-sm">
-            Feito com 💙 no Brasil
           </p>
         </div>
       </div>
