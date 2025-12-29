@@ -16,32 +16,31 @@ const Hero = () => {
           <div className="space-y-8">
             <Badge variant="secondary" className="px-4 py-2 text-sm font-medium animate-fade-in">
               <Sparkles className="w-4 h-4 mr-2 text-primary" />
-              IA Disponível 24h por dia
+              WHITE LABEL
             </Badge>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight animate-fade-in" style={{ animationDelay: "0.1s" }}>
-              Seu Agente de IA que{" "}
-              <span className="text-gradient">atende, agenda e vende</span>{" "}
-              pelo WhatsApp
+              CRM para WhatsApp que{" "}
+              <span className="text-gradient">aprende a cada conversa</span>
             </h1>
 
             <p className="text-lg md:text-xl text-muted-foreground max-w-xl animate-fade-in" style={{ animationDelay: "0.2s" }}>
-              Automatize seu atendimento com inteligência artificial. O DuBrasil Nexa 
-              responde seus clientes, agenda consultas e fecha vendas 24 horas por dia, 
-              7 dias por semana.
+              Conecte equipes com clientes e leads. Combine agentes de IA, atendimento humano 
+              e um CRM que aprende a cada conversa. Uma tecnologia conversacional robusta 
+              que sustenta o crescimento do seu negócio.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 animate-fade-in" style={{ animationDelay: "0.3s" }}>
               <Button size="lg" className="gradient-primary shadow-glow text-base px-8" asChild>
                 <a href="#contato">
-                  Comece Agora
+                  Teste Grátis por 14 dias
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </a>
               </Button>
               <Button size="lg" variant="outline" className="text-base px-8" asChild>
                 <a href="#como-funciona">
                   <Play className="mr-2 w-5 h-5" />
-                  Veja Como Funciona
+                  Assistir Demonstração
                 </a>
               </Button>
             </div>
@@ -59,8 +58,8 @@ const Hero = () => {
                 ))}
               </div>
               <div className="text-sm">
-                <span className="font-semibold text-foreground">+500 empresas</span>
-                <span className="text-muted-foreground"> já automatizaram seu atendimento</span>
+                <span className="font-semibold text-foreground">+4.800 clientes</span>
+                <span className="text-muted-foreground"> confiam na nossa plataforma</span>
               </div>
             </div>
           </div>

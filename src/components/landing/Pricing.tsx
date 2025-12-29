@@ -4,13 +4,13 @@ import { Button } from "@/components/ui/button";
 const plans = [
   {
     name: "Starter",
-    description: "Ideal para pequenos negócios começando com automação",
-    price: "197",
-    period: "/mês",
+    description: "Ideal para pequenos negócios começando a automatizar",
+    price: "Consulte",
+    period: "",
     features: [
       "1 número de WhatsApp",
-      "Até 500 conversas/mês",
-      "IA para atendimento básico",
+      "Inbox centralizada",
+      "Agentes de IA básicos",
       "Agendamento automático",
       "Suporte por email",
     ],
@@ -20,30 +20,30 @@ const plans = [
   {
     name: "Profissional",
     description: "Para empresas que querem escalar o atendimento",
-    price: "397",
-    period: "/mês",
+    price: "Consulte",
+    period: "",
     features: [
-      "3 números de WhatsApp",
-      "Conversas ilimitadas",
-      "IA avançada com contexto",
-      "Agendamento + lembretes",
-      "CRM integrado",
-      "Relatórios completos",
+      "Múltiplos números WhatsApp",
+      "Instagram e Messenger",
+      "CRM com funil de vendas",
+      "Agentes de IA avançados",
+      "Agente Supervisor",
+      "Integrações via API/n8n",
       "Suporte prioritário",
     ],
     cta: "Escolher Plano",
     popular: true,
   },
   {
-    name: "Enterprise",
-    description: "Solução completa para grandes operações",
-    price: "Sob consulta",
+    name: "White Label",
+    description: "Revenda com sua marca e expanda seu negócio",
+    price: "Consulte",
     period: "",
     features: [
-      "WhatsApp ilimitado",
-      "API personalizada",
-      "IA treinada exclusiva",
-      "Integrações customizadas",
+      "Sua marca, seu domínio",
+      "Gestão de múltiplos clientes",
+      "Personalização completa",
+      "Preços e pacotes flexíveis",
       "Gestor de conta dedicado",
       "SLA garantido",
       "Onboarding completo",
@@ -66,7 +66,7 @@ const Pricing = () => {
             <span className="text-gradient">ideal para você</span>
           </h2>
           <p className="text-lg text-muted-foreground">
-            Comece gratuitamente e escale conforme seu negócio cresce.
+            Teste grátis por 14 dias. Sem fidelidade, sem cartão e sem burocracia.
           </p>
         </div>
 
@@ -96,9 +96,6 @@ const Pricing = () => {
                 <h3 className="text-xl font-semibold mb-2 text-foreground">{plan.name}</h3>
                 <p className="text-sm text-muted-foreground mb-4">{plan.description}</p>
                 <div className="flex items-end justify-center gap-1">
-                  {plan.price !== "Sob consulta" && (
-                    <span className="text-lg text-muted-foreground">R$</span>
-                  )}
                   <span className="text-4xl font-bold text-foreground">{plan.price}</span>
                   <span className="text-muted-foreground">{plan.period}</span>
                 </div>

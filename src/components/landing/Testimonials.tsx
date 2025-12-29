@@ -2,39 +2,39 @@ import { Star, Quote } from "lucide-react";
 
 const testimonials = [
   {
-    name: "Dra. Maria Silva",
-    role: "Clínica Odontológica",
-    content: "O DuBrasil Nexa transformou minha clínica. Antes eu perdia muitos pacientes por não conseguir responder rápido. Agora a IA agenda automaticamente e minha agenda está sempre cheia.",
+    name: "Agência Marketing Digital",
+    role: "Parceiro White Label",
+    content: "Revendemos a plataforma com nossa marca e nossos clientes adoram. A escalabilidade e personalização nos permitiram criar um novo fluxo de receita.",
     rating: 5,
   },
   {
-    name: "Carlos Santos",
-    role: "E-commerce de Roupas",
-    content: "Aumentamos nossas vendas em 40% no primeiro mês. A IA responde dúvidas sobre tamanhos, cores e faz follow-up com clientes que abandonaram o carrinho.",
+    name: "Clínica Odontológica",
+    role: "Setor de Saúde",
+    content: "O CRM integrado ao WhatsApp revolucionou nossos agendamentos. A IA qualifica os pacientes e agenda automaticamente, nossa taxa de no-show caiu 60%.",
     rating: 5,
   },
   {
-    name: "Ana Beatriz",
-    role: "Salão de Beleza",
-    content: "Economizo mais de 4 horas por dia que antes gastava respondendo WhatsApp. A IA é tão natural que os clientes nem percebem que é automático.",
+    name: "E-commerce de Moda",
+    role: "Varejo",
+    content: "Com o funil conversacional, acompanhamos cada lead do primeiro contato ao fechamento. Aumentamos conversões em 45% no primeiro trimestre.",
     rating: 5,
   },
   {
-    name: "Dr. Pedro Lima",
-    role: "Consultório Médico",
-    content: "A funcionalidade de agendamento automático é incrível. Pacientes podem marcar consultas mesmo de madrugada. Minha secretária agora foca em tarefas mais importantes.",
+    name: "Imobiliária Premium",
+    role: "Setor Imobiliário",
+    content: "A qualificação automática de leads é fantástica. O agente supervisor identifica a intenção e direciona para o corretor certo. Fechamos muito mais negócios.",
     rating: 5,
   },
   {
-    name: "Fernanda Costa",
-    role: "Restaurante Delivery",
-    content: "Nossos pedidos pelo WhatsApp aumentaram 60%. A IA pega os pedidos corretamente e ainda sugere complementos. Os clientes adoram a rapidez.",
+    name: "Delivery de Alimentação",
+    role: "Food Service",
+    content: "Os pedidos pelo WhatsApp triplicaram. A IA pega pedidos corretamente, sugere complementos e integra direto com nosso sistema. Clientes adoram a rapidez.",
     rating: 5,
   },
   {
-    name: "Roberto Almeida",
-    role: "Imobiliária",
-    content: "A qualificação automática de leads é fantástica. A IA faz as perguntas certas e só me passa clientes realmente interessados. Fecho muito mais negócios.",
+    name: "Consultoria Empresarial",
+    role: "Serviços B2B",
+    content: "A estabilidade da plataforma é impressionante. Atendemos milhares de mensagens diárias sem problemas. O suporte 24/7 da IA nos deu tranquilidade.",
     rating: 5,
   },
 ];
@@ -48,11 +48,11 @@ const Testimonials = () => {
             Depoimentos
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-4 mb-6">
-            O que nossos{" "}
-            <span className="text-gradient">clientes dizem</span>
+            Clientes que{" "}
+            <span className="text-gradient">confiam em nós</span>
           </h2>
           <p className="text-lg text-muted-foreground">
-            Histórias reais de empresas que transformaram seu atendimento com o DuBrasil Nexa.
+            Mais de 4.800 empresas já transformaram seu atendimento com nossa plataforma.
           </p>
         </div>
 

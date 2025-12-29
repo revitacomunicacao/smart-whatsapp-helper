@@ -1,41 +1,41 @@
-import { Bot, Users, Settings, Brain, MessageSquare, BarChart3 } from "lucide-react";
+import { Bot, Users, Palette, Brain, MessageSquare, BarChart3 } from "lucide-react";
 
 const features = [
   {
-    icon: Bot,
-    title: "IA + Humanos",
-    description: "Combine o melhor dos dois mundos. A IA resolve questões simples e transfere para humanos quando necessário.",
-    tag: "Híbrido",
-  },
-  {
     icon: MessageSquare,
-    title: "Multicanal",
-    description: "Integre WhatsApp, Instagram, Facebook e seu site em uma única plataforma de atendimento.",
-    tag: "Integrações",
-  },
-  {
-    icon: Settings,
-    title: "Fácil Configuração",
-    description: "Configure sua IA em minutos, sem necessidade de programação ou conhecimento técnico.",
-    tag: "Simples",
-  },
-  {
-    icon: Brain,
-    title: "Respostas Inteligentes",
-    description: "A IA aprende com seu negócio e oferece respostas personalizadas e contextuais.",
-    tag: "Machine Learning",
-  },
-  {
-    icon: Users,
-    title: "CRM Integrado",
-    description: "Gerencie seus clientes, histórico de conversas e dados em um só lugar.",
-    tag: "Gestão",
+    title: "Inbox Multicanal",
+    description: "Acesso em tempo real a todas as conversas. Suporte a WhatsApp, Instagram e Messenger em uma única inbox.",
+    tag: "Atendimento",
   },
   {
     icon: BarChart3,
-    title: "Relatórios Completos",
-    description: "Acompanhe métricas de atendimento, vendas e satisfação em tempo real.",
-    tag: "Analytics",
+    title: "Funil Conversacional",
+    description: "Conecte seu funil de vendas aos canais de mensagens. Acompanhamento completo da jornada, da prospecção ao fechamento.",
+    tag: "CRM",
+  },
+  {
+    icon: Bot,
+    title: "Chatbot Avançado",
+    description: "Automatize seu atendimento com fluxos personalizados, qualificação automática de demandas e suporte 24/7.",
+    tag: "Automação",
+  },
+  {
+    icon: Brain,
+    title: "Agente Supervisor",
+    description: "Identifica a intenção da conversa, aciona o agente ideal da equipe e garante a efetividade do atendimento.",
+    tag: "IA Avançada",
+  },
+  {
+    icon: Users,
+    title: "Gestão de Equipes",
+    description: "Filas de atendimento com controle total da distribuição. Acesse via web ou app, com agilidade e organização.",
+    tag: "Gestão",
+  },
+  {
+    icon: Palette,
+    title: "White Label",
+    description: "Ofereça soluções com sua marca. Altere logotipo, domínio e mensagens. Cada parceiro com identidade própria.",
+    tag: "Personalização",
   },
 ];
 
@@ -49,10 +49,10 @@ const Features = () => {
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-4 mb-6">
             Tudo que você precisa para{" "}
-            <span className="text-gradient">automatizar</span>
+            <span className="text-gradient">escalar</span>
           </h2>
           <p className="text-lg text-muted-foreground">
-            Recursos poderosos para transformar a forma como você atende seus clientes.
+            Recursos poderosos para transformar a forma como você atende e vende.
           </p>
         </div>
 
