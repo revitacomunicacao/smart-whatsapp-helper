@@ -2,6 +2,7 @@ import Navbar from "@/components/landing/Navbar";
 import Hero from "@/components/landing/Hero";
 import Benefits from "@/components/landing/Benefits";
 import Features from "@/components/landing/Features";
+import ParallaxCTA from "@/components/landing/ParallaxCTA";
 import HowItWorks from "@/components/landing/HowItWorks";
 import Testimonials from "@/components/landing/Testimonials";
 import Pricing from "@/components/landing/Pricing";
@@ -15,6 +16,7 @@ const Index = () => {
       <Hero />
       <Benefits />
       <Features />
+      <ParallaxCTA />
       <HowItWorks />
       <Testimonials />
       <Pricing />
