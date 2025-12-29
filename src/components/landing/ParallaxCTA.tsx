@@ -26,9 +26,9 @@ const ParallaxCTA = () => {
       ref={sectionRef}
       className="relative min-h-[70vh] flex items-center justify-center overflow-hidden"
     >
-      {/* Background with parallax effect */}
+      {/* Background with parallax effect - using primary blue */}
       <div
-        className="absolute inset-0 bg-gradient-to-br from-primary via-primary/90 to-primary-glow transition-transform duration-100 ease-out"
+        className="absolute inset-0 bg-gradient-to-br from-primary via-accent to-primary transition-transform duration-100 ease-out"
         style={{
           transform: `translateY(${parallaxOffset}px) scale(1.1)`,
         }}
@@ -45,7 +45,7 @@ const ParallaxCTA = () => {
           style={{ transform: `translateY(${parallaxOffset * -0.3}px)` }}
         />
         <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary-glow/20 rounded-full blur-3xl"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/20 rounded-full blur-3xl"
           style={{ transform: `translate(-50%, -50%) translateY(${parallaxOffset * 0.2}px)` }}
         />
       </div>
@@ -105,15 +105,17 @@ const ParallaxCTA = () => {
             <Button
               size="lg"
               className="bg-white text-primary hover:bg-white/90 font-semibold px-8 py-6 text-lg rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
+              asChild
             >
-              Experimente Grátis
+              <a href="#contato">Teste Grátis por 14 dias</a>
             </Button>
             <Button
               size="lg"
               variant="outline"
               className="border-2 border-white/30 text-white hover:bg-white/10 font-semibold px-8 py-6 text-lg rounded-full backdrop-blur-sm transition-all duration-300"
+              asChild
             >
-              Veja uma Demo
+              <a href="#como-funciona">Veja uma Demo</a>
             </Button>
           </div>
 

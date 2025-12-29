@@ -1,35 +1,35 @@
-import { Calendar, MessageCircle, TrendingUp, Clock, Shield, Zap } from "lucide-react";
+import { Inbox, PieChart, Bot, Users, Workflow, Shield } from "lucide-react";
 
 const benefits = [
   {
-    icon: Calendar,
-    title: "Agendamento Automático",
-    description: "Sua agenda sempre cheia com marcações automáticas. A IA verifica disponibilidade e confirma horários instantaneamente.",
+    icon: Inbox,
+    title: "Atendimento Centralizado",
+    description: "Todas as conversas de WhatsApp, Instagram e Messenger em um só lugar. Filas de atendimento com controle total da distribuição entre equipes.",
   },
   {
-    icon: MessageCircle,
-    title: "Atendimento 24/7",
-    description: "Nunca perca um cliente. Responda mensagens a qualquer hora do dia ou da noite, todos os dias da semana.",
+    icon: PieChart,
+    title: "CRM com Funil de Vendas",
+    description: "Acompanhe o funil de vendas em tempo real, veja o que está travando o avanço dos leads e tome decisões que aumentam conversões.",
   },
   {
-    icon: TrendingUp,
-    title: "Aumente suas Vendas",
-    description: "Capture e qualifique leads automaticamente. Converta mais clientes com respostas rápidas e personalizadas.",
+    icon: Bot,
+    title: "Agentes de IA Inteligentes",
+    description: "Atendimento inteligente 24h por dia. Crie agentes que executam rotinas de atendimento, vendas e suporte automaticamente.",
   },
   {
-    icon: Clock,
-    title: "Economize Tempo",
-    description: "Automatize tarefas repetitivas e libere sua equipe para focar no que realmente importa.",
+    icon: Users,
+    title: "Multiagentes Orquestrados",
+    description: "Orquestre múltiplos agentes de IA em um único chatbot. O Agente Supervisor identifica a intenção e aciona o agente ideal.",
+  },
+  {
+    icon: Workflow,
+    title: "Integrações Poderosas",
+    description: "Conecte qualquer sistema via API robusta ou integrações nativas via n8n. Consulte boletos, faça agendamentos automáticos e muito mais.",
   },
   {
     icon: Shield,
-    title: "Seguro e Confiável",
-    description: "Dados protegidos e criptografados. Seu negócio e seus clientes sempre seguros.",
-  },
-  {
-    icon: Zap,
-    title: "Respostas Instantâneas",
-    description: "Tempo de resposta em segundos. Impressione seus clientes com atendimento ágil e eficiente.",
+    title: "Estabilidade Garantida",
+    description: "Apenas 63 minutos de downtime em 2024. Infraestrutura segura e escalável que acompanha o seu crescimento.",
   },
 ];
 
@@ -39,11 +39,11 @@ const Benefits = () => {
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-            Por que escolher o{" "}
-            <span className="text-gradient">DuBrasil Nexa</span>?
+            Soluções para construir{" "}
+            <span className="text-gradient">o seu negócio</span>
           </h2>
           <p className="text-lg text-muted-foreground">
-            Transforme seu atendimento com inteligência artificial e veja resultados reais no seu negócio.
+            Plataforma completa para desenvolver o seu negócio com atendimento, CRM e inteligência artificial.
           </p>
         </div>
 

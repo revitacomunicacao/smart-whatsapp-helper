@@ -4,20 +4,20 @@ const steps = [
   {
     number: "01",
     icon: Settings2,
-    title: "Configure sua IA",
-    description: "Insira informações do seu negócio, serviços, preços e horários. A IA aprende tudo em minutos.",
+    title: "Configure sua Plataforma",
+    description: "Personalize com sua marca, configure equipes, filas de atendimento e treine seus agentes de IA em minutos.",
   },
   {
     number: "02",
     icon: Link,
-    title: "Conecte seu WhatsApp",
-    description: "Integração simples e segura. Basta escanear um QR Code e pronto.",
+    title: "Conecte seus Canais",
+    description: "Integre WhatsApp, Instagram e Messenger. Conecte com suas ferramentas via API ou n8n.",
   },
   {
     number: "03",
     icon: Rocket,
-    title: "Comece a Atender",
-    description: "Sua IA já está pronta para atender, agendar e vender 24 horas por dia.",
+    title: "Escale seu Negócio",
+    description: "Com tudo centralizado, sua equipe atende melhor e sua IA trabalha 24h por dia para você.",
   },
 ];
 
@@ -34,7 +34,7 @@ const HowItWorks = () => {
             <span className="text-gradient">3 passos simples</span>
           </h2>
           <p className="text-lg text-muted-foreground">
-            Configuração rápida e sem complicação. Você não precisa de conhecimento técnico.
+            Sem fidelidade, sem cartão e sem burocracia. Teste grátis por 14 dias.
           </p>
         </div>
 
