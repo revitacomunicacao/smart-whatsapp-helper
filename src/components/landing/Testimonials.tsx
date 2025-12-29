@@ -1,4 +1,11 @@
 import { Star, Quote } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+
+// ========================================
+// TROQUE A IMAGEM AQUI:
+// Basta substituir a URL abaixo pela sua imagem
+// ========================================
+const PARALLAX_BG_IMAGE = "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1920&q=80";
 
 const testimonials = [
   {
@@ -40,18 +47,63 @@ const testimonials = [
 ];
 
 const Testimonials = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (sectionRef.current) {
+        const rect = sectionRef.current.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        const sectionHeight = rect.height;
+        
+        if (rect.top < windowHeight && rect.bottom > 0) {
+          const progress = (windowHeight - rect.top) / (windowHeight + sectionHeight);
+          setScrollY(progress);
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const parallaxOffset = scrollY * 100;
+
   return (
-    <section id="depoimentos" className="py-20 md:py-32">
-      <div className="container mx-auto px-4">
+    <section
+      ref={sectionRef}
+      id="depoimentos"
+      className="py-20 md:py-32 relative overflow-hidden"
+    >
+      {/* Parallax Background Image */}
+      <div
+        className="absolute inset-0 -z-10"
+        style={{
+          transform: `translateY(${-parallaxOffset * 0.3}px)`,
+        }}
+      >
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-110"
+          style={{
+            backgroundImage: `url('${PARALLAX_BG_IMAGE}')`,
+          }}
+        />
+        {/* Dark overlay for readability */}
+        <div className="absolute inset-0 bg-primary/80" />
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-primary font-semibold text-sm uppercase tracking-wider">
+          <span className="text-primary-foreground/80 font-semibold text-sm uppercase tracking-wider">
             Depoimentos
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-4 mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-4 mb-6 text-primary-foreground">
             Clientes que{" "}
-            <span className="text-gradient">confiam em nós</span>
+            <span className="text-accent">confiam em nós</span>
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-lg text-primary-foreground/80">
             Mais de 4.800 empresas já transformaram seu atendimento com nossa plataforma.
           </p>
         </div>
@@ -60,7 +112,7 @@ const Testimonials = () => {
           {testimonials.map((testimonial, index) => (
             <div
               key={testimonial.name}
-              className="bg-card rounded-2xl p-6 border border-border hover:shadow-card transition-all duration-300 animate-fade-in"
+              className="bg-card/95 backdrop-blur-sm rounded-2xl p-6 border border-border hover:shadow-card transition-all duration-300 animate-fade-in"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               {/* Quote Icon */}
