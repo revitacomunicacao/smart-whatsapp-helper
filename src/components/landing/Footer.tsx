@@ -1,4 +1,5 @@
 import { MessageCircle, Instagram, Linkedin, Youtube } from "lucide-react";
+import logoWhite from "@/assets/logo-white.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -37,16 +38,11 @@ const Footer = () => {
           {/* Brand */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-sm">DN</span>
-              </div>
-              <span className="font-bold text-xl">
-                DuBrasil <span className="text-primary">Nexa</span>
-              </span>
+              <img src={logoWhite} alt="DuBrasil Nexa" className="h-12 w-auto" />
             </div>
             <p className="text-background/70 mb-6 max-w-sm">
-              Transforme seu atendimento com inteligência artificial. Automatize, 
-              agende e venda mais pelo WhatsApp 24 horas por dia.
+              CRM para WhatsApp que aprende a cada conversa. Combine agentes de IA, 
+              atendimento humano e um CRM poderoso para escalar seu negócio.
             </p>
             <div className="flex gap-4">
               {socialLinks.map((social) => (
@@ -118,7 +114,7 @@ const Footer = () => {
             © {currentYear} DuBrasil Nexa. Todos os direitos reservados.
           </p>
           <p className="text-background/60 text-sm">
-            Feito com 💜 no Brasil
+            Feito com 💙 no Brasil
           </p>
         </div>
       </div>
