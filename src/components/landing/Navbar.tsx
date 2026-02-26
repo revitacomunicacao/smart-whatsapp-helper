@@ -7,11 +7,10 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
-    { label: "Sobre nós", href: "#sobre" },
-    { label: "Funcionalidades", href: "#funcionalidades" },
-    { label: "Como Funciona", href: "#como-funciona" },
-    { label: "Depoimentos", href: "#depoimentos" },
-    { label: "Preços", href: "#precos" },
+    { label: "O que resolve", href: "#resolve" },
+    { label: "Multicanal", href: "#multicanal" },
+    { label: "Operação", href: "#operacao" },
+    { label: "Implantação", href: "#implantacao" },
   ];
 
   return (
@@ -39,10 +38,10 @@ const Navbar = () => {
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-4">
             <Button variant="ghost" size="sm" asChild>
-              <a href="#contato">Fale Conosco</a>
+              <a href="#contato">Falar com especialista</a>
             </Button>
             <Button size="sm" className="gradient-primary shadow-glow" asChild>
-              <a href="#contato">Teste Grátis</a>
+              <a href="#contato">Quero centralizar</a>
             </Button>
           </div>
 
@@ -72,10 +71,10 @@ const Navbar = () => {
               ))}
               <div className="flex flex-col gap-2 pt-4 border-t border-border">
                 <Button variant="outline" size="sm" asChild>
-                  <a href="#contato">Fale Conosco</a>
+                  <a href="#contato">Falar com especialista</a>
                 </Button>
                 <Button size="sm" className="gradient-primary" asChild>
-                  <a href="#contato">Teste Grátis</a>
+                  <a href="#contato">Quero centralizar</a>
                 </Button>
               </div>
             </div>

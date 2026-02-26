@@ -2,6 +2,17 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Play, MessageCircle, Sparkles } from "lucide-react";
 
+const WHATSAPP_NUMBER = "5534996367430";
+
+function buildWhatsappLink() {
+  const message =
+    "Oi! Quero centralizar meu atendimento com a DuBrasil Nexa.\n" +
+    "Canais: ( ) WhatsApp ( ) Instagram ( ) Webchat ( ) E-mail ( ) outros\n" +
+    "Nº de atendentes: ___ | Objetivo: ( ) vendas ( ) suporte ( ) ambos";
+
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+}
+
 const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
@@ -16,31 +27,32 @@ const Hero = () => {
           <div className="space-y-8">
             <Badge variant="secondary" className="px-4 py-2 text-sm font-medium animate-fade-in">
               <Sparkles className="w-4 h-4 mr-2 text-primary" />
-              PERSONALIZAÇÃO EXCLUSIVA
+              RESPOSTA RÁPIDA • IMPLANTAÇÃO ORIENTADA • TIME NO CONTROLE
             </Badge>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight animate-fade-in" style={{ animationDelay: "0.1s" }}>
-              CRM para WhatsApp que{" "}
-              <span className="text-gradient">aprende a cada conversa</span>
+              DuBrasil Nexa
+              <span className="block mt-3 text-gradient text-3xl md:text-4xl lg:text-5xl">
+                Atendimento multicanal para vender e atender com mais controle e agilidade
+              </span>
             </h1>
 
             <p className="text-lg md:text-xl text-muted-foreground max-w-xl animate-fade-in" style={{ animationDelay: "0.2s" }}>
-              Conecte equipes com clientes e leads. Combine agentes de IA, atendimento humano 
-              e um CRM que aprende a cada conversa. Uma tecnologia conversacional robusta 
-              que sustenta o crescimento do seu negócio.
+              Centralize conversas em um só lugar, distribua atendimentos por equipe e acelere
+              respostas com automações — mantendo histórico, padrão e visibilidade da operação.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 animate-fade-in" style={{ animationDelay: "0.3s" }}>
               <Button size="lg" className="gradient-primary shadow-glow text-base px-8" asChild>
-                <a href="#contato">
-                  Teste Grátis por 14 dias
+                <a href={buildWhatsappLink()} target="_blank" rel="noreferrer">
+                  Quero centralizar meu atendimento
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </a>
               </Button>
               <Button size="lg" variant="outline" className="text-base px-8" asChild>
-                <a href="#como-funciona">
+                <a href="#demo">
                   <Play className="mr-2 w-5 h-5" />
-                  Assistir Demonstração
+                  Ver como funciona na prática
                 </a>
               </Button>
             </div>
@@ -68,8 +80,8 @@ const Hero = () => {
                       <MessageCircle className="w-5 h-5 text-primary-foreground" />
                     </div>
                     <div>
-                      <p className="font-semibold text-sm text-foreground">DuBrasil Nexa</p>
-                      <p className="text-xs text-primary">Online agora</p>
+                      <p className="font-semibold text-sm text-foreground">Inbox Centralizada</p>
+                      <p className="text-xs text-primary">Equipe no controle</p>
                     </div>
                   </div>
 
@@ -77,25 +89,25 @@ const Hero = () => {
                   <div className="p-4 space-y-4 min-h-[300px] bg-background">
                     <div className="flex justify-start">
                       <div className="bg-muted rounded-2xl rounded-tl-sm px-4 py-2 max-w-[80%]">
-                        <p className="text-sm">Olá! Gostaria de agendar uma consulta para amanhã.</p>
+                        <p className="text-sm">Oi! Posso falar com alguém sobre valores?</p>
                       </div>
                     </div>
                     <div className="flex justify-end">
                       <div className="gradient-primary rounded-2xl rounded-tr-sm px-4 py-2 max-w-[80%]">
                         <p className="text-sm text-primary-foreground">
-                          Olá! 😊 Claro, tenho horários disponíveis amanhã às 9h, 14h e 16h. Qual prefere?
+                          Claro. Vou direcionar para o time certo e manter seu histórico aqui no painel.
                         </p>
                       </div>
                     </div>
                     <div className="flex justify-start">
                       <div className="bg-muted rounded-2xl rounded-tl-sm px-4 py-2 max-w-[80%]">
-                        <p className="text-sm">Às 14h seria perfeito!</p>
+                        <p className="text-sm">Perfeito. É para suporte e também vendas.</p>
                       </div>
                     </div>
                     <div className="flex justify-end">
                       <div className="gradient-primary rounded-2xl rounded-tr-sm px-4 py-2 max-w-[80%]">
                         <p className="text-sm text-primary-foreground">
-                          Perfeito! ✅ Agendado para amanhã às 14h. Enviarei um lembrete!
+                          Entendido. Vamos organizar por filas e setores para ninguém ficar sem resposta.
                         </p>
                       </div>
                     </div>
@@ -109,14 +121,14 @@ const Hero = () => {
                   <div className="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center">
                     <span className="text-green-500 text-sm">✓</span>
                   </div>
-                  <span className="text-xs font-medium">Agendado!</span>
+                  <span className="text-xs font-medium">Fila organizada</span>
                 </div>
               </div>
 
               <div className="absolute -bottom-4 -left-4 bg-card rounded-xl p-3 shadow-lg border border-border animate-float" style={{ animationDelay: "1s" }}>
                 <div className="flex items-center gap-2">
                   <Sparkles className="w-5 h-5 text-primary" />
-                  <span className="text-xs font-medium">IA Ativa 24/7</span>
+                  <span className="text-xs font-medium">Resposta rápida</span>
                 </div>
               </div>
             </div>

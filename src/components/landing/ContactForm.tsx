@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -7,6 +7,8 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Send, MessageCircle, Mail, Phone, MapPin } from "lucide-react";
+
+const WHATSAPP_NUMBER = "5534996367430";
 
 const contactSchema = z.object({
   name: z.string().trim().min(2, "Nome deve ter pelo menos 2 caracteres").max(100, "Nome muito longo"),
@@ -21,6 +23,8 @@ const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
+  const whatsappBaseUrl = useMemo(() => `https://wa.me/${WHATSAPP_NUMBER}?text=`, []);
+
   const {
     register,
     handleSubmit,
@@ -33,11 +37,21 @@ const ContactForm = () => {
   const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
 
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    const message =
+      `Olá! Gostaria de falar com um especialista da DuBrasil Nexa.\n\n` +
+      `Nome: ${data.name}\n` +
+      `Email: ${data.email}\n` +
+      `WhatsApp: ${data.phone}\n\n` +
+      `Mensagem:\n${data.message}`;
+
+    const url = `${whatsappBaseUrl}${encodeURIComponent(message)}`;
+
+    // Abre o WhatsApp com a mensagem pronta (sem envio por e-mail).
+    window.open(url, "_blank", "noopener,noreferrer");
 
     toast({
-      title: "Mensagem enviada!",
-      description: "Entraremos em contato em breve. Obrigado!",
+      title: "Abrindo o WhatsApp…",
+      description: "A mensagem foi preparada com os dados do formulário.",
     });
 
     reset();

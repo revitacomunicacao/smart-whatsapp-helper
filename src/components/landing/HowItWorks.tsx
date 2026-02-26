@@ -1,71 +1,95 @@
-import { Settings2, Link, Rocket } from "lucide-react";
+import { Settings2, Users, GraduationCap, SlidersHorizontal } from "lucide-react";
 
 const steps = [
   {
     number: "01",
     icon: Settings2,
-    title: "Configure sua Plataforma",
-    description: "Personalize com sua marca, configure equipes, filas de atendimento e treine seus agentes de IA em minutos.",
+    title: "Mapeamento do fluxo de atendimento e vendas",
+    description: "Desenhamos o caminho real do seu time (da primeira mensagem à conclusão) para a Nexa virar rotina.",
   },
   {
     number: "02",
-    icon: Link,
-    title: "Conecte seus Canais",
-    description: "Integre WhatsApp, Instagram e Messenger. Conecte com suas ferramentas via API ou n8n.",
+    icon: Users,
+    title: "Configuração de canais, filas e padrões",
+    description: "Organização por setores, regras de distribuição e padronização para reduzir retrabalho e tempo de resposta.",
   },
   {
     number: "03",
-    icon: Rocket,
-    title: "Escale seu Negócio",
-    description: "Com tudo centralizado, sua equipe atende melhor e sua IA trabalha 24h por dia para você.",
+    icon: GraduationCap,
+    title: "Treinamento do time (atendente + liderança)",
+    description: "Treinamento objetivo para quem opera e para quem acompanha indicadores — sem “depender do mais experiente”.",
+  },
+  {
+    number: "04",
+    icon: SlidersHorizontal,
+    title: "Ajustes finos nas primeiras semanas",
+    description: "Acompanhamento inicial para estabilizar e deixar o processo redondo com o volume real de mensagens.",
   },
 ];
 
 const HowItWorks = () => {
   return (
-    <section id="como-funciona" className="py-20 md:py-32 bg-muted/30">
+    <section id="implantacao" className="py-20 md:py-28 bg-muted/30">
       <div className="container mx-auto px-4">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-primary font-semibold text-sm uppercase tracking-wider">
-            Como Funciona
-          </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-4 mb-6">
-            Comece em{" "}
-            <span className="text-gradient">3 passos simples</span>
+        {/* Demo */}
+        <div id="demo" className="scroll-mt-24 max-w-5xl mx-auto">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-center">
+            Ver como funciona na prática
           </h2>
-          <p className="text-lg text-muted-foreground">
-            Sem fidelidade, sem cartão e sem burocracia. Teste grátis por 14 dias.
+          <p className="mt-5 text-lg text-muted-foreground text-center">
+            Use estes espaços para inserir prints/vídeo do painel, filas e automações.
           </p>
+
+          <div className="mt-10 grid md:grid-cols-3 gap-6">
+            {["Inbox centralizada", "Fila e atribuição", "Automação / triagem"].map((t) => (
+              <div key={t} className="bg-card border border-border rounded-2xl p-6 shadow-card">
+                <div className="aspect-[16/10] rounded-xl bg-muted flex items-center justify-center">
+                  <span className="text-sm text-muted-foreground">Placeholder de imagem</span>
+                </div>
+                <p className="mt-4 font-medium text-foreground">{t}</p>
+              </div>
+            ))}
+          </div>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 relative">
-          {/* Connection Line */}
-          <div className="hidden md:block absolute top-24 left-1/4 right-1/4 h-0.5 bg-gradient-to-r from-primary/20 via-primary to-primary/20" />
+        {/* Implantação */}
+        <div className="mt-20 max-w-5xl mx-auto">
+          <div className="text-center max-w-3xl mx-auto mb-14">
+            <span className="text-primary font-semibold text-sm uppercase tracking-wider">
+              Diferencial DuBrasil
+            </span>
+            <h3 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight mt-4">
+              Nexa funciona porque a implantação é orientada
+            </h3>
+            <p className="text-lg text-muted-foreground mt-5">
+              A DuBrasil entra para garantir que a plataforma vire rotina real — com ajuste fino nas primeiras semanas.
+            </p>
+          </div>
 
-          {steps.map((step, index) => (
-            <div
-              key={step.number}
-              className="relative text-center animate-fade-in"
-              style={{ animationDelay: `${index * 0.2}s` }}
-            >
-              {/* Step Number */}
-              <div className="relative inline-flex mb-8">
-                <div className="w-20 h-20 rounded-full gradient-primary flex items-center justify-center shadow-glow">
-                  <step.icon className="w-8 h-8 text-primary-foreground" />
+          <div className="grid md:grid-cols-2 gap-6">
+            {steps.map((step, index) => (
+              <div
+                key={step.number}
+                className="bg-card border border-border rounded-2xl p-6 md:p-8 shadow-card animate-fade-in"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="flex items-start gap-4">
+                  <div className="relative">
+                    <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center">
+                      <step.icon className="w-7 h-7 text-primary" />
+                    </div>
+                    <span className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-card border border-border flex items-center justify-center text-sm font-semibold text-primary">
+                      {step.number}
+                    </span>
+                  </div>
+                  <div>
+                    <p className="text-lg font-semibold text-foreground">{step.title}</p>
+                    <p className="mt-2 text-muted-foreground leading-relaxed">{step.description}</p>
+                  </div>
                 </div>
-                <span className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-card border-2 border-primary flex items-center justify-center text-sm font-bold text-primary">
-                  {step.number}
-                </span>
               </div>
-
-              <h3 className="text-xl font-semibold mb-3 text-foreground">
-                {step.title}
-              </h3>
-              <p className="text-muted-foreground max-w-sm mx-auto">
-                {step.description}
-              </p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
