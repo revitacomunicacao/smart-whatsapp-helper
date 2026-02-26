@@ -32,7 +32,7 @@ const Hero = () => {
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight animate-fade-in" style={{ animationDelay: "0.1s" }}>
               DuBrasil Nexa
-              <span className="block mt-3 text-gradient text-3xl md:text-4xl lg:text-5xl">
+              <span className="block mt-3 text-base text-3xl md:text-4xl lg:text-5xl">
                 Atendimento multicanal para vender e atender com mais controle e agilidade
               </span>
             </h1>
