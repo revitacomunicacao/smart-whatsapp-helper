@@ -1,30 +1,33 @@
-import { Settings2, Users, GraduationCap, SlidersHorizontal } from "lucide-react";
 import demoInbox from "@/assets/demo-inbox.png";
 import demoQueue from "@/assets/demo-queue.png";
 import demoAutomation from "@/assets/demo-automation.png";
+import stepMapping from "@/assets/step-mapping.png";
+import stepConfig from "@/assets/step-config.png";
+import stepTraining from "@/assets/step-training.png";
+import stepTuning from "@/assets/step-tuning.png";
 
 const steps = [
   {
     number: "01",
-    icon: Settings2,
+    image: stepMapping,
     title: "Mapeamento do fluxo de atendimento e vendas",
     description: "Desenhamos o caminho real do seu time (da primeira mensagem à conclusão) para a Nexa virar rotina.",
   },
   {
     number: "02",
-    icon: Users,
+    image: stepConfig,
     title: "Configuração de canais, filas e padrões",
     description: "Organização por setores, regras de distribuição e padronização para reduzir retrabalho e tempo de resposta.",
   },
   {
     number: "03",
-    icon: GraduationCap,
+    image: stepTraining,
     title: "Treinamento do time (atendente + liderança)",
     description: "Treinamento objetivo para quem opera e para quem acompanha indicadores — sem \"depender do mais experiente\".",
   },
   {
     number: "04",
-    icon: SlidersHorizontal,
+    image: stepTuning,
     title: "Ajustes finos nas primeiras semanas",
     description: "Acompanhamento inicial para estabilizar e deixar o processo redondo com o volume real de mensagens.",
   },
