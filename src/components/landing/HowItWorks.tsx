@@ -90,12 +90,10 @@ const HowItWorks = () => {
                 className="bg-card border border-border rounded-2xl p-6 md:p-8 shadow-card animate-fade-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="flex items-start gap-4">
+                <div className="flex flex-col items-center text-center gap-4">
                   <div className="relative">
-                    <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center">
-                      <step.icon className="w-7 h-7 text-primary" />
-                    </div>
-                    <span className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-card border border-border flex items-center justify-center text-sm font-semibold text-primary">
+                    <img src={step.image} alt={step.title} className="w-24 h-24 object-contain" />
+                    <span className="absolute -top-1 -right-1 w-7 h-7 rounded-full bg-card border border-border flex items-center justify-center text-xs font-semibold text-primary">
                       {step.number}
                     </span>
                   </div>

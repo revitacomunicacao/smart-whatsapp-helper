@@ -60,7 +60,7 @@ const Hero = () => {
 
         {/* Hero Image - Apple Style large product shot */}
         <div className="mt-16 md:mt-20 animate-fade-in-up" style={{ animationDelay: "0.5s" }}>
-          <div className="relative max-w-5xl mx-auto">
+          <div className="relative max-w-3xl mx-auto">
             <div className="rounded-2xl overflow-hidden shadow-2xl shadow-primary/15 border border-border/50">
               <img
                 src={heroDashboard}
