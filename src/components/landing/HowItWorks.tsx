@@ -46,11 +46,8 @@ const HowItWorks = () => {
         {/* Demo */}
         <div id="demo" className="scroll-mt-24 max-w-5xl mx-auto">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-center">
-            Ver como funciona na prática
+            Como funciona na prática
           </h2>
-          <p className="mt-5 text-lg text-muted-foreground text-center">
-            Use estes espaços para inserir prints/vídeo do painel, filas e automações.
-          </p>
 
           <div className="mt-10 grid md:grid-cols-3 gap-6">
             {demoItems.map((item) => (

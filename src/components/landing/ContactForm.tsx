@@ -71,9 +71,6 @@ const ContactForm = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
             <div>
-              <span className="text-white/80 font-semibold text-sm uppercase tracking-wider">
-                Contato
-              </span>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-4 mb-6 text-white">
                 Pronto para <span className="text-[#002047]">transformar</span> seu atendimento?
               </h2>

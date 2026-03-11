@@ -22,9 +22,6 @@ const ParallaxCTA = () => {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center">
         <div className="max-w-4xl mx-auto">
-          <p className="text-white/80 font-semibold tracking-wider uppercase text-sm">
-            CTA
-          </p>
           <h2 className="mt-5 text-4xl md:text-5xl lg:text-6xl font-semibold text-white tracking-tight">
             Deixe a Nexa cuidar de tudo.
           </h2>

@@ -22,7 +22,7 @@ const Hero = () => {
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse-slow" />
       <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent/10 rounded-full blur-3xl animate-pulse-slow" style={{ animationDelay: "1.5s" }} />
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="flex flex-col md:flex-row gap-10 mx-auto px-4 relative z-10">
         {/* Text Content - Centered */}
         <div className="text-center max-w-4xl mx-auto space-y-8">
           <Badge variant="secondary" className="px-4 py-2 text-sm font-medium animate-fade-in">
