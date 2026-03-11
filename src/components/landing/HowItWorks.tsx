@@ -1,4 +1,7 @@
 import { Settings2, Users, GraduationCap, SlidersHorizontal } from "lucide-react";
+import demoInbox from "@/assets/demo-inbox.png";
+import demoQueue from "@/assets/demo-queue.png";
+import demoAutomation from "@/assets/demo-automation.png";
 
 const steps = [
   {
@@ -17,7 +20,7 @@ const steps = [
     number: "03",
     icon: GraduationCap,
     title: "Treinamento do time (atendente + liderança)",
-    description: "Treinamento objetivo para quem opera e para quem acompanha indicadores — sem “depender do mais experiente”.",
+    description: "Treinamento objetivo para quem opera e para quem acompanha indicadores — sem \"depender do mais experiente\".",
   },
   {
     number: "04",
@@ -25,6 +28,12 @@ const steps = [
     title: "Ajustes finos nas primeiras semanas",
     description: "Acompanhamento inicial para estabilizar e deixar o processo redondo com o volume real de mensagens.",
   },
+];
+
+const demoItems = [
+  { title: "Inbox centralizada", image: demoInbox },
+  { title: "Fila e atribuição", image: demoQueue },
+  { title: "Automação / triagem", image: demoAutomation },
 ];
 
 const HowItWorks = () => {
@@ -41,12 +50,17 @@ const HowItWorks = () => {
           </p>
 
           <div className="mt-10 grid md:grid-cols-3 gap-6">
-            {["Inbox centralizada", "Fila e atribuição", "Automação / triagem"].map((t) => (
-              <div key={t} className="bg-card border border-border rounded-2xl p-6 shadow-card">
-                <div className="aspect-[16/10] rounded-xl bg-muted flex items-center justify-center">
-                  <span className="text-sm text-muted-foreground">Placeholder de imagem</span>
+            {demoItems.map((item) => (
+              <div key={item.title} className="bg-card border border-border rounded-2xl p-4 shadow-card hover:shadow-lg transition-shadow duration-300">
+                <div className="aspect-[16/10] rounded-xl overflow-hidden bg-muted">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
                 </div>
-                <p className="mt-4 font-medium text-foreground">{t}</p>
+                <p className="mt-4 font-medium text-foreground">{item.title}</p>
               </div>
             ))}
           </div>
