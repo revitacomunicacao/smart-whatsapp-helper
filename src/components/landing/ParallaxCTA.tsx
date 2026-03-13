@@ -36,7 +36,7 @@ const ParallaxCTA = () => {
               className="bg-white text-primary hover:bg-white/90 font-semibold px-8"
               asChild
             >
-              <a href={buildWhatsappLink()} target="_blank" rel="noreferrer">
+              <a href="#contato">
                 Quero centralizar meu atendimento
                 <ArrowRight className="ml-2 w-5 h-5" />
               </a>

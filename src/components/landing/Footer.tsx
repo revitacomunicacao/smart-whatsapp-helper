@@ -26,10 +26,10 @@ const Footer = () => {
   };
 
   const socialLinks = [
-    { icon: MessageCircle, href: "#", label: "WhatsApp" },
-    { icon: Instagram, href: "#", label: "Instagram" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
-    { icon: Youtube, href: "#", label: "YouTube" },
+    { icon: MessageCircle, href: "#contato", label: "WhatsApp" },
+    { icon: Instagram, href: "#contato", label: "Instagram" },
+    { icon: Linkedin, href: "#contato", label: "LinkedIn" },
+    { icon: Youtube, href: "#contato", label: "YouTube" },
   ];
 
   return (
