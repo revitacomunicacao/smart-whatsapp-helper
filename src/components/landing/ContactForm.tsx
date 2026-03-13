@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Send, MessageCircle, Mail, Phone, MapPin } from "lucide-react";
+import nexaBG from "@/assets/nexabg.jpeg"
 
 const WHATSAPP_NUMBER = "5534996367430";
 
@@ -59,9 +60,11 @@ const ContactForm = () => {
   };
 
   return (
-    <section id="contato" className="relative py-20 md:py-32 overflow-hidden">
-      {/* Background (cinza com efeito) */}
-      <div className="absolute inset-0 bg-[#919191]" />
+    <section
+      className="relative py-24 bg-cover bg-center"
+      style={{ backgroundImage: `url(${nexaBG})` }}
+    >
+      <div className="absolute inset-0 bg-black/40" />
       <div className="absolute inset-0 bg-gradient-to-br from-black/25 via-transparent to-white/10" />
       <div className="absolute -top-24 -left-24 w-96 h-96 bg-white/10 rounded-full blur-3xl" />
       <div className="absolute -bottom-24 -right-24 w-[28rem] h-[28rem] bg-black/20 rounded-full blur-3xl" />

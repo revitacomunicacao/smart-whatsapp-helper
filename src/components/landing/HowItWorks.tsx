@@ -41,29 +41,40 @@ const demoItems = [
 
 const HowItWorks = () => {
   return (
-    <section id="implantacao" className="py-20 md:py-28 bg-muted/30">
+    <section id="implantacao" className="py-20 md:py-28 bg-muted/30 bg-[#ededed]">
       <div className="container mx-auto px-4">
         {/* Demo */}
-        <div id="demo" className="scroll-mt-24 max-w-5xl mx-auto">
+        <div id="demo" className="scroll-mt-24 max-w-8xl mx-auto">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-center">
             Como funciona na prática
           </h2>
 
-          <div className="mt-10 grid md:grid-cols-3 gap-6">
+          <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-2">
             {demoItems.map((item) => (
-              <div key={item.title} className="bg-card border border-border rounded-2xl p-4 shadow-card hover:shadow-lg transition-shadow duration-300">
-                <div className="aspect-[16/10] rounded-xl overflow-hidden bg-muted">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
+              <div
+                key={item.title}
+                className="relative overflow-hidden rounded-md group min-h-[340px] md:min-h-[420px]"
+              >
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                  loading="lazy"
+                />
+
+                <div className="absolute inset-0 bg-black/10" />
+
+                <div className="absolute left-0 right-0 bottom-0 z-10">
+                  <div className="w-full bg-black/50 backdrop-blur-sm px-5 py-4">
+                    <p className="text-white text-xl md:text-2xl font-semibold leading-tight">
+                      {item.title}
+                    </p>
+                  </div>
                 </div>
-                <p className="mt-4 font-medium text-foreground">{item.title}</p>
               </div>
             ))}
           </div>
+
         </div>
 
         {/* Implantação */}
@@ -84,7 +95,7 @@ const HowItWorks = () => {
             {steps.map((step, index) => (
               <div
                 key={step.number}
-                className="bg-card border border-border rounded-2xl p-6 md:p-8 shadow-card animate-fade-in"
+                className="bg-card border border-border rounded-xl p-6 md:p-8 shadow-card animate-fade-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="flex flex-col items-center text-center gap-4">

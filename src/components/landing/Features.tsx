@@ -21,13 +21,13 @@ const items = [
 
 const Features = () => {
   return (
-    <section id="ideal" className="py-20 md:py-28">
+    <section id="ideal" className="py-20 md:py-28 bg-[#002147]">
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mb-14">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight">
+          <h2 className="text-white text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight">
             Ideal para
           </h2>
-          <p className="mt-5 text-lg text-muted-foreground">
+          <p className="text-white mt-5 text-lg text-muted-foreground">
             Quando atendimento é parte da operação e precisa funcionar sem depender de “heróis” no WhatsApp.
           </p>
         </div>
@@ -36,7 +36,7 @@ const Features = () => {
           {items.map((item, index) => (
             <div
               key={item.title}
-              className="bg-card rounded-2xl p-6 border border-border shadow-card animate-fade-in"
+              className="bg-card/90 rounded-2xl p-6 border border-border shadow-card animate-fade-in"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="flex items-center gap-3">

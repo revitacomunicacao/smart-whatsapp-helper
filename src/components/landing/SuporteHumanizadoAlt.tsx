@@ -2,10 +2,7 @@
 import { motion } from "framer-motion"
 import { ArrowRight, Headset, MessageCircle, ShieldCheck, Sparkles } from "lucide-react"
 import { Button } from "@/components/ui/button"
-
-// Mantém a mesma imagem do seu padrão (troque apenas se o original usar outra)
-const IMAGEM =
-  "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=1200&h=800&fit=crop"
+import imgatendimento from "@/assets/Atendimento de verdade.jpg.jpeg"
 
 const SuporteHumanizadoAlt = () => {
   return (
@@ -114,7 +111,7 @@ const SuporteHumanizadoAlt = () => {
             >
               <div className="relative h-[320px] md:h-[420px] overflow-hidden">
                 <img
-                  src={IMAGEM}
+                  src={imgatendimento}
                   alt="Suporte humanizado"
                   className="absolute inset-0 h-full w-full object-cover"
                   loading="lazy"

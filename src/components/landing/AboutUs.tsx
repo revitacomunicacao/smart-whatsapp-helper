@@ -4,7 +4,7 @@ const AboutUs = () => {
   return (
     <section
       id="resolve"
-      className="relative py-20 md:py-28 scroll-mt-24"
+      className="relative py-20 md:py-28 scroll-mt-24 bg-[#ededed]"
     >
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">

@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Play, Sparkles } from "lucide-react";
-import heroDashboard from "@/assets/hero-dashboard.png";
+import heroDashboard from "@/assets/dubrasil-solucoes.jpg.jpeg";
 
 const WHATSAPP_NUMBER = "5534996367430";
 
@@ -16,7 +16,7 @@ function buildWhatsappLink() {
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+    <section className="relative min-h-screen flex items-center pt-10 overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 gradient-subtle" />
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse-slow" />
@@ -59,7 +59,7 @@ const Hero = () => {
         </div>
 
         {/* Hero Image - Apple Style large product shot */}
-        <div className="mt-16 md:mt-20 animate-fade-in-up" style={{ animationDelay: "0.5s" }}>
+        <div className="mx-8 mt-16 md:mt-20 animate-fade-in-up" style={{ animationDelay: "0.5s" }}>
           <div className="relative max-w-3xl mx-auto">
             <div className="rounded-2xl overflow-hidden shadow-2xl shadow-primary/15 border border-border/50">
               <img

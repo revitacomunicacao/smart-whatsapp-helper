@@ -1,107 +1,186 @@
-import { MessageCircle, Instagram, Linkedin, Youtube } from "lucide-react";
-import logoWhite from "@/assets/logo-white.png";
+// src/components/Footer.tsx
+import React, { useEffect, useRef, useState } from "react"
+import { Facebook, Instagram, Linkedin, MessageCircle } from "lucide-react"
+import logo from "@/assets/dubrasil-nexa-branco.png"
+import qrcode from "@/assets/qr code.png"
+
+function useInView<T extends HTMLElement>(
+  options: IntersectionObserverInit & { once?: boolean } = { threshold: 0.25, once: true }
+) {
+  const ref = useRef<T | null>(null)
+  const [inView, setInView] = useState(false)
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setInView(true)
+        if (options.once !== false) observer.unobserve(el)
+      } else if (options.once === false) {
+        setInView(false)
+      }
+    }, options)
+
+    observer.observe(el)
+    return () => observer.disconnect()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  return { ref, inView }
+}
+
+const FACEBOOK_URL = "https://web.facebook.com/dubrasil.solucoes"
+const INSTAGRAM_URL = "https://www.instagram.com/dubrasilsolucoes/"
+const LINKEDIN_URL = "https://www.linkedin.com/company/dubrasilsolu%C3%A7%C3%B5es"
+const WHATSAPP_URL = "https://wa.me/553433228500"
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
-
-  const footerLinks = {
-    produto: [
-      { label: "Funcionalidades", href: "#contato" },
-      { label: "Como Funciona", href: "#contato" },
-      { label: "Preços", href: "#contato" },
-      { label: "FAQ", href: "#contato" },
-      { label: "Sobre nós", href: "#contato" },
-    ],
-    empresa: [
-      { label: "Sobre Nós", href: "#contato" },
-      { label: "Blog", href: "#contato" },
-      { label: "Carreiras", href: "#contato" },
-      { label: "Contato", href: "#contato" },
-    ],
-    legal: [
-      { label: "Termos de Uso", href: "#contato" },
-      { label: "Política de Privacidade", href: "#contato" },
-      { label: "LGPD", href: "#contato" },
-    ],
-  };
-
-  const socialLinks = [
-    { icon: MessageCircle, href: "#contato", label: "WhatsApp" },
-    { icon: Instagram, href: "#contato", label: "Instagram" },
-    { icon: Linkedin, href: "#contato", label: "LinkedIn" },
-    { icon: Youtube, href: "#contato", label: "YouTube" },
-  ];
+  const currentYear = new Date().getFullYear()
+  const { ref, inView } = useInView<HTMLElement>({ threshold: 0.2, once: true })
 
   return (
-    <footer className="bg-foreground text-background py-16">
-      <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
-          {/* Brand */}
-          <div className="lg:col-span-2">
-            <div className="flex items-center gap-2 mb-4">
-              <img src={logoWhite} alt="DuBrasil Nexa" className="h-12 w-auto" />
-            </div>
-            <p className="text-background/70 mb-6 max-w-sm">
-              CRM para WhatsApp que aprende a cada conversa. Combine agentes de IA, 
-              atendimento humano e um CRM poderoso para escalar seu negócio.
+    <footer ref={ref} className="bg-primary text-primary-foreground">
+      {/* Top */}
+      <div className="container mx-auto px-4 py-12">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-8">
+          {/* Logo / brand */}
+          <div
+            className={[
+              "items-center md:col-span-3 flex flex-col justify-center gap-5",
+              inView
+                ? "animate-in fade-in slide-in-from-bottom-6 duration-700"
+                : "opacity-0 translate-y-3",
+            ].join(" ")}
+          >
+            <img src={logo} alt="DuBrasil Soluções" className="w-40" />
+            <img src={qrcode} alt="DuBrasil Soluções" className="w-[40%]" />
+          </div>
+
+          {/* Contato */}
+          <div
+            className={[
+              "md:col-span-4",
+              inView
+                ? "animate-in fade-in slide-in-from-bottom-6 duration-700 delay-100"
+                : "opacity-0 translate-y-3",
+            ].join(" ")}
+          >
+            <p className="text-accent font-semibold text-sm uppercase tracking-wider">
+              Contato
             </p>
-            <div className="flex gap-4">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  className="w-10 h-10 rounded-lg bg-background/10 flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
-                  aria-label={social.label}
-                >
-                  <social.icon className="w-5 h-5" />
-                </a>
-              ))}
+
+            <div className="mt-4 space-y-2 text-primary-foreground/80">
+              <a
+                href="tel:+553433228500"
+                className="block w-fit hover:text-primary-foreground transition-colors"
+              >
+                +55 (34) 3322-8500
+              </a>
+              <a
+                href="mailto:atendimento@dubrasilsolucoes.com.br"
+                className="block w-fit hover:text-primary-foreground transition-colors"
+              >
+                atendimento@dubrasilsolucoes.com.br
+              </a>
             </div>
           </div>
 
-          {/* Links */}
-          <div>
-            <h4 className="font-semibold mb-4">Solução</h4>
-            <ul className="space-y-3">
-              {footerLinks.produto.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-background/70 hover:text-background transition-colors text-sm"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
+          {/* Endereço */}
+          <div
+            className={[
+              "md:col-span-3",
+              inView
+                ? "animate-in fade-in slide-in-from-bottom-6 duration-700 delay-200"
+                : "opacity-0 translate-y-3",
+            ].join(" ")}
+          >
+            <p className="text-accent font-semibold text-sm uppercase tracking-wider">
+              Endereço
+            </p>
+
+            <div className="mt-4 space-y-1 text-primary-foreground/80 leading-relaxed">
+              <p>Avenida Leopoldino de Oliveira, 4252</p>
+              <p>1º e 2º pisos - Centro</p>
+              <p>Uberaba (MG)</p>
+              <p>CEP: 38.065-165</p>
+            </div>
           </div>
 
-          <div>
-            <h4 className="font-semibold mb-4">Legal</h4>
-            <ul className="space-y-3">
-              {footerLinks.legal.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-background/70 hover:text-background transition-colors text-sm"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
+          {/* Redes sociais */}
+          <div
+            className={[
+              "md:col-span-2",
+              inView
+                ? "animate-in fade-in slide-in-from-bottom-6 duration-700 delay-300"
+                : "opacity-0 translate-y-3",
+            ].join(" ")}
+          >
+            <p className="text-accent font-semibold text-sm uppercase tracking-wider">
+              Redes sociais
+            </p>
+
+            <div className="mt-4 space-y-3">
+              <a
+                href={FACEBOOK_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-3 text-primary-foreground/80 hover:text-primary-foreground transition-colors"
+              >
+                <Facebook className="h-5 w-5" />
+                <span>Facebook</span>
+              </a>
+
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-3 text-primary-foreground/80 hover:text-primary-foreground transition-colors"
+              >
+                <MessageCircle className="h-5 w-5" />
+                <span>WhatsApp</span>
+              </a>
+
+              <a
+                href={INSTAGRAM_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-3 text-primary-foreground/80 hover:text-primary-foreground transition-colors"
+              >
+                <Instagram className="h-5 w-5" />
+                <span>Instagram</span>
+              </a>
+
+              <a
+                href={LINKEDIN_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-3 text-primary-foreground/80 hover:text-primary-foreground transition-colors"
+              >
+                <Linkedin className="h-5 w-5" />
+                <span>Linkedin</span>
+              </a>
+            </div>
           </div>
         </div>
+      </div>
 
-        {/* Bottom */}
-        <div className="pt-8 border-t border-background/10 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-background/60 text-sm">
-            © {currentYear} DuBrasil Nexa. Todos os direitos reservados.
-          </p>
+      {/* Bottom */}
+      <div className="border-t border-white/10">
+        <div className="container mx-auto px-4 py-6">
+          <div className="flex flex-col gap-2 text-center md:flex-row md:items-center md:justify-between">
+            <p className="text-primary-foreground/70 text-sm">
+              © {currentYear} DuBrasil Soluções. Todos os direitos reservados.
+            </p>
+            <p className="text-primary-foreground/50 text-xs">
+              Distribuidor autorizado do ERP TGA
+            </p>
+          </div>
         </div>
       </div>
     </footer>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer
