@@ -44,13 +44,13 @@ const Hero = () => {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in" style={{ animationDelay: "0.3s" }}>
             <Button size="lg" className="gradient-primary shadow-glow text-base px-8" asChild>
-              <a href={buildWhatsappLink()} target="_blank" rel="noreferrer">
+              <a href="#contato">
                 Quero centralizar meu atendimento
                 <ArrowRight className="ml-2 w-5 h-5" />
               </a>
             </Button>
             <Button size="lg" variant="outline" className="text-base px-8" asChild>
-              <a href="#demo">
+              <a href="#contato">
                 <Play className="mr-2 w-5 h-5" />
                 Ver como funciona na prática
               </a>
