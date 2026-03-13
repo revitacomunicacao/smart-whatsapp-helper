@@ -8,15 +8,19 @@ import ContactForm from "@/components/landing/ContactForm";
 import Footer from "@/components/landing/Footer";
 import AboutUs from "@/components/landing/AboutUs";
 import ContactFloat from "@/components/landing/ContactFloat";
+import SuporteHumanizadoAlt from "@/components/landing/SuporteHumanizadoAlt";
+import VideoCarousel from "@/components/landing/VideoCarousel";
 
 const Index = () => {
   return (
     <main className="min-h-screen">
       <Navbar />
+      <VideoCarousel />
       <Hero />
       <AboutUs />
       <Benefits />
       <HowItWorks />
+      <SuporteHumanizadoAlt />
       <Features />
       <ParallaxCTA />
       <ContactForm />
