@@ -6,22 +6,22 @@ const Footer = () => {
 
   const footerLinks = {
     produto: [
-      { label: "Funcionalidades", href: "#funcionalidades" },
-      { label: "Como Funciona", href: "#como-funciona" },
-      { label: "Preços", href: "#precos" },
-      { label: "FAQ", href: "#" },
-      { label: "Sobre nós", href: "#sobre" },
+      { label: "Funcionalidades", href: "#contato" },
+      { label: "Como Funciona", href: "#contato" },
+      { label: "Preços", href: "#contato" },
+      { label: "FAQ", href: "#contato" },
+      { label: "Sobre nós", href: "#contato" },
     ],
     empresa: [
-      { label: "Sobre Nós", href: "#" },
-      { label: "Blog", href: "#" },
-      { label: "Carreiras", href: "#" },
+      { label: "Sobre Nós", href: "#contato" },
+      { label: "Blog", href: "#contato" },
+      { label: "Carreiras", href: "#contato" },
       { label: "Contato", href: "#contato" },
     ],
     legal: [
-      { label: "Termos de Uso", href: "#" },
-      { label: "Política de Privacidade", href: "#" },
-      { label: "LGPD", href: "#" },
+      { label: "Termos de Uso", href: "#contato" },
+      { label: "Política de Privacidade", href: "#contato" },
+      { label: "LGPD", href: "#contato" },
     ],
   };
 
