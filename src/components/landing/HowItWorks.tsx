@@ -11,25 +11,29 @@ const steps = [
     number: "01",
     image: stepMapping,
     title: "Mapeamento do fluxo de atendimento e vendas",
-    description: "Desenhamos o caminho real do seu time (da primeira mensagem à conclusão) para a Nexa virar rotina.",
+    description:
+      "Desenhamos o caminho real do seu time (da primeira mensagem à conclusão) para a Nexa virar rotina.",
   },
   {
     number: "02",
     image: stepConfig,
     title: "Configuração de canais, filas e padrões",
-    description: "Organização por setores, regras de distribuição e padronização para reduzir retrabalho e tempo de resposta.",
+    description:
+      "Organização por setores, regras de distribuição e padronização para reduzir retrabalho e tempo de resposta.",
   },
   {
     number: "03",
     image: stepTraining,
     title: "Treinamento do time (atendente + liderança)",
-    description: "Treinamento objetivo para quem opera e para quem acompanha indicadores — sem \"depender do mais experiente\".",
+    description:
+      'Treinamento objetivo para quem opera e para quem acompanha indicadores — sem "depender do mais experiente".',
   },
   {
     number: "04",
     image: stepTuning,
     title: "Ajustes finos nas primeiras semanas",
-    description: "Acompanhamento inicial para estabilizar e deixar o processo redondo com o volume real de mensagens.",
+    description:
+      "Acompanhamento inicial para estabilizar e deixar o processo redondo com o volume real de mensagens.",
   },
 ];
 
@@ -41,19 +45,21 @@ const demoItems = [
 
 const HowItWorks = () => {
   return (
-    <section id="implantacao" className="py-20 md:py-28 bg-muted/30 bg-[#ededed]">
-      <div className="container mx-auto px-4">
+    <section id="implantacao" className="py-20 md:py-28 bg-[#ededed]">
+      <div className="w-full">
         {/* Demo */}
-        <div id="demo" className="scroll-mt-24 max-w-8xl mx-auto">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-center">
-            Como funciona na prática
-          </h2>
+        <div id="demo" className="scroll-mt-24">
+          <div className="px-4 md:px-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-center">
+              Como funciona na prática
+            </h2>
+          </div>
 
-          <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-2">
+          <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-3 w-full px-4 md:px-6">
             {demoItems.map((item) => (
               <div
                 key={item.title}
-                className="relative overflow-hidden rounded-md group min-h-[340px] md:min-h-[420px]"
+                className="relative overflow-hidden rounded-sm group h-[360px] md:h-[460px]"
               >
                 <img
                   src={item.image}
@@ -65,7 +71,7 @@ const HowItWorks = () => {
                 <div className="absolute inset-0 bg-black/10" />
 
                 <div className="absolute left-0 right-0 bottom-0 z-10">
-                  <div className="w-full bg-black/50 backdrop-blur-sm px-5 py-4">
+                  <div className="w-full bg-[#002147]/90 px-5 py-4 md:px-6 md:py-5">
                     <p className="text-white text-xl md:text-2xl font-semibold leading-tight">
                       {item.title}
                     </p>
@@ -74,11 +80,10 @@ const HowItWorks = () => {
               </div>
             ))}
           </div>
-
         </div>
 
         {/* Implantação */}
-        <div className="mt-20 max-w-5xl mx-auto">
+        <div className="mt-20 max-w-5xl mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-14">
             <span className="text-primary font-semibold text-sm uppercase tracking-wider">
               Diferencial DuBrasil
@@ -87,7 +92,8 @@ const HowItWorks = () => {
               Nexa funciona porque a implantação é orientada
             </h3>
             <p className="text-lg text-muted-foreground mt-5">
-              A DuBrasil entra para garantir que a plataforma vire rotina real — com ajuste fino nas primeiras semanas.
+              A DuBrasil entra para garantir que a plataforma vire rotina real — com ajuste fino nas
+              primeiras semanas.
             </p>
           </div>
 
