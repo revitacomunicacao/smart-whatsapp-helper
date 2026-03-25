@@ -39,7 +39,7 @@ const Hero = () => {
 
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: "0.2s" }}>
             Centralize conversas em um só lugar, distribua atendimentos por equipe e acelere
-            respostas com automações — mantendo histórico, padrão e visibilidade da operação.
+            respostas com automações mantendo histórico, padrão e visibilidade da operação.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in" style={{ animationDelay: "0.3s" }}>
@@ -49,22 +49,16 @@ const Hero = () => {
                 <ArrowRight className="ml-2 w-5 h-5" />
               </a>
             </Button>
-            <Button size="lg" variant="outline" className="text-base px-8" asChild>
-              <a href="#contato">
-                <Play className="mr-2 w-5 h-5" />
-                Ver como funciona na prática
-              </a>
-            </Button>
           </div>
         </div>
 
         {/* Hero Image - Apple Style large product shot */}
-        <div className="mx-8 mt-16 md:mt-20 animate-fade-in-up" style={{ animationDelay: "0.5s" }}>
-          <div className="relative max-w-3xl mx-auto">
+        <div className="animate-fade-in-up" style={{ animationDelay: "0.5s" }}>
+          <div className="relative max-w-xl">
             <div className="rounded-2xl overflow-hidden shadow-2xl shadow-primary/15 border border-border/50">
               <img
                 src={heroDashboard}
-                alt="Painel da Nexa — inbox centralizada com fila de atendimento"
+                alt="Painel da Nexa inbox centralizada com fila de atendimento"
                 className="w-full h-auto"
                 loading="eager"
               />

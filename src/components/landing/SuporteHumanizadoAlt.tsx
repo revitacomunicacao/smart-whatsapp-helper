@@ -130,7 +130,7 @@ const SuporteHumanizadoAlt = () => {
                   <div className="rounded-2xl border border-white/10 bg-black/30 backdrop-blur p-5">
                     <div className="text-white font-semibold">Tranquilidade na operação</div>
                     <div className="mt-1 text-white/60 text-sm leading-relaxed">
-                      Atendimento objetivo, acompanhamento e orientação — para sua equipe seguir com confiança.
+                      Atendimento objetivo, acompanhamento e orientação para sua equipe seguir com confiança.
                     </div>
                   </div>
                 </div>

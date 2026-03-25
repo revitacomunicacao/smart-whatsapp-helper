@@ -1,10 +1,11 @@
 import { MessagesSquare, Users, Bot, Shield } from "lucide-react";
+import benefitsBG from "@/assets/nexa - Atender com padrao.jpeg"
 
 const blocks = [
   {
     id: "multicanal",
     icon: MessagesSquare,
-    title: "Atenda seus clientes onde eles estão — em um único painel",
+    title: "Atenda seus clientes onde eles estão em um único painel",
     description:
       "Reúna canais como WhatsApp e redes sociais em uma inbox centralizada, com histórico por cliente e visão do que está acontecendo em tempo real.",
     bullets: [
@@ -18,7 +19,7 @@ const blocks = [
     icon: Users,
     title: "Distribuição inteligente e fila organizada (sem “quem responde?”)",
     description:
-      "Estruture departamentos/setores e distribua atendimentos para manter fluidez, padronização e produtividade — especialmente quando o volume cresce.",
+      "Estruture departamentos/setores e distribua atendimentos para manter fluidez, padronização e produtividade especialmente quando o volume cresce.",
     bullets: [
       "Organização por times/assuntos",
       "Transferência/assunção/conclusão de atendimentos",
@@ -28,7 +29,7 @@ const blocks = [
   {
     id: "automacao",
     icon: Bot,
-    title: "Automação para acelerar — e humano quando importa",
+    title: "Automação para acelerar e humano quando importa",
     description:
       "Use chatbots/automação para perguntas frequentes, triagem e respostas iniciais, mantendo sua equipe focada no que realmente exige decisão humana.",
     bullets: [
@@ -42,7 +43,7 @@ const blocks = [
     icon: Shield,
     title: "WhatsApp em escala com mais segurança",
     description:
-      "Para operação profissional, o ideal é trabalhar com estrutura de atendimento escalável e boas práticas — incluindo possibilidade de API oficial, multiatendimento no mesmo número e conformidade de uso.",
+      "Para operação profissional, o ideal é trabalhar com estrutura de atendimento escalável e boas práticas incluindo possibilidade de API oficial, multiatendimento no mesmo número e conformidade de uso.",
     bullets: [
       "Vários atendentes no mesmo número",
       "Automação com templates e regras da plataforma",
@@ -53,13 +54,17 @@ const blocks = [
 
 const Benefits = () => {
   return (
-    <section className="py-20 md:py-28 bg-muted/20">
+    <section
+      className="py-20 md:py-28 bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: `url(${benefitsBG})` }}
+    >
+
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mb-14">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight">
+          <h2 className="text-white text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight">
             Estrutura para atender com padrão, velocidade e visibilidade
           </h2>
-          <p className="mt-5 text-lg text-muted-foreground">
+          <p className="mt-5 text-lg text-white">
             Multicanal de verdade, operação no controle e automação sem prometer “milagre”.
           </p>
         </div>
@@ -69,7 +74,7 @@ const Benefits = () => {
             <div
               key={block.id}
               id={block.id}
-              className="scroll-mt-24 bg-card rounded-2xl p-6 md:p-8 border border-border shadow-card animate-fade-in"
+              className="scroll-mt-24 bg-card/70 rounded-2xl p-6 md:p-8 border border-border shadow-card animate-fade-in"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="flex items-start gap-4">

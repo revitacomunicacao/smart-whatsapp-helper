@@ -37,11 +37,8 @@ const Navbar = () => {
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-4">
-            <Button variant="ghost" size="sm" asChild>
-              <a href="#contato">Falar com especialista</a>
-            </Button>
             <Button size="sm" className="gradient-primary shadow-glow" asChild>
-              <a href="#contato">Quero centralizar</a>
+              <a href="#contato">Transformar meu atendimento</a>
             </Button>
           </div>
 
@@ -70,11 +67,8 @@ const Navbar = () => {
                 </a>
               ))}
               <div className="flex flex-col gap-2 pt-4 border-t border-border">
-                <Button variant="outline" size="sm" asChild>
-                  <a href="#contato">Falar com especialista</a>
-                </Button>
                 <Button size="sm" className="gradient-primary" asChild>
-                  <a href="#contato">Quero centralizar</a>
+                  <a href="#contato">Transformar meu atendimento</a>
                 </Button>
               </div>
             </div>

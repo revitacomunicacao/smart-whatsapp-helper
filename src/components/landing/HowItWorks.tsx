@@ -26,7 +26,7 @@ const steps = [
     image: stepTraining,
     title: "Treinamento do time (atendente + liderança)",
     description:
-      'Treinamento objetivo para quem opera e para quem acompanha indicadores — sem "depender do mais experiente".',
+      'Treinamento objetivo para quem opera e para quem acompanha indicadores sem "depender do mais experiente".',
   },
   {
     number: "04",
@@ -92,7 +92,7 @@ const HowItWorks = () => {
               Nexa funciona porque a implantação é orientada
             </h3>
             <p className="text-lg text-muted-foreground mt-5">
-              A DuBrasil entra para garantir que a plataforma vire rotina real — com ajuste fino nas
+              A DuBrasil entra para garantir que a plataforma vire rotina real com ajuste fino nas
               primeiras semanas.
             </p>
           </div>
@@ -101,7 +101,7 @@ const HowItWorks = () => {
             {steps.map((step, index) => (
               <div
                 key={step.number}
-                className="bg-card border border-border rounded-xl p-6 md:p-8 shadow-card animate-fade-in"
+                className="bg-[#002147] border border-border rounded-xl p-6 md:p-8 shadow-card animate-fade-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="flex flex-col items-center text-center gap-4">
@@ -112,8 +112,8 @@ const HowItWorks = () => {
                     </span>
                   </div>
                   <div>
-                    <p className="text-lg font-semibold text-foreground">{step.title}</p>
-                    <p className="mt-2 text-muted-foreground leading-relaxed">{step.description}</p>
+                    <p className="text-lg font-semibold text-white">{step.title}</p>
+                    <p className="mt-2 text-white/70 leading-relaxed">{step.description}</p>
                   </div>
                 </div>
               </div>

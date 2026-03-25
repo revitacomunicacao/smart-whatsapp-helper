@@ -22,7 +22,6 @@ const Index = () => {
       <HowItWorks />
       <SuporteHumanizadoAlt />
       <Features />
-      <ParallaxCTA />
       <ContactForm />
       <Footer />
       <ContactFloat />
