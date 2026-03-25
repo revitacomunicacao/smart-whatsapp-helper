@@ -9,7 +9,6 @@ const Navbar = () => {
   const navLinks = [
     { label: "O que resolve", href: "#resolve" },
     { label: "Multicanal", href: "#multicanal" },
-    { label: "Operação", href: "#operacao" },
     { label: "Implantação", href: "#implantacao" },
   ];
 
