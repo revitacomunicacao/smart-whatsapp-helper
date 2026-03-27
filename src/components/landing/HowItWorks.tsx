@@ -1,6 +1,6 @@
-import demoInbox from "@/assets/demo-inbox.png";
-import demoQueue from "@/assets/demo-queue.png";
-import demoAutomation from "@/assets/demo-automation.png";
+import demoInbox from "@/assets/demo-inbox.jpeg";
+import demoQueue from "@/assets/demo-queue.jpeg";
+import demoAutomation from "@/assets/demo-automation.jpeg";
 import stepMapping from "@/assets/step-mapping.png";
 import stepConfig from "@/assets/step-config.png";
 import stepTraining from "@/assets/step-training.png";
@@ -39,8 +39,8 @@ const steps = [
 
 const demoItems = [
   { title: "Inbox centralizada", image: demoInbox },
-  { title: "Fila e atribuição", image: demoQueue },
-  { title: "Automação / triagem", image: demoAutomation },
+  { title: "Estatísticas dos atendimentos", image: demoQueue },
+  { title: "Dados em tempo real", image: demoAutomation },
 ];
 
 const HowItWorks = () => {
@@ -59,19 +59,19 @@ const HowItWorks = () => {
             {demoItems.map((item) => (
               <div
                 key={item.title}
-                className="relative overflow-hidden rounded-sm group h-[360px] md:h-[460px]"
+                className="relative overflow-hidden rounded-sm group h-[360px] md:h-[260px]"
               >
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                  className="absolute inset-0 w-full h-full object-contain transition-transform duration-500 group-hover:scale-[1.02]"
                   loading="lazy"
                 />
 
                 <div className="absolute inset-0 bg-black/10" />
 
                 <div className="absolute left-0 right-0 bottom-0 z-10">
-                  <div className="w-full bg-[#002147]/90 px-5 py-4 md:px-6 md:py-5">
+                  <div className="h-15 w-full bg-[#002147]/80 px-5 py-4 md:px-6 md:py-3">
                     <p className="text-white text-xl md:text-2xl font-semibold leading-tight">
                       {item.title}
                     </p>
