@@ -27,7 +27,7 @@ const Navbar = () => {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-muted-foreground hover:text-foreground transition-colors text-sm font-medium"
+                className="text-muted-foreground hover:text-foreground transition-colors text-base font-medium"
               >
                 {link.label}
               </a>
@@ -36,8 +36,8 @@ const Navbar = () => {
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-4">
-            <Button size="sm" className="gradient-primary shadow-glow" asChild>
-              <a href="#contato">Transformar meu atendimento</a>
+            <Button size="sm" className="gradient-primary shadow-glow text-base" asChild>
+              <a href="#contato">Transforma o meu atendimento</a>
             </Button>
           </div>
 
@@ -60,14 +60,14 @@ const Navbar = () => {
                   key={link.href}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className="text-muted-foreground hover:text-foreground transition-colors text-sm font-medium py-2"
+                  className="text-muted-foreground hover:text-foreground transition-colors text-base font-medium py-2"
                 >
                   {link.label}
                 </a>
               ))}
               <div className="flex flex-col gap-2 pt-4 border-t border-border">
-                <Button size="sm" className="gradient-primary" asChild>
-                  <a href="#contato">Transformar meu atendimento</a>
+                <Button size="sm" className="gradient-primary text-base" asChild>
+                  <a href="#contato">Transforma o meu atendimento</a>
                 </Button>
               </div>
             </div>

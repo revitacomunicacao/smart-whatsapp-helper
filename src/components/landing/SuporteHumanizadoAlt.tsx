@@ -75,8 +75,8 @@ const SuporteHumanizadoAlt = () => {
                       className="rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur p-4"
                     >
                       <div className="flex items-start gap-3">
-                        <div className="rounded-2xl border border-white/10 bg-white/5 p-3">
-                          <Icon className="h-5 w-5 text-primary" />
+                        <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                          <Icon className="h-8 w-8 text-primary" />
                         </div>
                         <div className="flex-1">
                           <div className="text-primary font-semibold">{x.title}</div>

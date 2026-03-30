@@ -165,7 +165,7 @@ const VideoCarousel = () => {
             {isVideo ? (
               <video
                 ref={(el) => (videoRefs.current[index] = el)}
-                className="absolute inset-0 w-full h-full object-cover"
+                className="absolute inset-0 w-full h-full object-cover brightness-75"
                 src={slide.videoUrl}
                 muted
                 loop
@@ -177,17 +177,17 @@ const VideoCarousel = () => {
                 <img
                   src={slide.videoUrl}
                   alt={slide.title}
-                  className="absolute inset-0 w-full h-full object-cover"
+                  className="absolute inset-0 w-full h-full object-cover brightness-50"
                   loading="lazy"
                 />
               </>
             )}
 
-            <div className="absolute inset-0 bg-primary/70" />
+            <div className="absolute inset-0 bg-primary/80" />
 
             <div className="relative z-30 h-full flex items-center overflow-hidden">
-              <div className="container mx-auto px-6 md:px-24 max-w-full">
-                <div className="max-w-2xl lg:max-w-3xl pointer-events-auto">
+              <div className="container mx-auto px-6 md:px-18 max-w-full">
+                <div className="max-w-3xl lg:max-w-5xl mx-auto text-center pointer-events-auto">
                   <h1
                     className={`text-3xl md:text-5xl lg:text-7xl font-bold text-primary-foreground mb-4 md:mb-6 transition-all duration-700 ${index === currentSlide
                       ? "opacity-100 translate-y-0"

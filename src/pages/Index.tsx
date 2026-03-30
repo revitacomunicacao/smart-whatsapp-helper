@@ -21,7 +21,6 @@ const Index = () => {
       <Benefits />
       <HowItWorks />
       <SuporteHumanizadoAlt />
-      <Features />
       <ContactForm />
       <Footer />
       <ContactFloat />

@@ -5,6 +5,7 @@ import stepMapping from "@/assets/step-mapping.png";
 import stepConfig from "@/assets/step-config.png";
 import stepTraining from "@/assets/step-training.png";
 import stepTuning from "@/assets/step-tuning.png";
+import { useEffect, useState } from "react";
 
 const steps = [
   {
@@ -44,6 +45,19 @@ const demoItems = [
 ];
 
 const HowItWorks = () => {
+  const [lightbox, setLightbox] = useState<null | { src: string; title: string }>(null);
+
+  useEffect(() => {
+    if (!lightbox) return;
+
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setLightbox(null);
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [lightbox]);
+
   return (
     <section id="implantacao" className="py-20 md:py-28 bg-[#ededed]">
       <div className="w-full">
@@ -61,16 +75,23 @@ const HowItWorks = () => {
                 key={item.title}
                 className="relative overflow-hidden rounded-sm group h-[360px] md:h-[260px]"
               >
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="absolute inset-0 w-full h-full object-contain transition-transform duration-500 group-hover:scale-[1.02]"
-                  loading="lazy"
-                />
+                <button
+                  type="button"
+                  className="absolute inset-0 z-0 cursor-zoom-in"
+                  onClick={() => setLightbox({ src: item.image, title: item.title })}
+                  aria-label={`Ampliar imagem: ${item.title}`}
+                >
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="absolute inset-0 w-full h-full object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+                    loading="lazy"
+                  />
+                </button>
 
-                <div className="absolute inset-0 bg-black/10" />
+                <div className="absolute inset-0 bg-black/10 pointer-events-none z-10" />
 
-                <div className="absolute left-0 right-0 bottom-0 z-10">
+                <div className="absolute left-0 right-0 bottom-0 z-30">
                   <div className="h-15 w-full bg-[#002147]/80 px-5 py-4 md:px-6 md:py-3">
                     <p className="text-white text-xl md:text-2xl font-semibold leading-tight">
                       {item.title}
@@ -81,6 +102,38 @@ const HowItWorks = () => {
             ))}
           </div>
         </div>
+
+        {lightbox && (
+          <div
+            className="fixed inset-0 z-[80] bg-black/75 backdrop-blur-sm"
+            role="dialog"
+            aria-modal="true"
+            aria-label={lightbox.title}
+            onClick={() => setLightbox(null)}
+          >
+            <div className="absolute inset-0 flex items-center justify-center p-4 md:p-10">
+              <div
+                className="relative w-full max-w-6xl max-h-[85vh]"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <button
+                  type="button"
+                  className="absolute -top-10 right-0 text-white/80 hover:text-white text-sm"
+                  onClick={() => setLightbox(null)}
+                  aria-label="Fechar"
+                >
+                  Fechar ✕
+                </button>
+
+                <img
+                  src={lightbox.src}
+                  alt={lightbox.title}
+                  className="w-full h-full max-h-[85vh] object-contain rounded-lg bg-black/20"
+                />
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* Implantação */}
         <div className="mt-20 max-w-5xl mx-auto px-4">
