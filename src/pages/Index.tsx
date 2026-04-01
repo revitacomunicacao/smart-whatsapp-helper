@@ -10,6 +10,7 @@ import AboutUs from "@/components/landing/AboutUs";
 import ContactFloat from "@/components/landing/ContactFloat";
 import SuporteHumanizadoAlt from "@/components/landing/SuporteHumanizadoAlt";
 import VideoCarousel from "@/components/landing/VideoCarousel";
+import FAQ from "@/components/landing/FAQ";
 
 const Index = () => {
   return (
@@ -21,6 +22,7 @@ const Index = () => {
       <Benefits />
       <HowItWorks />
       <SuporteHumanizadoAlt />
+      <FAQ />
       <ContactForm />
       <Footer />
       <ContactFloat />
