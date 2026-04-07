@@ -5,7 +5,7 @@ import stepMapping from "@/assets/step-mapping.png";
 import stepConfig from "@/assets/step-config.png";
 import stepTraining from "@/assets/step-training.png";
 import stepTuning from "@/assets/step-tuning.png";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const steps = [
   {
@@ -44,20 +44,93 @@ const demoItems = [
   { title: "Dados em tempo real", image: demoAutomation },
 ];
 
+function clamp(n: number, min: number, max: number) {
+  return Math.min(max, Math.max(min, n));
+}
+
+function ZoomOnHover({ src, alt, lensSize = 260, zoom = 2.6 }: { src: string; alt: string; lensSize?: number; zoom?: number }) {
+  const [active, setActive] = useState(false);
+  const [pos, setPos] = useState({ x: 0, y: 0 });
+  const [natural, setNatural] = useState<{ w: number; h: number } | null>(null);
+  const [bg, setBg] = useState<{ sizeW: number; sizeH: number; posX: number; posY: number } | null>(null);
+
+  return (
+    <div
+      className="absolute inset-0 z-0"
+      onMouseEnter={() => setActive(true)}
+      onMouseLeave={() => setActive(false)}
+      onMouseMove={(e) => {
+        if (!natural) return;
+        const rect = (e.currentTarget as HTMLDivElement).getBoundingClientRect();
+        const px = e.clientX - rect.left;
+        const py = e.clientY - rect.top;
+
+        // object-contain: calcula o retângulo real da imagem renderizada dentro do container
+        const scale = Math.min(rect.width / natural.w, rect.height / natural.h);
+        const renderedW = natural.w * scale;
+        const renderedH = natural.h * scale;
+        const offsetX = (rect.width - renderedW) / 2;
+        const offsetY = (rect.height - renderedH) / 2;
+
+        const imgX = clamp(px - offsetX, 0, renderedW);
+        const imgY = clamp(py - offsetY, 0, renderedH);
+
+        // Centro da lente: segue o mouse, mas não deixa sair da área da imagem
+        const lensCenterX = clamp(px, offsetX, offsetX + renderedW);
+        const lensCenterY = clamp(py, offsetY, offsetY + renderedH);
+
+        setPos({
+          x: lensCenterX,
+          y: lensCenterY,
+        });
+
+        // Background da lente (em pixels) para ampliar corretamente os cantos.
+        const bgSizeW = renderedW * zoom;
+        const bgSizeH = renderedH * zoom;
+        const bgPosX = -(imgX * zoom - lensSize / 2);
+        const bgPosY = -(imgY * zoom - lensSize / 2);
+        setBg({ sizeW: bgSizeW, sizeH: bgSizeH, posX: bgPosX, posY: bgPosY });
+      }}
+    >
+      <img
+        src={src}
+        alt={alt}
+        className="absolute inset-0 w-full h-full object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+        loading="lazy"
+        onLoad={(e) => {
+          const img = e.currentTarget;
+          if (img.naturalWidth && img.naturalHeight) {
+            setNatural({ w: img.naturalWidth, h: img.naturalHeight });
+          }
+        }}
+      />
+
+      <div
+        className={[
+          "hidden md:block absolute rounded-full",
+          "border border-white/70 shadow-2xl",
+          "pointer-events-none transition-opacity duration-150",
+          active ? "opacity-100" : "opacity-0",
+        ].join(" ")}
+        style={{
+          left: pos.x,
+          top: pos.y,
+          width: lensSize,
+          height: lensSize,
+          transform: "translate(-50%, -50%)",
+          backgroundImage: `url(${src})`,
+          backgroundRepeat: "no-repeat",
+          backgroundSize: bg ? `${bg.sizeW}px ${bg.sizeH}px` : "0px 0px",
+          backgroundPosition: bg ? `${bg.posX}px ${bg.posY}px` : "0px 0px",
+          zIndex: 20,
+        }}
+        aria-hidden="true"
+      />
+    </div>
+  );
+}
+
 const HowItWorks = () => {
-  const [lightbox, setLightbox] = useState<null | { src: string; title: string }>(null);
-
-  useEffect(() => {
-    if (!lightbox) return;
-
-    const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setLightbox(null);
-    };
-
-    window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
-  }, [lightbox]);
-
   return (
     <section id="implantacao" className="py-20 md:py-28 bg-[#ededed]">
       <div className="w-full">
@@ -75,19 +148,7 @@ const HowItWorks = () => {
                 key={item.title}
                 className="relative overflow-hidden rounded-sm group h-[360px] md:h-[260px]"
               >
-                <button
-                  type="button"
-                  className="absolute inset-0 z-0 cursor-zoom-in"
-                  onClick={() => setLightbox({ src: item.image, title: item.title })}
-                  aria-label={`Ampliar imagem: ${item.title}`}
-                >
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="absolute inset-0 w-full h-full object-contain transition-transform duration-500 group-hover:scale-[1.02]"
-                    loading="lazy"
-                  />
-                </button>
+                <ZoomOnHover src={item.image} alt={item.title} />
 
                 <div className="absolute inset-0 bg-black/10 pointer-events-none z-10" />
 
@@ -102,38 +163,6 @@ const HowItWorks = () => {
             ))}
           </div>
         </div>
-
-        {lightbox && (
-          <div
-            className="fixed inset-0 z-[80] bg-black/75 backdrop-blur-sm"
-            role="dialog"
-            aria-modal="true"
-            aria-label={lightbox.title}
-            onClick={() => setLightbox(null)}
-          >
-            <div className="absolute inset-0 flex items-center justify-center p-4 md:p-10">
-              <div
-                className="relative w-full max-w-6xl max-h-[85vh]"
-                onClick={(e) => e.stopPropagation()}
-              >
-                <button
-                  type="button"
-                  className="absolute -top-10 right-0 text-white/80 hover:text-white text-sm"
-                  onClick={() => setLightbox(null)}
-                  aria-label="Fechar"
-                >
-                  Fechar ✕
-                </button>
-
-                <img
-                  src={lightbox.src}
-                  alt={lightbox.title}
-                  className="w-full h-full max-h-[85vh] object-contain rounded-lg bg-black/20"
-                />
-              </div>
-            </div>
-          </div>
-        )}
 
         {/* Implantação */}
         <div className="mt-20 max-w-5xl mx-auto px-4">
