@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import logoColor from "@/assets/dubrasil-nexa-azul.png";
+import logoHeader from "@/assets/dubrasil-nexa-org.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,7 +18,11 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <a href="#" className="flex items-center gap-2">
-            <img src={logoColor} alt="DuBrasil Nexa" className="h-12 md:h-16 w-auto" />
+            <img
+              src={logoHeader}
+              alt="DuBrasil Nexa"
+              className="h-[8.625rem] w-auto md:h-[10.875rem]"
+            />
           </a>
 
           {/* Desktop Navigation */}
