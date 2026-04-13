@@ -55,13 +55,13 @@ const blocks = [
 const Benefits = () => {
   return (
     <section
-      className="py-20 md:py-28 bg-cover bg-center bg-no-repeat"
+      className="bg-cover bg-center bg-no-repeat py-20 max-md:py-14 md:py-28"
       style={{ backgroundImage: `url(${benefitsBG})` }}
     >
 
       <div className="container mx-auto px-4">
-        <div className="max-w-3xl mb-14">
-          <h2 className="text-white text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight">
+        <div className="mb-14 max-w-3xl max-md:mb-10">
+          <h2 className="text-3xl font-semibold tracking-tight text-white max-md:text-balance md:text-4xl lg:text-5xl">
             Estrutura para atender com padrão, velocidade e visibilidade
           </h2>
           <p className="mt-5 text-lg text-white">
@@ -74,16 +74,16 @@ const Benefits = () => {
             <div
               key={block.id}
               id={block.id}
-              className="scroll-mt-24 bg-card/70 rounded-2xl p-6 md:p-8 border border-border shadow-card animate-fade-in"
+              className="scroll-mt-24 animate-fade-in rounded-2xl border border-border bg-card/70 p-6 shadow-card md:p-8"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
-                  <block.icon className="w-6 h-6 text-primary" />
+              <div className="flex items-start gap-3 max-md:flex-col max-md:items-stretch max-md:gap-3 md:gap-4">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 max-md:mx-auto">
+                  <block.icon className="h-6 w-6 text-primary" />
                 </div>
 
-                <div className="flex-1">
-                  <h3 className="text-xl md:text-2xl font-semibold text-foreground">
+                <div className="min-w-0 flex-1 max-md:text-center">
+                  <h3 className="text-xl font-semibold text-foreground max-md:text-balance md:text-2xl">
                     {block.title}
                   </h3>
                   <p className="mt-3 text-muted-foreground leading-relaxed">

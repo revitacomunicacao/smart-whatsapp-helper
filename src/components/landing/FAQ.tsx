@@ -45,10 +45,10 @@ const faqs = [
 
 const FAQ = () => {
   return (
-    <section id="faq" className="py-20 md:py-28 bg-muted/20">
+    <section id="faq" className="bg-muted/20 py-20 max-md:py-14 md:py-28">
       <div className="container mx-auto px-4">
-        <div className="max-w-3xl mx-auto mb-12 text-center">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight">
+        <div className="mx-auto mb-12 max-w-3xl text-center max-md:mb-8">
+          <h2 className="text-3xl font-semibold tracking-tight max-md:text-balance md:text-4xl lg:text-5xl">
             Perguntas frequentes
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
@@ -60,11 +60,11 @@ const FAQ = () => {
           <Accordion
             type="single"
             collapsible
-            className="w-full bg-card rounded-2xl border border-border shadow-card px-6"
+            className="w-full rounded-2xl border border-border bg-card px-4 shadow-card max-md:px-3 md:px-6"
           >
             {faqs.map((item, idx) => (
               <AccordionItem key={item.q} value={`faq-${idx}`}>
-                <AccordionTrigger className="text-left text-base md:text-lg">
+                <AccordionTrigger className="text-left text-base max-md:min-h-14 max-md:py-4 max-md:text-[0.95rem] md:text-lg">
                   {item.q}
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground">

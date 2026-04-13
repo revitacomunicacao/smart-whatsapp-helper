@@ -36,16 +36,16 @@ const Navbar = () => {
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-4">
-            <Button size="sm" className="gradient-primary shadow-glow text-base" asChild>
-              <a href="#contato">Transforma o meu atendimento</a>
+            <Button size="sm" className="shadow-glow text-base" asChild>
+              <a href="#contato">Transforme o meu atendimento</a>
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 text-foreground"
-            aria-label="Toggle menu"
+            className="flex h-11 w-11 items-center justify-center rounded-md text-foreground md:hidden"
+            aria-label="Abrir ou fechar menu"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -53,21 +53,23 @@ const Navbar = () => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden py-4 border-t border-border animate-fade-in">
-            <div className="flex flex-col gap-4">
+          <div className="max-h-[min(75vh,calc(100dvh-5rem))] overflow-y-auto border-t border-border py-4 animate-fade-in md:hidden">
+            <div className="flex flex-col gap-1">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className="text-muted-foreground hover:text-foreground transition-colors text-base font-medium py-2"
+                  className="rounded-md px-2 py-3 text-base font-medium text-muted-foreground transition-colors hover:bg-muted/60 hover:text-foreground"
                 >
                   {link.label}
                 </a>
               ))}
-              <div className="flex flex-col gap-2 pt-4 border-t border-border">
-                <Button size="sm" className="gradient-primary text-base" asChild>
-                  <a href="#contato">Transforma o meu atendimento</a>
+              <div className="flex flex-col gap-2 border-t border-border pt-4">
+                <Button size="sm" className="h-11 w-full text-base" asChild>
+                  <a href="#contato" onClick={() => setIsOpen(false)}>
+                    Transforme o meu atendimento
+                  </a>
                 </Button>
               </div>
             </div>

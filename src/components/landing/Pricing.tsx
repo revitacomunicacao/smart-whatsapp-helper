@@ -63,7 +63,7 @@ const Pricing = () => {
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-4 mb-6">
             Escolha o plano{" "}
-            <span className="text-gradient">ideal para você</span>
+            <span className="text-primary">ideal para você</span>
           </h2>
           <p className="text-lg text-muted-foreground">
             Teste grátis por 14 dias. Sem fidelidade, sem cartão e sem burocracia.
@@ -84,7 +84,7 @@ const Pricing = () => {
               {/* Popular Badge */}
               {plan.popular && (
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                  <span className="gradient-primary text-primary-foreground text-sm font-semibold px-4 py-1 rounded-full inline-flex items-center gap-1">
+                  <span className="inline-flex items-center gap-1 rounded-full bg-primary px-4 py-1 text-sm font-semibold text-primary-foreground">
                     <Star className="w-4 h-4" />
                     Mais Popular
                   </span>
@@ -115,7 +115,7 @@ const Pricing = () => {
 
               {/* CTA */}
               <Button
-                className={`w-full ${plan.popular ? "gradient-primary shadow-glow" : ""}`}
+                className={`w-full ${plan.popular ? "shadow-glow" : ""}`}
                 variant={plan.popular ? "default" : "outline"}
                 size="lg"
                 asChild

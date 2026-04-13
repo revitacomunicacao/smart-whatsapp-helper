@@ -4,35 +4,35 @@ const items = [
   {
     icon: Target,
     title: "Empresas que vendem e atendem por WhatsApp e redes sociais",
-    bg: "#E5E8EC",
+    bg: "#e9eef0",
   },
   {
     icon: Users,
     title: "Times com 2+ atendentes e volume crescente",
-    bg: "#DADEE4",
+    bg: "#dfe6e9",
   },
   {
     icon: CheckCircle2,
     title: "Operações que precisam de padrão, histórico e gestão",
-    bg: "#D0D6DD",
+    bg: "#d5dde1",
   },
   {
     icon: TrendingUp,
     title: "Negócios que querem reduzir tempo de resposta e melhorar conversão",
-    bg: "#C7CDD6",
+    bg: "#cbd4d9",
   },
 ];
 
 const Features = () => {
   return (
-    <section id="ideal" className="py-20 md:py-28 bg-[#002147]">
+    <section id="ideal" className="bg-brand-surface py-20 text-white max-md:py-14 md:py-28">
       <div className="container mx-auto px-4">
-        <div className="max-w-3xl mb-14">
-          <h2 className="text-white text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight">
+        <div className="mb-14 max-w-3xl max-md:mb-10">
+          <h2 className="text-3xl font-semibold tracking-tight max-md:text-balance md:text-4xl lg:text-5xl">
             Ideal para
           </h2>
 
-          <p className="text-white mt-5 text-lg leading-relaxed">
+          <p className="mt-5 text-lg leading-relaxed text-white/90">
             Quando atendimento é parte da operação e precisa funcionar sem depender de “heróis”
             no WhatsApp.
           </p>
@@ -42,16 +42,16 @@ const Features = () => {
           {items.map((item, index) => (
             <div
               key={item.title}
-              className="min-h-[320px] px-8 py-12 flex flex-col items-center justify-start text-center animate-fade-in"
+              className="flex min-h-[260px] animate-fade-in flex-col items-center justify-start px-5 py-8 text-center md:min-h-[320px] md:px-8 md:py-12"
               style={{
                 backgroundColor: item.bg,
                 animationDelay: `${index * 0.1}s`,
               }}
             >
               {/* Ícone centralizado, maior e sem fundo */}
-              <item.icon className="w-14 h-14 text-[#002147] mb-8" />
+              <item.icon className="mb-8 h-14 w-14 text-primary" />
 
-              <p className="text-[#002147] text-xl md:text-2xl leading-tight font-bold max-w-[240px]">
+              <p className="max-w-[min(100%,240px)] text-xl font-bold leading-tight text-primary max-md:text-balance md:text-2xl">
                 {item.title}
               </p>
             </div>

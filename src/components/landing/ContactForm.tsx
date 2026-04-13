@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { Send, MessageCircle, Mail, Phone, MapPin } from "lucide-react";
+import { Send } from "lucide-react";
 import nexaBG from "@/assets/nexabg.jpeg"
 
 const WHATSAPP_NUMBER = "5534996367430";
@@ -61,157 +61,98 @@ const ContactForm = () => {
 
   return (
     <section
-      className="relative py-24 bg-cover bg-center"
+      className="relative bg-cover bg-center py-24 max-md:py-16"
       style={{ backgroundImage: `url(${nexaBG})` }}
       id="contato"
     >
-      <div className="absolute inset-0 bg-black/40" />
-      <div className="absolute inset-0 bg-gradient-to-br from-black/25 via-transparent to-white/10" />
+      <div className="absolute inset-0 bg-black/50" />
       <div className="absolute -top-24 -left-24 w-96 h-96 bg-white/10 rounded-full blur-3xl" />
       <div className="absolute -bottom-24 -right-24 w-[28rem] h-[28rem] bg-black/20 rounded-full blur-3xl" />
 
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-5xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left Content */}
-            <div>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-4 mb-6 text-white">
-                Pronto para <span className="text-[#002047]">transformar</span> seu atendimento?
-              </h2>
-              <p className="text-lg text-white/80 mb-8">
-                Preencha o formulário e nossa equipe entrará em contato para mostrar como o DuBrasil Nexa pode ajudar seu negócio.
-              </p>
+      <div className="container relative z-10 mx-auto px-4">
+        <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
+          <h2 className="mb-5 mt-2 text-3xl font-bold text-white max-md:text-balance md:text-4xl lg:text-5xl">
+            Pronto para <span className="text-primary">transformar</span> seu atendimento?
+          </h2>
+          <p className="mb-10 max-w-2xl text-lg text-white/85 max-md:mb-8 max-md:text-base max-md:text-balance">
+            Preencha o formulário e nossa equipe entrará em contato para mostrar como o DuBrasil Nexa pode ajudar seu
+            negócio.
+          </p>
+        </div>
 
-              {/* Contact Info */}
-              <div className="space-y-4">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center">
-                    <MessageCircle className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <p className="font-medium text-white">WhatsApp</p>
-                    <p className="text-white/70">(34) 99636-7430</p>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center">
-                    <Mail className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <p className="font-medium text-white">Email</p>
-                    <p className="text-white/70">contato@dubrasilnexa.com.br</p>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center">
-                    <Phone className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <p className="font-medium text-white">Telefone</p>
-                    <p className="text-white/70">(34) 99636-7430</p>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center">
-                    <MapPin className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <p className="font-medium text-white">Endereço</p>
-                    <p className="text-white/70">
-                      Av. Leopoldino de Oliveira, 4252 - Fabrício
-                      <br />
-                      Uberaba - MG, 38065-165
-                    </p>
-                  </div>
-                </div>
+        <div className="mx-auto w-full max-w-xl">
+          <div className="rounded-2xl border border-border bg-card p-6 shadow-card max-md:p-5 md:p-8">
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+              <div>
+                <label htmlFor="name" className="mb-2 block text-sm font-medium text-foreground">
+                  Nome completo
+                </label>
+                <Input
+                  id="name"
+                  placeholder="Seu nome"
+                  {...register("name")}
+                  className={errors.name ? "border-destructive" : ""}
+                />
+                {errors.name && <p className="mt-1 text-sm text-destructive">{errors.name.message}</p>}
               </div>
-            </div>
 
-            {/* Right Content - Form */}
-            <div className="bg-card rounded-2xl p-6 md:p-8 border border-border shadow-card">
-              <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-                    Nome completo
-                  </label>
-                  <Input
-                    id="name"
-                    placeholder="Seu nome"
-                    {...register("name")}
-                    className={errors.name ? "border-destructive" : ""}
-                  />
-                  {errors.name && (
-                    <p className="text-destructive text-sm mt-1">{errors.name.message}</p>
-                  )}
-                </div>
+              <div>
+                <label htmlFor="email" className="mb-2 block text-sm font-medium text-foreground">
+                  Email
+                </label>
+                <Input
+                  id="email"
+                  type="email"
+                  placeholder="seu@email.com"
+                  {...register("email")}
+                  className={errors.email ? "border-destructive" : ""}
+                />
+                {errors.email && <p className="mt-1 text-sm text-destructive">{errors.email.message}</p>}
+              </div>
 
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                    Email
-                  </label>
-                  <Input
-                    id="email"
-                    type="email"
-                    placeholder="seu@email.com"
-                    {...register("email")}
-                    className={errors.email ? "border-destructive" : ""}
-                  />
-                  {errors.email && (
-                    <p className="text-destructive text-sm mt-1">{errors.email.message}</p>
-                  )}
-                </div>
+              <div>
+                <label htmlFor="phone" className="mb-2 block text-sm font-medium text-foreground">
+                  WhatsApp
+                </label>
+                <Input
+                  id="phone"
+                  placeholder="(11) 99999-9999"
+                  {...register("phone")}
+                  className={errors.phone ? "border-destructive" : ""}
+                />
+                {errors.phone && <p className="mt-1 text-sm text-destructive">{errors.phone.message}</p>}
+              </div>
 
-                <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-2">
-                    WhatsApp
-                  </label>
-                  <Input
-                    id="phone"
-                    placeholder="(11) 99999-9999"
-                    {...register("phone")}
-                    className={errors.phone ? "border-destructive" : ""}
-                  />
-                  {errors.phone && (
-                    <p className="text-destructive text-sm mt-1">{errors.phone.message}</p>
-                  )}
-                </div>
+              <div>
+                <label htmlFor="message" className="mb-2 block text-sm font-medium text-foreground">
+                  Mensagem
+                </label>
+                <Textarea
+                  id="message"
+                  placeholder="Conte-nos sobre seu negócio e como podemos ajudar..."
+                  rows={4}
+                  {...register("message")}
+                  className={errors.message ? "border-destructive" : ""}
+                />
+                {errors.message && <p className="mt-1 text-sm text-destructive">{errors.message.message}</p>}
+              </div>
 
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-                    Mensagem
-                  </label>
-                  <Textarea
-                    id="message"
-                    placeholder="Conte-nos sobre seu negócio e como podemos ajudar..."
-                    rows={4}
-                    {...register("message")}
-                    className={errors.message ? "border-destructive" : ""}
-                  />
-                  {errors.message && (
-                    <p className="text-destructive text-sm mt-1">{errors.message.message}</p>
-                  )}
-                </div>
-
-                <Button
-                  type="submit"
-                  size="lg"
-                  className="w-full gradient-primary shadow-glow"
-                  disabled={isSubmitting}
-                >
-                  {isSubmitting ? (
-                    "Enviando..."
-                  ) : (
-                    <>
-                      Enviar Mensagem
-                      <Send className="ml-2 w-5 h-5" />
-                    </>
-                  )}
-                </Button>
-              </form>
-            </div>
+              <Button
+                type="submit"
+                size="lg"
+                className="w-full min-h-12 shadow-glow max-md:text-base"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? (
+                  "Enviando..."
+                ) : (
+                  <>
+                    Enviar Mensagem
+                    <Send className="ml-2 h-5 w-5" />
+                  </>
+                )}
+              </Button>
+            </form>
           </div>
         </div>
       </div>

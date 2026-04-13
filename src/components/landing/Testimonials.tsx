@@ -91,7 +91,7 @@ const Testimonials = () => {
           }}
         />
         {/* Dark overlay for readability */}
-        <div className="absolute inset-0 bg-primary/80" />
+        <div className="absolute inset-0 bg-brand-surface/75" />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">

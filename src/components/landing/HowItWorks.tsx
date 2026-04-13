@@ -132,12 +132,12 @@ function ZoomOnHover({ src, alt, lensSize = 260, zoom = 2.6 }: { src: string; al
 
 const HowItWorks = () => {
   return (
-    <section id="implantacao" className="py-20 md:py-28 bg-[#ededed]">
+    <section id="implantacao" className="bg-[#ededed] py-20 max-md:py-14 md:py-28">
       <div className="w-full">
         {/* Demo */}
         <div id="demo" className="scroll-mt-24">
           <div className="px-4 md:px-6">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-center">
+            <h2 className="text-center text-3xl font-semibold tracking-tight max-md:px-1 max-md:text-balance md:text-4xl lg:text-5xl">
               Como funciona na prática
             </h2>
           </div>
@@ -146,15 +146,15 @@ const HowItWorks = () => {
             {demoItems.map((item) => (
               <div
                 key={item.title}
-                className="relative overflow-hidden rounded-sm group h-[360px] md:h-[260px]"
+                className="group relative h-[280px] overflow-hidden rounded-sm max-md:min-h-[220px] md:h-[260px]"
               >
                 <ZoomOnHover src={item.image} alt={item.title} />
 
                 <div className="absolute inset-0 bg-black/10 pointer-events-none z-10" />
 
                 <div className="absolute left-0 right-0 bottom-0 z-30">
-                  <div className="h-15 w-full bg-[#002147]/80 px-5 py-4 md:px-6 md:py-3">
-                    <p className="text-white text-xl md:text-2xl font-semibold leading-tight">
+                  <div className="h-15 w-full bg-brand-surface/85 px-4 py-3 max-md:py-3 md:px-6 md:py-3">
+                    <p className="text-xl font-semibold leading-tight text-white max-md:text-balance md:text-2xl">
                       {item.title}
                     </p>
                   </div>
@@ -165,12 +165,12 @@ const HowItWorks = () => {
         </div>
 
         {/* Implantação */}
-        <div className="mt-20 max-w-5xl mx-auto px-4">
-          <div className="text-center max-w-3xl mx-auto mb-14">
-            <span className="text-primary font-semibold text-sm uppercase tracking-wider">
+        <div className="mx-auto mt-20 max-w-5xl px-4 max-md:mt-14">
+          <div className="mx-auto mb-14 max-w-3xl text-center max-md:mb-10">
+            <span className="text-sm font-semibold uppercase tracking-wider text-primary">
               Diferencial DuBrasil
             </span>
-            <h3 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight mt-4">
+            <h3 className="mt-4 text-3xl font-semibold tracking-tight max-md:text-balance md:text-4xl lg:text-5xl">
               Nexa funciona porque a implantação é orientada
             </h3>
             <p className="text-lg text-muted-foreground mt-5">
@@ -183,7 +183,7 @@ const HowItWorks = () => {
             {steps.map((step, index) => (
               <div
                 key={step.number}
-                className="bg-[#002147] border border-border rounded-xl p-6 md:p-8 shadow-card animate-fade-in"
+                className="animate-fade-in rounded-xl border border-border bg-brand-surface p-6 shadow-card md:p-8"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="flex flex-col items-center text-center gap-4">

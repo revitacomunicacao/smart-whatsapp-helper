@@ -4,10 +4,10 @@ const AboutUs = () => {
   return (
     <section
       id="resolve"
-      className="relative py-20 md:py-28 scroll-mt-24 bg-[#ededed]"
+      className="relative scroll-mt-24 bg-[#ededed] py-20 max-md:py-14 md:py-28"
     >
       <div className="container mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid items-center gap-10 max-md:gap-8 lg:grid-cols-2 lg:gap-16">
           <div className="relative">
             <div className="rounded-2xl overflow-hidden shadow-xl">
               <img
@@ -21,7 +21,7 @@ const AboutUs = () => {
           </div>
 
           <div className="max-w-xl">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight">
+            <h2 className="text-3xl font-semibold tracking-tight max-md:text-balance md:text-4xl lg:text-5xl">
               Pare de perder conversa, tempo e oportunidades
             </h2>
             <p className="mt-6 text-lg md:text-xl text-muted-foreground leading-relaxed">

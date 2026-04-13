@@ -4,11 +4,17 @@ import { ChevronLeft, ChevronRight, Play, Pause } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import banner from "@/assets/nexa.jpeg"
 
+type CarouselTextPart = {
+  text: string
+  /** Palavra(s)-chave em cor de destaque */
+  emphasize?: boolean
+}
+
 interface VideoSlide {
   id: number
   videoUrl: string // VÍDEO ou IMAGEM
-  title: string
-  subtitle: string
+  title: CarouselTextPart[]
+  subtitle: CarouselTextPart[]
 }
 
 const isVideoUrl = (url: string) => {
@@ -19,14 +25,30 @@ const slides: VideoSlide[] = [
   {
     id: 1,
     videoUrl: banner,
-    title: "Decisões Baseadas em Dados",
-    subtitle: "Relatórios e dashboards em tempo real",
+    title: [
+      { text: "Decisões " },
+      { text: "Baseadas em Dados", emphasize: true },
+    ],
+    subtitle: [
+      { text: "Relatórios e " },
+      { text: "dashboards", emphasize: true },
+      { text: " em " },
+      { text: "tempo real", emphasize: true },
+    ],
   },
   {
     id: 2,
     videoUrl: banner,
-    title: "Automatize Seus Processos",
-    subtitle: "Mais produtividade e menos trabalho manual",
+    title: [
+      { text: "Automatize " },
+      { text: "Seus Processos", emphasize: true },
+    ],
+    subtitle: [
+      { text: "Mais " },
+      { text: "produtividade", emphasize: true },
+      { text: " e menos " },
+      { text: "trabalho manual", emphasize: true },
+    ],
   },
 ]
 
@@ -69,6 +91,24 @@ const VideoCarousel = () => {
   }, [isPlaying, currentSlide])
 
   const togglePlay = () => setIsPlaying((v) => !v)
+
+  function renderCarouselLine(parts: CarouselTextPart[], variant: "title" | "subtitle") {
+    return parts.map((part, i) => {
+      const isTitle = variant === "title"
+      const base =
+        isTitle
+          ? "text-white [text-shadow:0_2px_28px_rgba(0,0,0,0.55)]"
+          : "text-white/90 [text-shadow:0_1px_18px_rgba(0,0,0,0.45)]"
+      const emphasized = isTitle
+        ? "font-extrabold tracking-tight text-primary drop-shadow-[0_0_24px_hsl(var(--primary)/0.45)]"
+        : "font-semibold text-primary not-italic drop-shadow-[0_0_16px_hsl(var(--primary)/0.35)]"
+      return (
+        <span key={i} className={part.emphasize ? emphasized : base}>
+          {part.text}
+        </span>
+      )
+    })
+  }
 
   const openWhatsApp = () => {
     window.open(
@@ -116,7 +156,7 @@ const VideoCarousel = () => {
 
   return (
     <section
-      className="relative w-full overflow-hidden pt-16 h-[60vh] md:h-screen"
+      className="relative h-[56vh] w-full overflow-hidden pt-16 max-md:max-h-[720px] max-md:min-h-[320px] md:h-screen"
       style={{ maxWidth: "100vw" }}
     >
       {/* Swipe layer (evita overflow horizontal) */}
@@ -176,36 +216,36 @@ const VideoCarousel = () => {
                 {(videoRefs.current[index] = null)}
                 <img
                   src={slide.videoUrl}
-                  alt={slide.title}
+                  alt={slide.title.map((p) => p.text).join("")}
                   className="absolute inset-0 w-full h-full object-cover brightness-50"
                   loading="lazy"
                 />
               </>
             )}
 
-            <div className="absolute inset-0 bg-primary/80" />
+            <div className="absolute inset-0 bg-brand-surface/75" />
 
-            <div className="relative z-30 h-full flex items-center overflow-hidden">
-              <div className="container mx-auto px-6 md:px-18 max-w-full">
-                <div className="max-w-3xl lg:max-w-5xl mx-auto text-center pointer-events-auto">
+            <div className="relative z-30 flex h-full items-center overflow-hidden">
+              <div className="container mx-auto max-w-full px-6 max-md:px-4 max-md:pb-16">
+                <div className="mx-auto max-w-3xl text-center pointer-events-auto lg:max-w-5xl">
                   <h1
-                    className={`text-3xl md:text-5xl lg:text-7xl font-bold text-primary-foreground mb-4 md:mb-6 transition-all duration-700 ${index === currentSlide
-                      ? "opacity-100 translate-y-0"
-                      : "opacity-0 translate-y-10"
+                    className={`font-display text-3xl font-extrabold leading-[1.12] tracking-tight max-md:text-balance md:text-5xl lg:text-7xl mb-4 md:mb-6 transition-all duration-700 ${index === currentSlide
+                      ? "translate-y-0 opacity-100"
+                      : "translate-y-10 opacity-0"
                       }`}
                     style={{ transitionDelay: "200ms" }}
                   >
-                    {slide.title}
+                    {renderCarouselLine(slide.title, "title")}
                   </h1>
 
                   <p
-                    className={`text-base md:text-2xl text-primary-foreground/80 mb-6 md:mb-10 transition-all duration-700 ${index === currentSlide
-                      ? "opacity-100 translate-y-0"
-                      : "opacity-0 translate-y-10"
+                    className={`font-display text-base font-medium leading-relaxed tracking-wide max-md:text-balance md:text-2xl mb-6 md:mb-10 transition-all duration-700 ${index === currentSlide
+                      ? "translate-y-0 opacity-100"
+                      : "translate-y-10 opacity-0"
                       }`}
                     style={{ transitionDelay: "400ms" }}
                   >
-                    {slide.subtitle}
+                    {renderCarouselLine(slide.subtitle, "subtitle")}
                   </p>
 
                   <div
@@ -218,7 +258,7 @@ const VideoCarousel = () => {
                     <Button
                       size="lg"
                       onClick={openWhatsApp}
-                      className="bg-accent hover:bg-accent/90 text-accent-foreground text-base md:text-lg px-6 md:px-8 py-5 md:py-6"
+                      className="bg-accent px-6 py-5 text-base text-accent-foreground hover:bg-accent/90 max-md:mx-auto max-md:min-h-12 max-md:w-full max-md:max-w-xs md:px-8 md:py-6 md:text-lg"
                     >
                       Saiba mais
                     </Button>
@@ -248,30 +288,36 @@ const VideoCarousel = () => {
       </button>
 
       {/* Bottom Controls */}
-      <div className="absolute bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 z-40 flex items-center gap-6 pointer-events-auto">
+      <div className="pointer-events-auto absolute bottom-4 left-1/2 z-40 flex max-md:max-w-[calc(100vw-1rem)] -translate-x-1/2 items-center gap-4 max-md:px-1 md:bottom-8 md:gap-6 max-md:pb-[env(safe-area-inset-bottom,0px)]">
         <button
+          type="button"
           onClick={togglePlay}
-          className="w-10 h-10 bg-primary-foreground/10 hover:bg-primary-foreground/20 backdrop-blur-sm rounded-full flex items-center justify-center transition-all"
+          className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary-foreground/10 backdrop-blur-sm transition-all hover:bg-primary-foreground/20 md:h-10 md:w-10"
           aria-label={isPlaying ? "Pausar" : "Reproduzir"}
         >
           {isPlaying ? (
-            <Pause className="w-4 h-4 text-primary-foreground" />
+            <Pause className="h-4 w-4 text-primary-foreground" />
           ) : (
-            <Play className="w-4 h-4 text-primary-foreground ml-0.5" />
+            <Play className="ml-0.5 h-4 w-4 text-primary-foreground" />
           )}
         </button>
 
-        <div className="flex gap-3">
+        <div className="flex items-center gap-2 md:gap-3">
           {slides.map((_, index) => (
             <button
               key={index}
+              type="button"
               onClick={() => goToSlide(index)}
-              className={`h-2 rounded-full transition-all duration-300 ${index === currentSlide
-                ? "w-8 bg-accent"
-                : "w-2 bg-primary-foreground/40 hover:bg-primary-foreground/60"
-                }`}
+              className="flex min-h-11 min-w-11 items-center justify-center rounded-full md:min-h-0 md:min-w-0"
               aria-label={`Ir para slide ${index + 1}`}
-            />
+            >
+              <span
+                className={`block h-2 rounded-full transition-all duration-300 ${index === currentSlide
+                  ? "w-8 bg-accent"
+                  : "w-2 bg-primary-foreground/40 hover:bg-primary-foreground/60"
+                  }`}
+              />
+            </button>
           ))}
         </div>
       </div>
