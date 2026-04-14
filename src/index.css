@@ -9,75 +9,75 @@
   :root {
     --background: 0 0% 100%;
     /* Texto principal: cinza-ardósia escuro (mesma família de matiz que a marca) */
-    --foreground: 200 22% 18%;
+    --foreground: 200 10% 18%;
 
     --card: 0 0% 100%;
-    --card-foreground: 200 22% 18%;
+    --card-foreground: 200 10% 18%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 200 22% 18%;
+    --popover-foreground: 200 10% 18%;
 
-    /* Marca: #7796a6 */
-    --primary: 200 22% 56%;
+    /* Marca (base): #68767d */
+    --primary: 200 9% 45%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 200 14% 96%;
-    --secondary-foreground: 200 22% 18%;
+    --secondary: 200 8% 96%;
+    --secondary-foreground: 200 10% 18%;
 
-    --muted: 200 12% 96%;
-    --muted-foreground: 200 10% 40%;
+    --muted: 200 8% 96%;
+    --muted-foreground: 200 6% 42%;
 
-    --accent: 200 20% 48%;
+    --accent: 200 9% 38%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 200 14% 88%;
-    --input: 200 14% 88%;
-    --ring: 200 22% 50%;
+    --border: 200 6% 88%;
+    --input: 200 6% 88%;
+    --ring: 200 9% 45%;
 
     --radius: 0.75rem;
 
     /* Fundo escuro estável (hero/footer/blocos); não usar --foreground aqui — no dark mode ele clareia */
-    --brand-surface: 200 22% 18%;
+    --brand-surface: 200 10% 16%;
 
-    --shadow-glow: 0 0 40px hsl(200 22% 56% / 0.35);
-    --shadow-card: 0 4px 24px hsl(200 22% 20% / 0.1);
+    --shadow-glow: 0 0 40px hsl(200 9% 45% / 0.35);
+    --shadow-card: 0 4px 24px hsl(200 10% 18% / 0.1);
   }
 
   .dark {
-    --background: 200 14% 8%;
+    --background: 200 6% 8%;
     --foreground: 200 10% 96%;
 
-    --brand-surface: 200 12% 11%;
+    --brand-surface: 200 6% 11%;
 
-    --card: 200 12% 11%;
+    --card: 200 6% 11%;
     --card-foreground: 200 10% 96%;
 
-    --popover: 200 12% 11%;
+    --popover: 200 6% 11%;
     --popover-foreground: 200 10% 96%;
 
-    --primary: 200 18% 58%;
-    --primary-foreground: 200 22% 12%;
+    --primary: 200 7% 60%;
+    --primary-foreground: 200 10% 12%;
 
-    --secondary: 200 10% 18%;
+    --secondary: 200 6% 18%;
     --secondary-foreground: 200 10% 96%;
 
-    --muted: 200 10% 18%;
-    --muted-foreground: 200 8% 60%;
+    --muted: 200 6% 18%;
+    --muted-foreground: 200 5% 62%;
 
-    --accent: 200 16% 50%;
-    --accent-foreground: 200 20% 10%;
+    --accent: 200 7% 52%;
+    --accent-foreground: 200 10% 10%;
 
     --destructive: 0 62% 30%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 200 10% 20%;
-    --input: 200 10% 20%;
-    --ring: 200 18% 55%;
+    --border: 200 5% 20%;
+    --input: 200 5% 20%;
+    --ring: 200 7% 60%;
 
-    --shadow-glow: 0 0 40px hsl(200 18% 55% / 0.25);
+    --shadow-glow: 0 0 40px hsl(200 7% 60% / 0.25);
     --shadow-card: 0 4px 24px hsl(0 0% 0% / 0.25);
   }
 }

@@ -132,7 +132,7 @@ function ZoomOnHover({ src, alt, lensSize = 260, zoom = 2.6 }: { src: string; al
 
 const HowItWorks = () => {
   return (
-    <section id="implantacao" className="bg-[#ededed] py-20 max-md:py-14 md:py-28">
+    <section id="implantacao" className="bg-secondary py-20 max-md:py-14 md:py-28">
       <div className="w-full">
         {/* Demo */}
         <div id="demo" className="scroll-mt-24">

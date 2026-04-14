@@ -4,22 +4,22 @@ const items = [
   {
     icon: Target,
     title: "Empresas que vendem e atendem por WhatsApp e redes sociais",
-    bg: "#e9eef0",
+    bg: "#f0f1f2",
   },
   {
     icon: Users,
     title: "Times com 2+ atendentes e volume crescente",
-    bg: "#dfe6e9",
+    bg: "#eaeced",
   },
   {
     icon: CheckCircle2,
     title: "Operações que precisam de padrão, histórico e gestão",
-    bg: "#d5dde1",
+    bg: "#e4e6e8",
   },
   {
     icon: TrendingUp,
     title: "Negócios que querem reduzir tempo de resposta e melhorar conversão",
-    bg: "#cbd4d9",
+    bg: "#dee1e2",
   },
 ];
 

@@ -1,9 +1,9 @@
 <svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="g1" x1="160" y1="80" x2="1040" y2="820" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#4a6570"></stop>
-      <stop offset="0.55" stop-color="#7796a6"></stop>
-      <stop offset="1" stop-color="#a8bcc6"></stop>
+      <stop offset="0" stop-color="#4e595e"></stop>
+      <stop offset="0.55" stop-color="#68767d"></stop>
+      <stop offset="1" stop-color="#bbc1c5"></stop>
     </linearGradient>
     <linearGradient id="g2" x1="260" y1="200" x2="940" y2="780" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.18"></stop>
@@ -17,8 +17,8 @@
   <rect x="80" y="60" width="1040" height="780" rx="56" fill="url(#g1)"></rect>
 
   <!-- Soft glows -->
-  <circle cx="320" cy="250" r="170" fill="#9eb4bf" fill-opacity="0.35" filter="url(#blur)"></circle>
-  <circle cx="910" cy="650" r="200" fill="#7796a6" fill-opacity="0.3" filter="url(#blur)"></circle>
+  <circle cx="320" cy="250" r="170" fill="#9da6ab" fill-opacity="0.35" filter="url(#blur)"></circle>
+  <circle cx="910" cy="650" r="200" fill="#68767d" fill-opacity="0.3" filter="url(#blur)"></circle>
 
   <!-- Chat bubbles -->
   <path d="M330 250C282 250 244 288 244 336C244 384 282 422 330 422H420C468 422 506 384 506 336C506 288 468 250 420 250H330Z" fill="url(#g2)"></path>
@@ -38,7 +38,7 @@
 
   <!-- Small badge -->
   <rect x="280" y="650" width="240" height="84" rx="42" fill="#FFFFFF" fill-opacity="0.14"></rect>
-  <rect x="304" y="676" width="36" height="36" rx="12" fill="#7796a6" fill-opacity="0.85"></rect>
+  <rect x="304" y="676" width="36" height="36" rx="12" fill="#68767d" fill-opacity="0.85"></rect>
   <path d="M314 695L321 702L333 690" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path>
   <rect x="352" y="684" width="148" height="10" rx="5" fill="#FFFFFF" fill-opacity="0.70"></rect>
   <rect x="352" y="704" width="110" height="10" rx="5" fill="#FFFFFF" fill-opacity="0.55"></rect>

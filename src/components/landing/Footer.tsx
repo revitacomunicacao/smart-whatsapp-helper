@@ -1,7 +1,7 @@
 // src/components/Footer.tsx
 import React, { useEffect, useRef, useState } from "react"
 import { Facebook, Instagram, Linkedin, MessageCircle } from "lucide-react"
-import logo from "@/assets/dubrasil-nexa-branco.png"
+import logo from "@/assets/dubrasil-nexa-org.png"
 import qrcode from "@/assets/qr code.png"
 
 function useInView<T extends HTMLElement>(
@@ -54,7 +54,11 @@ const Footer = () => {
                 : "opacity-0 translate-y-3",
             ].join(" ")}
           >
-            <img src={logo} alt="DuBrasil Soluções" className="w-40 max-md:w-36" />
+            <img
+              src={logo}
+              alt="DuBrasil Nexa"
+              className="h-[7.625rem] w-auto md:h-[7.875rem]"
+            />
             <img src={qrcode} alt="DuBrasil Soluções" className="w-[40%] max-w-[180px] max-md:w-1/2" />
           </div>
 

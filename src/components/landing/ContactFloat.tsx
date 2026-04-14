@@ -64,7 +64,7 @@ const ContactFloat = () => {
         aria-label="Ir para o formulário de contato"
         title="Falar com especialista"
       >
-        <WhatsAppIcon className="mr-2.5 h-8 w-8 shrink-0" />
+        <WhatsAppIcon className="mr-3 h-10 w-10 shrink-0 md:h-12 md:w-12" />
         Falar com especialista
       </Button>
     </div>
