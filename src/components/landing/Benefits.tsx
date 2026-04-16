@@ -1,5 +1,5 @@
 import { MessagesSquare, Users, Bot, Shield } from "lucide-react";
-import benefitsBG from "@/assets/nexa - Atender com padrao.jpeg"
+import bgMesh from "@/assets/bg-mesh-dark.jpg";
 
 const blocks = [
   {
@@ -17,7 +17,7 @@ const blocks = [
   {
     id: "operacao",
     icon: Users,
-    title: "Distribuição inteligente e fila organizada (sem “quem responde?”)",
+    title: "Distribuição inteligente e fila organizada (sem \u201Cquem responde?\u201D)",
     description:
       "Estruture departamentos/setores e distribua atendimentos para manter fluidez, padronização e produtividade especialmente quando o volume cresce.",
     bullets: [
@@ -55,17 +55,21 @@ const blocks = [
 const Benefits = () => {
   return (
     <section
-      className="bg-cover bg-center bg-no-repeat py-20 max-md:py-14 md:py-28"
-      style={{ backgroundImage: `url(${benefitsBG})` }}
+      className="relative py-20 max-md:py-14 md:py-28 overflow-hidden"
     >
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${bgMesh})` }}
+      />
+      <div className="absolute inset-0 bg-brand-surface/50" />
 
-      <div className="container mx-auto px-4">
+      <div className="container relative z-10 mx-auto px-4">
         <div className="mb-14 max-w-3xl max-md:mb-10">
           <h2 className="text-3xl font-semibold tracking-tight text-white max-md:text-balance md:text-4xl lg:text-5xl">
             Estrutura para atender com padrão, velocidade e visibilidade
           </h2>
-          <p className="mt-5 text-lg text-white">
-            Multicanal de verdade, operação no controle e automação sem prometer “milagre”.
+          <p className="mt-5 text-lg text-white/80">
+            Multicanal de verdade, operação no controle e automação sem prometer "milagre".
           </p>
         </div>
 
@@ -74,25 +78,25 @@ const Benefits = () => {
             <div
               key={block.id}
               id={block.id}
-              className="scroll-mt-24 animate-fade-in rounded-2xl border border-border bg-card/70 p-6 shadow-card md:p-8"
+              className="scroll-mt-24 animate-fade-in rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 md:p-8"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="flex items-start gap-3 max-md:flex-col max-md:items-stretch max-md:gap-3 md:gap-4">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 max-md:mx-auto">
-                  <block.icon className="h-6 w-6 text-primary" />
+              <div className="flex items-start gap-4 max-md:flex-col max-md:items-center max-md:text-center">
+                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-white/10 border border-white/15">
+                  <block.icon className="h-7 w-7 text-white/80" strokeWidth={1.5} />
                 </div>
 
-                <div className="min-w-0 flex-1 max-md:text-center">
-                  <h3 className="text-xl font-semibold text-foreground max-md:text-balance md:text-2xl">
+                <div className="min-w-0 flex-1">
+                  <h3 className="text-xl font-semibold text-white max-md:text-balance md:text-2xl">
                     {block.title}
                   </h3>
-                  <p className="mt-3 text-muted-foreground leading-relaxed">
+                  <p className="mt-3 text-white/70 leading-relaxed">
                     {block.description}
                   </p>
-                  <ul className="mt-5 space-y-2 text-sm md:text-base text-muted-foreground">
+                  <ul className="mt-5 space-y-2 text-sm md:text-base text-white/60">
                     {block.bullets.map((b) => (
-                      <li key={b} className="flex gap-2">
-                        <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary/60" />
+                      <li key={b} className="flex gap-2 max-md:justify-center">
+                        <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-white/40" />
                         <span>{b}</span>
                       </li>
                     ))}
