@@ -65,24 +65,37 @@ const ContactForm = () => {
       style={{ backgroundImage: `url(${nexaBG})` }}
       id="contato"
     >
-      <div className="absolute inset-0 bg-black/50" />
-      <div className="absolute -top-24 -left-24 w-96 h-96 bg-white/10 rounded-full blur-3xl" />
-      <div className="absolute -bottom-24 -right-24 w-[28rem] h-[28rem] bg-black/20 rounded-full blur-3xl" />
+      <div className="absolute inset-0 bg-black/55" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/55 to-black/35" />
+      <div className="absolute -top-24 -left-24 h-96 w-96 rounded-full bg-white/10 blur-3xl" />
+      <div className="absolute -bottom-24 -right-24 h-[28rem] w-[28rem] rounded-full bg-white/5 blur-3xl" />
 
       <div className="container relative z-10 mx-auto px-4">
-        <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
-          <h2 className="mb-5 mt-2 text-3xl font-bold text-white max-md:text-balance md:text-4xl lg:text-5xl">
-            Pronto para <span className="text-primary">transformar</span> seu atendimento?
-          </h2>
-          <p className="mb-10 max-w-2xl text-lg text-white/85 max-md:mb-8 max-md:text-base max-md:text-balance">
-            Preencha o formulário e nossa equipe entrará em contato para mostrar como o DuBrasil Nexa pode ajudar seu
-            negócio.
-          </p>
-        </div>
+        <div className="grid items-start gap-10 lg:grid-cols-12 lg:gap-12">
+          {/* Textos */}
+          <div className="lg:col-span-6">
+            <h2 className="mt-2 text-4xl font-semibold tracking-tight text-white max-md:text-balance md:text-5xl lg:text-6xl">
+              Pronto para <span className="text-primary">transformar</span> seu atendimento?
+            </h2>
 
-        <div className="mx-auto w-full max-w-xl">
-          <div className="rounded-2xl border border-border bg-card p-6 shadow-card max-md:p-5 md:p-8">
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+            <p className="mt-5 text-2xl font-medium leading-tight text-white/95 max-md:text-balance md:text-3xl">
+              Vamos construir{" "}
+              <span className="text-primary drop-shadow-[0_0_22px_hsl(var(--primary)/0.35)]">
+                essa história
+              </span>
+              .
+            </p>
+
+            <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/80 max-md:text-base">
+              Preencha o formulário e fale com um especialista. A gente te mostra, na prática,
+              como centralizar conversas, distribuir atendimentos e ganhar previsibilidade na operação.
+            </p>
+          </div>
+
+          {/* Formulário */}
+          <div className="lg:col-span-6">
+            <div className="rounded-2xl border border-white/15 bg-background/90 p-6 shadow-card backdrop-blur-sm max-md:p-5 md:p-8">
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
               <div>
                 <label htmlFor="name" className="mb-2 block text-sm font-medium text-foreground">
                   Nome completo
@@ -155,6 +168,7 @@ const ContactForm = () => {
             </form>
           </div>
         </div>
+      </div>
       </div>
     </section>
   );

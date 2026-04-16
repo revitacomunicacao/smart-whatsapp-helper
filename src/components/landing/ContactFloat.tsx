@@ -59,7 +59,7 @@ const ContactFloat = () => {
 
       <Button
         type="button"
-        className="h-12 rounded-full px-4 text-sm shadow-glow max-md:max-w-[min(19rem,calc(100vw-2rem))] md:h-14 md:px-6 md:text-base"
+        className="h-12 rounded-full px-4 text-sm max-md:max-w-[min(19rem,calc(100vw-2rem))] md:h-14 md:px-6 md:text-base"
         onClick={scrollToContato}
         aria-label="Ir para o formulário de contato"
         title="Falar com especialista"
