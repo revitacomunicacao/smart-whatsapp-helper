@@ -34,7 +34,7 @@ const Hero = () => {
             <div className="lg:-translate-y-3">
               <Badge
                 variant="secondary"
-                className="inline-flex max-w-[min(100%,22rem)] items-center gap-2 px-3 py-1.5 text-left text-[0.7rem] font-medium leading-snug md:px-4 md:py-2 md:text-sm"
+                className="inline-flex items-center gap-2 px-3 py-1.5 text-left text-[0.7rem] font-medium leading-snug md:px-4 md:py-2 md:text-sm"
               >
                 <Sparkles className="h-3.5 w-3.5 shrink-0 text-primary md:h-4 md:w-4" />
                 <span>RESPOSTA RÁPIDA • IMPLANTAÇÃO ORIENTADA • TIME NO CONTROLE</span>
@@ -48,7 +48,7 @@ const Hero = () => {
           >
             <span className="block lg:translate-x-1">
               <span className="text-white">DuBrasil Nexa</span>
-              <span className="mt-3 block text-2xl font-medium text-white max-md:text-balance md:mt-3 md:text-3xl lg:text-3xl">
+              <span className="mt-3 block text-2xl font-medium text-[#68767d] max-md:text-balance md:mt-3 md:text-3xl lg:text-3xl">
                 Atendimento multicanal para vender e atender com mais controle e agilidade
               </span>
             </span>
@@ -58,7 +58,7 @@ const Hero = () => {
             className="max-w-2xl animate-fade-in text-lg text-white max-md:text-balance md:text-xl"
             style={{ animationDelay: "0.2s" }}
           >
-            <span className="block lg:translate-x-6 lg:translate-y-1">
+            <span className="block lg:translate-y-1">
               Centralize conversas em um só lugar, distribua atendimentos por equipe e acelere
               respostas com automações mantendo histórico, padrão e visibilidade da operação.
             </span>

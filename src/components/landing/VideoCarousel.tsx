@@ -22,6 +22,7 @@ const isVideoUrl = (url: string) => {
 }
 
 const slides: VideoSlide[] = [
+
   {
     id: 1,
     videoUrl: banner,
@@ -41,7 +42,7 @@ const slides: VideoSlide[] = [
     videoUrl: fullbanner02,
     title: [
       { text: "Automatize\n" },
-      { text: "SEUS PROCESSOS", emphasize: true },
+      { text: "seus Processos", emphasize: true },
     ],
     subtitle: [
       { text: "Mais " },

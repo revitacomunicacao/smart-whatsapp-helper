@@ -1,11 +1,10 @@
-import { MessagesSquare, Users, Bot, Shield } from "lucide-react";
+import { Inbox, Route, Zap, ShieldCheck } from "lucide-react";
 import bgMesh from "@/assets/bg-mesh-dark.jpg";
-import simbolo from "@/assets/simbolo-dubrasil.png";
 
 const blocks = [
   {
     id: "multicanal",
-    icon: MessagesSquare,
+    icon: Inbox,
     title: "Atenda seus clientes onde eles estão em um único painel",
     description:
       "Reúna canais como WhatsApp e redes sociais em uma inbox centralizada, com histórico por cliente e visão do que está acontecendo em tempo real.",
@@ -17,7 +16,7 @@ const blocks = [
   },
   {
     id: "operacao",
-    icon: Users,
+    icon: Route,
     title: "Distribuição inteligente e fila organizada (sem \u201Cquem responde?\u201D)",
     description:
       "Estruture departamentos/setores e distribua atendimentos para manter fluidez, padronização e produtividade especialmente quando o volume cresce.",
@@ -29,7 +28,7 @@ const blocks = [
   },
   {
     id: "automacao",
-    icon: Bot,
+    icon: Zap,
     title: "Automação para acelerar e humano quando importa",
     description:
       "Use chatbots/automação para perguntas frequentes, triagem e respostas iniciais, mantendo sua equipe focada no que realmente exige decisão humana.",
@@ -41,7 +40,7 @@ const blocks = [
   },
   {
     id: "whatsapp-api",
-    icon: Shield,
+    icon: ShieldCheck,
     title: "WhatsApp em escala com mais segurança",
     description:
       "Para operação profissional, o ideal é trabalhar com estrutura de atendimento escalável e boas práticas incluindo possibilidade de API oficial, multiatendimento no mesmo número e conformidade de uso.",
@@ -51,14 +50,6 @@ const blocks = [
       "Boas práticas de segurança e LGPD (processo e acesso)",
     ],
   },
-];
-
-/* Positions for a circular/arc layout around the center symbol - left side */
-const cardPositions = [
-  { top: "0%", left: "0%" },
-  { top: "28%", left: "5%" },
-  { top: "56%", left: "5%" },
-  { top: "84%", left: "0%" },
 ];
 
 const Benefits = () => {
@@ -73,7 +64,7 @@ const Benefits = () => {
       <div className="absolute inset-0 bg-brand-surface/50" />
 
       <div className="container relative z-10 mx-auto px-4">
-        <div className="mb-14 max-w-3xl max-md:mb-10">
+        <div className="mb-14 mx-auto max-w-4xl text-center max-md:mb-10">
           <h2 className="text-3xl font-semibold tracking-tight text-white max-md:text-balance md:text-4xl lg:text-5xl">
             Estrutura para atender com padrão, velocidade e visibilidade
           </h2>
@@ -82,59 +73,34 @@ const Benefits = () => {
           </p>
         </div>
 
-        {/* Desktop: Cards left + Symbol right */}
-        <div className="hidden lg:grid lg:grid-cols-12 lg:gap-8 lg:items-center">
-          {/* Cards - left side in slight arc */}
-          <div className="lg:col-span-6 space-y-5 max-w-2xl">
-            {blocks.map((block, index) => (
-              <div
-                key={block.id}
-                id={block.id}
-                className="scroll-mt-24 animate-fade-in rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-5 md:p-6 transition-transform hover:translate-x-1"
-                style={{
-                  animationDelay: `${index * 0.1}s`,
-                  // Cria sensação de “movimento” na coluna (leve arco)
-                  marginLeft:
-                    index === 0 ? "0" :
-                      index === 1 ? "1rem" :
-                        index === 2 ? "2rem" :
-                          "0.5rem",
-                }}
-              >
-                <div className="flex items-start gap-4">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white/10 border border-white/15">
-                    <block.icon className="h-6 w-6 text-white/80" strokeWidth={1.5} />
-                  </div>
-                  <div className="min-w-0 flex-1">
-                    <h3 className="text-lg font-semibold text-white">
-                      {block.title}
-                    </h3>
-                    <p className="mt-2 text-sm text-white/70 leading-relaxed">
-                      {block.description}
-                    </p>
-                    <ul className="mt-3 space-y-1.5 text-sm text-white/60">
-                      {block.bullets.map((b) => (
-                        <li key={b} className="flex gap-2">
-                          <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-white/40" />
-                          <span>{b}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+        {/* Desktop: grid 2x2 */}
+        <div className="hidden lg:grid lg:grid-cols-2 lg:gap-6">
+          {blocks.map((block, index) => (
+            <div
+              key={block.id}
+              id={block.id}
+              className="scroll-mt-24 animate-fade-in rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-5 md:p-6 transition-transform hover:-translate-y-0.5"
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
+              <div className="flex items-start gap-4">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white/10 border border-white/15">
+                  <block.icon className="h-6 w-6 text-white/80" strokeWidth={1.5} />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <h3 className="text-lg font-semibold text-white">{block.title}</h3>
+                  <p className="mt-2 text-sm text-white/70 leading-relaxed">{block.description}</p>
+                  <ul className="mt-3 space-y-1.5 text-sm text-white/60">
+                    {block.bullets.map((b) => (
+                      <li key={b} className="flex gap-2">
+                        <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-white/40" />
+                        <span>{b}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
-            ))}
-          </div>
-
-          {/* Symbol - right side, centered vertically */}
-          <div className="lg:col-span-6 flex items-center justify-center">
-            <img
-              src={simbolo}
-              alt="DuBrasil"
-              className="h-[26rem] w-[26rem] object-contain opacity-35 select-none"
-              draggable={false}
-            />
-          </div>
+            </div>
+          ))}
         </div>
 
         {/* Mobile: simple stack */}

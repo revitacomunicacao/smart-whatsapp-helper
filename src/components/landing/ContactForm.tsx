@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Send } from "lucide-react";
-import bgMeshAlt from "@/assets/bg-mesh-dark-alt.jpg";
+import bgMeshAlt from "@/assets/bgcontact.png";
 import simbolo from "@/assets/simbolo-dubrasil.png";
 
 const WHATSAPP_NUMBER = "5534996367430";

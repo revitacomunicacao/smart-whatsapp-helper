@@ -21,9 +21,9 @@ const SuporteHumanizadoAlt = () => {
       />
 
       <div className="relative z-10 mx-auto max-w-6xl px-4">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid gap-12 items-center lg:grid-cols-12">
           {/* Left - Text content */}
-          <div className="space-y-6 max-md:text-center">
+          <div className="space-y-6 max-md:text-center lg:col-span-7">
             <motion.p
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -41,7 +41,9 @@ const SuporteHumanizadoAlt = () => {
               transition={{ duration: 0.5, delay: 0.05 }}
               className="text-3xl font-bold leading-tight text-white max-md:text-balance md:text-5xl"
             >
-              Atendimento de verdade, quando você precisar
+              <span className="text-[#68767d] md:whitespace-nowrap">Atendimento de verdade,</span>
+              <br />
+              quando você precisar
             </motion.h2>
 
             <motion.p
@@ -81,7 +83,7 @@ const SuporteHumanizadoAlt = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="space-y-4 max-md:max-w-sm max-md:mx-auto"
+            className="space-y-4 max-md:max-w-sm max-md:mx-auto lg:col-span-5"
           >
             {highlights.map((item, i) => (
               <div
