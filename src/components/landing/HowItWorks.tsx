@@ -2,6 +2,7 @@ import demoInbox from "@/assets/demo-inbox.jpeg";
 import demoQueue from "@/assets/demo-queue.jpeg";
 import demoAutomation from "@/assets/demo-automation.jpeg";
 import bgMeshAlt from "@/assets/bg-mesh-dark-alt.jpg";
+import bgMeshDemo from "@/assets/bg-mesh-demo.jpg";
 import { ClipboardList, Settings, GraduationCap, SlidersHorizontal } from "lucide-react";
 import { useState } from "react";
 
@@ -119,12 +120,17 @@ function ZoomOnHover({ src, alt, lensSize = 260, zoom = 2.6 }: { src: string; al
 const HowItWorks = () => {
   return (
     <section id="implantacao" className="relative overflow-hidden">
-      {/* Demo section - light bg */}
-      <div className="bg-secondary py-20 max-md:py-14 md:py-28">
-        <div className="w-full">
+      {/* Demo section - dark bg */}
+      <div className="relative py-20 max-md:py-14 md:py-28">
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${bgMeshDemo})` }}
+        />
+        <div className="absolute inset-0 bg-brand-surface/40" />
+        <div className="relative z-10 w-full">
           <div id="demo" className="scroll-mt-24">
             <div className="px-4 md:px-6">
-              <h2 className="text-center text-3xl font-semibold tracking-tight max-md:px-1 max-md:text-balance md:text-4xl lg:text-5xl">
+              <h2 className="text-center text-3xl font-semibold tracking-tight text-white max-md:px-1 max-md:text-balance md:text-4xl lg:text-5xl">
                 Como funciona na prática
               </h2>
             </div>
