@@ -155,6 +155,7 @@ const HowItWorks = () => {
             </div>
           </div>
         </div>
+        </div>
       </div>
 
       {/* Implantação section - dark mesh bg */}
