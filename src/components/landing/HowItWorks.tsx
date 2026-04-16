@@ -183,20 +183,28 @@ const HowItWorks = () => {
             {steps.map((step, index) => (
               <div
                 key={step.number}
-                className="animate-fade-in flex flex-col items-center text-center gap-4"
+                className="animate-fade-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="relative">
-                  <div className="flex h-20 w-20 items-center justify-center rounded-full bg-white/10 backdrop-blur-sm border border-white/15 shadow-lg">
-                    <step.icon className="h-9 w-9 text-white/80" strokeWidth={1.5} />
+                <div
+                  className={[
+                    "flex flex-col items-center text-center gap-4",
+                    // Sensação de “arco” no desktop: pontas mais altas, meio um pouco mais baixo
+                    index === 0 || index === steps.length - 1 ? "lg:-translate-y-6" : "lg:translate-y-4",
+                  ].join(" ")}
+                >
+                  <div className="relative">
+                    <div className="flex h-20 w-20 items-center justify-center rounded-full bg-white/10 backdrop-blur-sm border border-white/15 shadow-lg">
+                      <step.icon className="h-9 w-9 text-white/80" strokeWidth={1.5} />
+                    </div>
+                    <span className="absolute -top-1 -right-1 w-7 h-7 rounded-full bg-white/20 backdrop-blur-sm border border-white/20 flex items-center justify-center text-xs font-bold text-white">
+                      {step.number}
+                    </span>
                   </div>
-                  <span className="absolute -top-1 -right-1 w-7 h-7 rounded-full bg-white/20 backdrop-blur-sm border border-white/20 flex items-center justify-center text-xs font-bold text-white">
-                    {step.number}
-                  </span>
-                </div>
-                <div>
-                  <p className="text-base font-semibold text-white">{step.title}</p>
-                  <p className="mt-2 text-sm text-white/60 leading-relaxed">{step.description}</p>
+                  <div>
+                    <p className="text-base font-semibold text-white">{step.title}</p>
+                    <p className="mt-2 text-sm text-white/60 leading-relaxed">{step.description}</p>
+                  </div>
                 </div>
               </div>
             ))}

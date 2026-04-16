@@ -85,7 +85,7 @@ const Benefits = () => {
         {/* Desktop: Cards left + Symbol right */}
         <div className="hidden lg:grid lg:grid-cols-12 lg:gap-8 lg:items-center">
           {/* Cards - left side in slight arc */}
-          <div className="lg:col-span-7 space-y-5">
+          <div className="lg:col-span-6 space-y-5 max-w-2xl">
             {blocks.map((block, index) => (
               <div
                 key={block.id}
@@ -93,7 +93,12 @@ const Benefits = () => {
                 className="scroll-mt-24 animate-fade-in rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-5 md:p-6 transition-transform hover:translate-x-1"
                 style={{
                   animationDelay: `${index * 0.1}s`,
-                  marginLeft: index === 1 || index === 2 ? "2rem" : "0",
+                  // Cria sensação de “movimento” na coluna (leve arco)
+                  marginLeft:
+                    index === 0 ? "0" :
+                      index === 1 ? "1rem" :
+                        index === 2 ? "2rem" :
+                          "0.5rem",
                 }}
               >
                 <div className="flex items-start gap-4">
@@ -122,11 +127,11 @@ const Benefits = () => {
           </div>
 
           {/* Symbol - right side, centered vertically */}
-          <div className="lg:col-span-5 flex items-center justify-center">
+          <div className="lg:col-span-6 flex items-center justify-center">
             <img
               src={simbolo}
               alt="DuBrasil"
-              className="w-72 h-72 object-contain opacity-20 select-none"
+              className="h-[26rem] w-[26rem] object-contain opacity-35 select-none"
               draggable={false}
             />
           </div>

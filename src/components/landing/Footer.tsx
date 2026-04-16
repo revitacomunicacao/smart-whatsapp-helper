@@ -57,7 +57,7 @@ const Footer = () => {
             <img
               src={logo}
               alt="DuBrasil Nexa"
-              className="h-[7.625rem] w-auto md:h-[7.875rem]"
+              className="h-[9.5rem] w-auto md:h-[10.75rem]"
             />
             <img src={qrcode} alt="DuBrasil Soluções" className="w-[40%] max-w-[180px] max-md:w-1/2" />
           </div>

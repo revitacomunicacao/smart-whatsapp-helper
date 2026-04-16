@@ -69,12 +69,15 @@ const ContactForm = () => {
       <div className="container relative z-10 mx-auto px-4">
         <div className="grid items-start gap-10 lg:grid-cols-12 lg:gap-12">
           {/* Textos */}
-          <div className="lg:col-span-6">
-            <img
-              src={simbolo}
-              alt="DuBrasil"
-              className="w-20 h-20 object-contain opacity-30 mb-6"
-            />
+          <div className="lg:col-span-6 text-center flex flex-col items-center">
+            <div className="mb-8 flex justify-center lg:justify-center">
+              <img
+                src={simbolo}
+                alt="DuBrasil"
+                className="h-28 w-28 object-contain opacity-40"
+                draggable={false}
+              />
+            </div>
 
             <h2 className="mt-2 text-4xl font-semibold tracking-tight text-white max-md:text-balance md:text-5xl lg:text-6xl">
               Pronto para <span className="text-primary">transformar</span> seu atendimento?

@@ -86,7 +86,11 @@ const SuporteHumanizadoAlt = () => {
             {highlights.map((item, i) => (
               <div
                 key={item.label}
-                className="flex items-center gap-5 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-5 transition-all hover:bg-white/10 hover:border-white/20"
+                className={[
+                  "flex items-center gap-5 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-5 transition-all hover:bg-white/10 hover:border-white/20",
+                  // Sensação de movimento no desktop: cria um “arco” suave na coluna
+                  i === 0 ? "lg:-translate-x-2" : i === 1 ? "lg:translate-x-6" : "lg:translate-x-1",
+                ].join(" ")}
                 style={{ animationDelay: `${i * 0.1}s` }}
               >
                 <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-white/10 border border-white/15">
