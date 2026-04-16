@@ -41,7 +41,7 @@ const Footer = () => {
   const { ref, inView } = useInView<HTMLElement>({ threshold: 0.2, once: true })
 
   return (
-    <footer ref={ref} className="border-t-4 border-primary bg-brand-surface text-white">
+    <footer ref={ref} className="relative border-t-4 border-primary text-white" style={{ background: "linear-gradient(180deg, hsl(210 100% 8%) 0%, hsl(210 100% 5%) 100%)" }}>
       {/* Top */}
       <div className="container mx-auto px-4 py-12 max-md:py-10">
         <div className="grid grid-cols-1 gap-10 max-md:gap-8 md:grid-cols-12 md:gap-8">
