@@ -1,11 +1,5 @@
 import { Star, Quote } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
-
-// ========================================
-// TROQUE A IMAGEM AQUI:
-// Basta substituir a URL abaixo pela sua imagem
-// ========================================
-const PARALLAX_BG_IMAGE = "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1920&q=80";
+import bgMeshAlt from "@/assets/bg-mesh-dark-alt.jpg";
 
 const testimonials = [
   {
@@ -47,61 +41,25 @@ const testimonials = [
 ];
 
 const Testimonials = () => {
-  const sectionRef = useRef<HTMLElement>(null);
-  const [scrollY, setScrollY] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (sectionRef.current) {
-        const rect = sectionRef.current.getBoundingClientRect();
-        const windowHeight = window.innerHeight;
-        const sectionHeight = rect.height;
-        
-        if (rect.top < windowHeight && rect.bottom > 0) {
-          const progress = (windowHeight - rect.top) / (windowHeight + sectionHeight);
-          setScrollY(progress);
-        }
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const parallaxOffset = scrollY * 100;
-
   return (
     <section
-      ref={sectionRef}
       id="depoimentos"
-      className="py-20 md:py-32 relative overflow-hidden"
+      className="relative py-20 md:py-32 overflow-hidden"
     >
-      {/* Parallax Background Image */}
       <div
-        className="absolute inset-0 -z-10"
-        style={{
-          transform: `translateY(${-parallaxOffset * 0.3}px)`,
-        }}
-      >
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-110"
-          style={{
-            backgroundImage: `url('${PARALLAX_BG_IMAGE}')`,
-          }}
-        />
-        {/* Dark overlay for readability */}
-        <div className="absolute inset-0 bg-brand-surface/75" />
-      </div>
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${bgMeshAlt})` }}
+      />
+      <div className="absolute inset-0 bg-brand-surface/50" />
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container relative z-10 mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-primary-foreground/80 font-semibold text-sm uppercase tracking-wider">
+          <span className="text-white/50 font-semibold text-sm uppercase tracking-wider">
             Depoimentos
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-4 mb-6 text-primary-foreground">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mt-4 mb-6 text-white">
             Clientes que{" "}
-            <span className="text-accent">confiam em nós</span>
+            <span className="text-primary">confiam em nós</span>
           </h2>
         </div>
 
@@ -109,34 +67,30 @@ const Testimonials = () => {
           {testimonials.map((testimonial, index) => (
             <div
               key={testimonial.name}
-              className="bg-card/95 backdrop-blur-sm rounded-2xl p-6 border border-border hover:shadow-card transition-all duration-300 animate-fade-in"
+              className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-white/20 transition-all duration-300 animate-fade-in"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              {/* Quote Icon */}
-              <Quote className="w-8 h-8 text-primary/20 mb-4" />
+              <Quote className="w-8 h-8 text-white/15 mb-4" />
 
-              {/* Rating */}
               <div className="flex gap-1 mb-4">
                 {Array.from({ length: testimonial.rating }).map((_, i) => (
                   <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
                 ))}
               </div>
 
-              {/* Content */}
-              <p className="text-muted-foreground mb-6 leading-relaxed">
+              <p className="text-white/70 mb-6 leading-relaxed">
                 "{testimonial.content}"
               </p>
 
-              {/* Author */}
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                  <span className="text-primary font-semibold text-sm">
+                <div className="w-10 h-10 rounded-full bg-white/10 border border-white/15 flex items-center justify-center">
+                  <span className="text-white/80 font-semibold text-sm">
                     {testimonial.name.charAt(0)}
                   </span>
                 </div>
                 <div>
-                  <p className="font-semibold text-sm text-foreground">{testimonial.name}</p>
-                  <p className="text-xs text-muted-foreground">{testimonial.role}</p>
+                  <p className="font-semibold text-sm text-white">{testimonial.name}</p>
+                  <p className="text-xs text-white/50">{testimonial.role}</p>
                 </div>
               </div>
             </div>

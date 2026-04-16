@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Send } from "lucide-react";
-import nexaBG from "@/assets/nexabg.jpeg"
+import bgMeshAlt from "@/assets/bg-mesh-dark-alt.jpg";
 
 const WHATSAPP_NUMBER = "5534996367430";
 
@@ -46,8 +46,6 @@ const ContactForm = () => {
       `Mensagem:\n${data.message}`;
 
     const url = `${whatsappBaseUrl}${encodeURIComponent(message)}`;
-
-    // Abre o WhatsApp com a mensagem pronta (sem envio por e-mail).
     window.open(url, "_blank", "noopener,noreferrer");
 
     toast({
@@ -61,14 +59,11 @@ const ContactForm = () => {
 
   return (
     <section
-      className="relative bg-cover bg-center py-24 max-md:py-16"
-      style={{ backgroundImage: `url(${nexaBG})` }}
+      className="relative py-24 max-md:py-16 overflow-hidden"
+      style={{ backgroundImage: `url(${bgMeshAlt})`, backgroundSize: "cover", backgroundPosition: "center" }}
       id="contato"
     >
-      <div className="absolute inset-0 bg-black/55" />
-      <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/55 to-black/35" />
-      <div className="absolute -top-24 -left-24 h-96 w-96 rounded-full bg-white/10 blur-3xl" />
-      <div className="absolute -bottom-24 -right-24 h-[28rem] w-[28rem] rounded-full bg-white/5 blur-3xl" />
+      <div className="absolute inset-0 bg-brand-surface/50" />
 
       <div className="container relative z-10 mx-auto px-4">
         <div className="grid items-start gap-10 lg:grid-cols-12 lg:gap-12">
@@ -86,7 +81,7 @@ const ContactForm = () => {
               .
             </p>
 
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/80 max-md:text-base">
+            <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/70 max-md:text-base">
               Preencha o formulário e fale com um especialista. A gente te mostra, na prática,
               como centralizar conversas, distribuir atendimentos e ganhar previsibilidade na operação.
             </p>
@@ -94,23 +89,23 @@ const ContactForm = () => {
 
           {/* Formulário */}
           <div className="lg:col-span-6">
-            <div className="rounded-2xl border border-white/15 bg-background/90 p-6 shadow-card backdrop-blur-sm max-md:p-5 md:p-8">
+            <div className="rounded-2xl border border-white/15 bg-white/5 backdrop-blur-sm p-6 shadow-card max-md:p-5 md:p-8">
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
               <div>
-                <label htmlFor="name" className="mb-2 block text-sm font-medium text-foreground">
+                <label htmlFor="name" className="mb-2 block text-sm font-medium text-white">
                   Nome completo
                 </label>
                 <Input
                   id="name"
                   placeholder="Seu nome"
                   {...register("name")}
-                  className={errors.name ? "border-destructive" : ""}
+                  className={`bg-white/10 border-white/20 text-white placeholder:text-white/40 ${errors.name ? "border-destructive" : ""}`}
                 />
                 {errors.name && <p className="mt-1 text-sm text-destructive">{errors.name.message}</p>}
               </div>
 
               <div>
-                <label htmlFor="email" className="mb-2 block text-sm font-medium text-foreground">
+                <label htmlFor="email" className="mb-2 block text-sm font-medium text-white">
                   Email
                 </label>
                 <Input
@@ -118,26 +113,26 @@ const ContactForm = () => {
                   type="email"
                   placeholder="seu@email.com"
                   {...register("email")}
-                  className={errors.email ? "border-destructive" : ""}
+                  className={`bg-white/10 border-white/20 text-white placeholder:text-white/40 ${errors.email ? "border-destructive" : ""}`}
                 />
                 {errors.email && <p className="mt-1 text-sm text-destructive">{errors.email.message}</p>}
               </div>
 
               <div>
-                <label htmlFor="phone" className="mb-2 block text-sm font-medium text-foreground">
+                <label htmlFor="phone" className="mb-2 block text-sm font-medium text-white">
                   WhatsApp
                 </label>
                 <Input
                   id="phone"
                   placeholder="(11) 99999-9999"
                   {...register("phone")}
-                  className={errors.phone ? "border-destructive" : ""}
+                  className={`bg-white/10 border-white/20 text-white placeholder:text-white/40 ${errors.phone ? "border-destructive" : ""}`}
                 />
                 {errors.phone && <p className="mt-1 text-sm text-destructive">{errors.phone.message}</p>}
               </div>
 
               <div>
-                <label htmlFor="message" className="mb-2 block text-sm font-medium text-foreground">
+                <label htmlFor="message" className="mb-2 block text-sm font-medium text-white">
                   Mensagem
                 </label>
                 <Textarea
@@ -145,7 +140,7 @@ const ContactForm = () => {
                   placeholder="Conte-nos sobre seu negócio e como podemos ajudar..."
                   rows={4}
                   {...register("message")}
-                  className={errors.message ? "border-destructive" : ""}
+                  className={`bg-white/10 border-white/20 text-white placeholder:text-white/40 ${errors.message ? "border-destructive" : ""}`}
                 />
                 {errors.message && <p className="mt-1 text-sm text-destructive">{errors.message.message}</p>}
               </div>
@@ -153,7 +148,7 @@ const ContactForm = () => {
               <Button
                 type="submit"
                 size="lg"
-                className="w-full min-h-12 shadow-glow max-md:text-base"
+                className="w-full min-h-12 bg-white text-brand-surface hover:bg-white/90 font-semibold max-md:text-base"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? (
