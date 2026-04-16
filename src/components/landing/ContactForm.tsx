@@ -8,6 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Send } from "lucide-react";
 import bgMeshAlt from "@/assets/bg-mesh-dark-alt.jpg";
+import simbolo from "@/assets/simbolo-dubrasil.png";
 
 const WHATSAPP_NUMBER = "5534996367430";
 
@@ -69,6 +70,12 @@ const ContactForm = () => {
         <div className="grid items-start gap-10 lg:grid-cols-12 lg:gap-12">
           {/* Textos */}
           <div className="lg:col-span-6">
+            <img
+              src={simbolo}
+              alt="DuBrasil"
+              className="w-20 h-20 object-contain opacity-30 mb-6"
+            />
+
             <h2 className="mt-2 text-4xl font-semibold tracking-tight text-white max-md:text-balance md:text-5xl lg:text-6xl">
               Pronto para <span className="text-primary">transformar</span> seu atendimento?
             </h2>
@@ -79,11 +86,6 @@ const ContactForm = () => {
                 essa história
               </span>
               .
-            </p>
-
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/70 max-md:text-base">
-              Preencha o formulário e fale com um especialista. A gente te mostra, na prática,
-              como centralizar conversas, distribuir atendimentos e ganhar previsibilidade na operação.
             </p>
           </div>
 

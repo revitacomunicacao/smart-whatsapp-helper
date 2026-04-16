@@ -1,5 +1,6 @@
 import { MessagesSquare, Users, Bot, Shield } from "lucide-react";
 import bgMesh from "@/assets/bg-mesh-dark.jpg";
+import simbolo from "@/assets/simbolo-dubrasil.png";
 
 const blocks = [
   {
@@ -52,6 +53,14 @@ const blocks = [
   },
 ];
 
+/* Positions for a circular/arc layout around the center symbol - left side */
+const cardPositions = [
+  { top: "0%", left: "0%" },
+  { top: "28%", left: "5%" },
+  { top: "56%", left: "5%" },
+  { top: "84%", left: "0%" },
+];
+
 const Benefits = () => {
   return (
     <section
@@ -73,29 +82,79 @@ const Benefits = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-6 md:gap-8">
+        {/* Desktop: Cards left + Symbol right */}
+        <div className="hidden lg:grid lg:grid-cols-12 lg:gap-8 lg:items-center">
+          {/* Cards - left side in slight arc */}
+          <div className="lg:col-span-7 space-y-5">
+            {blocks.map((block, index) => (
+              <div
+                key={block.id}
+                id={block.id}
+                className="scroll-mt-24 animate-fade-in rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-5 md:p-6 transition-transform hover:translate-x-1"
+                style={{
+                  animationDelay: `${index * 0.1}s`,
+                  marginLeft: index === 1 || index === 2 ? "2rem" : "0",
+                }}
+              >
+                <div className="flex items-start gap-4">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white/10 border border-white/15">
+                    <block.icon className="h-6 w-6 text-white/80" strokeWidth={1.5} />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <h3 className="text-lg font-semibold text-white">
+                      {block.title}
+                    </h3>
+                    <p className="mt-2 text-sm text-white/70 leading-relaxed">
+                      {block.description}
+                    </p>
+                    <ul className="mt-3 space-y-1.5 text-sm text-white/60">
+                      {block.bullets.map((b) => (
+                        <li key={b} className="flex gap-2">
+                          <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-white/40" />
+                          <span>{b}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Symbol - right side, centered vertically */}
+          <div className="lg:col-span-5 flex items-center justify-center">
+            <img
+              src={simbolo}
+              alt="DuBrasil"
+              className="w-72 h-72 object-contain opacity-20 select-none"
+              draggable={false}
+            />
+          </div>
+        </div>
+
+        {/* Mobile: simple stack */}
+        <div className="lg:hidden grid gap-6">
           {blocks.map((block, index) => (
             <div
               key={block.id}
-              id={block.id}
-              className="scroll-mt-24 animate-fade-in rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 md:p-8"
+              id={`${block.id}-mobile`}
+              className="scroll-mt-24 animate-fade-in rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-6"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="flex items-start gap-4 max-md:flex-col max-md:items-center max-md:text-center">
+              <div className="flex flex-col items-center text-center gap-4">
                 <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-white/10 border border-white/15">
                   <block.icon className="h-7 w-7 text-white/80" strokeWidth={1.5} />
                 </div>
-
-                <div className="min-w-0 flex-1">
-                  <h3 className="text-xl font-semibold text-white max-md:text-balance md:text-2xl">
+                <div>
+                  <h3 className="text-xl font-semibold text-white text-balance">
                     {block.title}
                   </h3>
                   <p className="mt-3 text-white/70 leading-relaxed">
                     {block.description}
                   </p>
-                  <ul className="mt-5 space-y-2 text-sm md:text-base text-white/60">
+                  <ul className="mt-4 space-y-2 text-sm text-white/60">
                     {block.bullets.map((b) => (
-                      <li key={b} className="flex gap-2 max-md:justify-center">
+                      <li key={b} className="flex gap-2 justify-center">
                         <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-white/40" />
                         <span>{b}</span>
                       </li>
