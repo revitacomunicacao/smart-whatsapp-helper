@@ -8,7 +8,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Send } from "lucide-react";
 import bgMeshAlt from "@/assets/bgcontact.png";
-import simbolo from "@/assets/simbolo-dubrasil.png";
 
 const WHATSAPP_NUMBER = "5534996367430";
 
@@ -67,29 +66,20 @@ const ContactForm = () => {
       <div className="absolute inset-0 bg-brand-surface/50" />
 
       <div className="container relative z-10 mx-auto px-4">
-        <div className="grid items-start gap-10 lg:grid-cols-12 lg:gap-12">
+        <div className="grid items-stretch gap-10 lg:grid-cols-12 lg:gap-12">
           {/* Textos */}
-          <div className="lg:col-span-6 text-center flex flex-col items-center">
-            <div className="mb-8 flex justify-center lg:justify-center">
-              <img
-                src={simbolo}
-                alt="DuBrasil"
-                className="h-28 w-28 object-contain opacity-40"
-                draggable={false}
-              />
+          <div className="lg:col-span-6 flex h-full flex-col items-center justify-center">
+            <div className="w-full max-w-2xl text-left">
+              <h2 className="mt-2 text-4xl font-semibold tracking-tight text-white max-md:text-balance md:text-5xl lg:text-6xl">
+                Pronto para <span className="text-primary">transformar</span> seu atendimento?
+              </h2>
+
+              <h3 className="mt-5 text-4xl font-semibold leading-[1.05] tracking-tight text-white max-md:text-balance md:text-5xl lg:text-6xl">
+                <span className="block">Vamos</span>
+                <span className="block font-extrabold">construir</span>
+                <span className="block">essa história?</span>
+              </h3>
             </div>
-
-            <h2 className="mt-2 text-4xl font-semibold tracking-tight text-white max-md:text-balance md:text-5xl lg:text-6xl">
-              Pronto para <span className="text-primary">transformar</span> seu atendimento?
-            </h2>
-
-            <p className="mt-5 text-2xl font-medium leading-tight text-white/95 max-md:text-balance md:text-3xl">
-              Vamos construir{" "}
-              <span className="text-primary drop-shadow-[0_0_22px_hsl(var(--primary)/0.35)]">
-                essa história
-              </span>
-              .
-            </p>
           </div>
 
           {/* Formulário */}
