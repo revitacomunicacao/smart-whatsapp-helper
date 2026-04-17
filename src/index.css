@@ -17,8 +17,8 @@
     --popover: 0 0% 100%;
     --popover-foreground: 200 10% 18%;
 
-    /* Marca (base): #68767d */
-    --primary: 200 9% 45%;
+    /* Marca (base): #7A94A2 */
+    --primary: 201 18% 56%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 200 8% 96%;
@@ -27,7 +27,7 @@
     --muted: 200 8% 96%;
     --muted-foreground: 200 6% 42%;
 
-    --accent: 200 9% 38%;
+    --accent: 201 18% 38%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
@@ -35,14 +35,14 @@
 
     --border: 200 6% 88%;
     --input: 200 6% 88%;
-    --ring: 200 9% 45%;
+    --ring: 201 18% 56%;
 
     --radius: 0.75rem;
 
     /* Fundo escuro estável (hero/footer/blocos); não usar --foreground aqui — no dark mode ele clareia */
     --brand-surface: 200 10% 16%;
 
-    --shadow-glow: 0 0 40px hsl(200 9% 45% / 0.35);
+    --shadow-glow: 0 0 40px hsl(201 18% 56% / 0.35);
     --shadow-card: 0 4px 24px hsl(200 10% 18% / 0.1);
   }
 
@@ -58,7 +58,7 @@
     --popover: 200 6% 11%;
     --popover-foreground: 200 10% 96%;
 
-    --primary: 200 7% 60%;
+    --primary: 201 20% 62%;
     --primary-foreground: 200 10% 12%;
 
     --secondary: 200 6% 18%;
@@ -67,7 +67,7 @@
     --muted: 200 6% 18%;
     --muted-foreground: 200 5% 62%;
 
-    --accent: 200 7% 52%;
+    --accent: 201 18% 48%;
     --accent-foreground: 200 10% 10%;
 
     --destructive: 0 62% 30%;
@@ -75,9 +75,9 @@
 
     --border: 200 5% 20%;
     --input: 200 5% 20%;
-    --ring: 200 7% 60%;
+    --ring: 201 20% 62%;
 
-    --shadow-glow: 0 0 40px hsl(200 7% 60% / 0.25);
+    --shadow-glow: 0 0 40px hsl(201 20% 62% / 0.25);
     --shadow-card: 0 4px 24px hsl(0 0% 0% / 0.25);
   }
 }

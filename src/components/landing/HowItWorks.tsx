@@ -2,7 +2,7 @@ import demoInbox from "@/assets/demo-inbox.jpeg";
 import demoQueue from "@/assets/demo-queue.jpeg";
 import demoAutomation from "@/assets/demo-automation.jpeg";
 import bgMeshAlt from "@/assets/bg-mesh-dark-alt.jpg";
-import bgMeshDemo from "@/assets/bg-mesh-demo.jpg";
+import bgMeshDemo from "@/assets/bghow.jpeg";
 import { ClipboardList, Settings, GraduationCap, SlidersHorizontal } from "lucide-react";
 import { useState } from "react";
 
@@ -47,7 +47,7 @@ function clamp(n: number, min: number, max: number) {
   return Math.min(max, Math.max(min, n));
 }
 
-function ZoomOnHover({ src, alt, lensSize = 260, zoom = 2.6 }: { src: string; alt: string; lensSize?: number; zoom?: number }) {
+function ZoomOnHover({ src, alt, lensSize = 260, zoom = 1.65 }: { src: string; alt: string; lensSize?: number; zoom?: number }) {
   const [active, setActive] = useState(false);
   const [pos, setPos] = useState({ x: 0, y: 0 });
   const [natural, setNatural] = useState<{ w: number; h: number } | null>(null);
@@ -63,27 +63,29 @@ function ZoomOnHover({ src, alt, lensSize = 260, zoom = 2.6 }: { src: string; al
         const rect = (e.currentTarget as HTMLDivElement).getBoundingClientRect();
         const px = e.clientX - rect.left;
         const py = e.clientY - rect.top;
-        const scale = Math.min(rect.width / natural.w, rect.height / natural.h);
-        const renderedW = natural.w * scale;
-        const renderedH = natural.h * scale;
+        const nw = natural.w;
+        const nh = natural.h;
+        // object-cover: imagem preenche o card (mesma escala do <img>)
+        const scale = Math.max(rect.width / nw, rect.height / nh);
+        const renderedW = nw * scale;
+        const renderedH = nh * scale;
         const offsetX = (rect.width - renderedW) / 2;
         const offsetY = (rect.height - renderedH) / 2;
-        const imgX = clamp(px - offsetX, 0, renderedW);
-        const imgY = clamp(py - offsetY, 0, renderedH);
-        const lensCenterX = clamp(px, offsetX, offsetX + renderedW);
-        const lensCenterY = clamp(py, offsetY, offsetY + renderedH);
-        setPos({ x: lensCenterX, y: lensCenterY });
-        const bgSizeW = renderedW * zoom;
-        const bgSizeH = renderedH * zoom;
-        const bgPosX = -(imgX * zoom - lensSize / 2);
-        const bgPosY = -(imgY * zoom - lensSize / 2);
+        const nx = clamp((px - offsetX) / scale, 0, nw);
+        const ny = clamp((py - offsetY) / scale, 0, nh);
+        setPos({ x: clamp(px, 0, rect.width), y: clamp(py, 0, rect.height) });
+        // Inteiros em px evitam suavização borrada no background da lupa
+        const bgSizeW = Math.round(nw * zoom);
+        const bgSizeH = Math.round(nh * zoom);
+        const bgPosX = Math.round(-(nx * zoom - lensSize / 2));
+        const bgPosY = Math.round(-(ny * zoom - lensSize / 2));
         setBg({ sizeW: bgSizeW, sizeH: bgSizeH, posX: bgPosX, posY: bgPosY });
       }}
     >
       <img
         src={src}
         alt={alt}
-        className="absolute inset-0 w-full h-full object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+        className="absolute inset-0 h-full w-full object-cover object-center"
         loading="lazy"
         onLoad={(e) => {
           const img = e.currentTarget;
@@ -95,16 +97,16 @@ function ZoomOnHover({ src, alt, lensSize = 260, zoom = 2.6 }: { src: string; al
       <div
         className={[
           "hidden md:block absolute rounded-full",
-          "border border-white/70 shadow-2xl",
+          "border border-white/60 shadow-none",
           "pointer-events-none transition-opacity duration-150",
           active ? "opacity-100" : "opacity-0",
         ].join(" ")}
         style={{
-          left: pos.x,
-          top: pos.y,
+          left: Math.round(pos.x),
+          top: Math.round(pos.y),
           width: lensSize,
           height: lensSize,
-          transform: "translate(-50%, -50%)",
+          transform: "translate3d(-50%, -50%, 0)",
           backgroundImage: `url(${src})`,
           backgroundRepeat: "no-repeat",
           backgroundSize: bg ? `${bg.sizeW}px ${bg.sizeH}px` : "0px 0px",
@@ -121,30 +123,28 @@ const HowItWorks = () => {
   return (
     <section id="implantacao" className="relative overflow-hidden">
       {/* Demo section - dark bg */}
-      <div className="relative py-20 max-md:py-14 md:py-28">
+      <div className="relative flex min-h-[850px] flex-col py-20 max-md:py-14 md:py-28">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${bgMeshDemo})` }}
         />
-        <div className="absolute inset-0 bg-brand-surface/40" />
-        <div className="relative z-10 w-full">
-          <div id="demo" className="scroll-mt-24">
+        <div className="relative z-10 flex w-full flex-1 flex-col justify-center">
+          <div id="demo" className="scroll-mt-24 w-full">
             <div className="px-4 md:px-6">
-              <h2 className="text-center text-3xl font-semibold tracking-tight text-white max-md:px-1 max-md:text-balance md:text-4xl lg:text-5xl">
+              <h2 className="animate-fade-in text-center text-4xl font-bold leading-tight text-white max-md:px-1 max-md:text-balance md:text-5xl lg:text-6xl">
                 Como funciona na prática
               </h2>
             </div>
 
-            <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-3 w-full px-4 md:px-6">
+            <div className="mt-10 grid w-full grid-cols-1 gap-2 px-4 md:grid-cols-3 md:gap-3 md:px-6">
               {demoItems.map((item) => (
                 <div
                   key={item.title}
                   className="group relative h-[280px] overflow-hidden rounded-sm max-md:min-h-[220px] md:h-[260px]"
                 >
                   <ZoomOnHover src={item.image} alt={item.title} />
-                  <div className="absolute inset-0 bg-black/10 pointer-events-none z-10" />
                   <div className="absolute left-0 right-0 bottom-0 z-30">
-                    <div className="h-15 w-full bg-brand-surface/85 px-4 py-3 max-md:py-3 md:px-6 md:py-3">
+                    <div className="h-15 w-full bg-[#7A94A2]/80 px-4 py-3 max-md:py-3 md:px-6 md:py-3">
                       <p className="text-xl font-semibold leading-tight text-white max-md:text-balance md:text-2xl">
                         {item.title}
                       </p>
@@ -158,28 +158,32 @@ const HowItWorks = () => {
       </div>
 
       {/* Implantação section - dark mesh bg */}
-      <div className="relative py-20 max-md:py-14 md:py-28">
+      <div className="relative flex min-h-[850px] flex-col py-20 max-md:py-14 md:py-28">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${bgMeshAlt})` }}
         />
-        <div className="absolute inset-0 bg-brand-surface/40" />
 
-        <div className="relative z-10 mx-auto max-w-5xl px-4">
-          <div className="mx-auto mb-14 max-w-3xl text-center max-md:mb-10">
-            <span className="text-sm font-semibold uppercase tracking-wider text-white/60">
-              Diferencial DuBrasil
-            </span>
-            <h3 className="mt-4 text-3xl font-semibold tracking-tight text-white max-md:text-balance md:text-4xl lg:text-5xl">
-              Nexa funciona porque a implantação é orientada
-            </h3>
-            <p className="text-lg text-white/70 mt-5">
-              A DuBrasil entra para garantir que a plataforma vire rotina real com ajuste fino nas
-              primeiras semanas.
-            </p>
-          </div>
+        <div className="relative z-10 flex w-full flex-1 flex-col justify-center">
+          <div className="mx-auto w-full max-w-5xl px-4">
+            <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
+              <span className="animate-fade-in text-sm font-semibold uppercase tracking-wider text-[#7A94A2]">
+                Diferencial DuBrasil
+              </span>
+              <h3 className="animate-fade-in mt-4 text-4xl font-bold leading-tight text-white max-md:text-balance md:text-5xl lg:text-6xl">
+                Nexa funciona porque a implantação é orientada
+              </h3>
+              <p
+                className="animate-fade-in mx-auto mt-5 w-full max-w-3xl text-lg leading-relaxed text-[#7A94A2] md:text-xl"
+                style={{ animationDelay: "0.2s" }}
+              >
+                A DuBrasil entra para garantir que a plataforma vire rotina real
+                <br />
+                com ajuste fino nas primeiras semanas.
+              </p>
+            </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="mt-10 grid w-full grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {steps.map((step, index) => (
               <div
                 key={step.number}
@@ -194,7 +198,7 @@ const HowItWorks = () => {
                   ].join(" ")}
                 >
                   <div className="relative">
-                    <div className="flex h-20 w-20 items-center justify-center rounded-full bg-white/10 backdrop-blur-sm border border-white/15 shadow-lg">
+                    <div className="flex h-20 w-20 items-center justify-center rounded-full bg-[#7A94A2] border border-white/10 shadow-lg">
                       <step.icon className="h-9 w-9 text-white/80" strokeWidth={1.5} />
                     </div>
                     <span className="absolute -top-1 -right-1 w-7 h-7 rounded-full bg-white/20 backdrop-blur-sm border border-white/20 flex items-center justify-center text-xs font-bold text-white">
@@ -208,6 +212,7 @@ const HowItWorks = () => {
                 </div>
               </div>
             ))}
+            </div>
           </div>
         </div>
       </div>

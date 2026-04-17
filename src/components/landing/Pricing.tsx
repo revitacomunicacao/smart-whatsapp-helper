@@ -115,7 +115,7 @@ const Pricing = () => {
 
               {/* CTA */}
               <Button
-                className={`w-full ${plan.popular ? "shadow-glow" : ""}`}
+                className={`w-full ${plan.popular ? "shadow-glow" : "border-[#7A94A2] text-[#7A94A2] hover:bg-[#7A94A2]/10"}`}
                 variant={plan.popular ? "default" : "outline"}
                 size="lg"
                 asChild

@@ -22,23 +22,8 @@ const isVideoUrl = (url: string) => {
 }
 
 const slides: VideoSlide[] = [
-
   {
     id: 1,
-    videoUrl: banner,
-    title: [
-      { text: "Decisões\n" },
-      { text: "Baseadas em Dados", emphasize: true },
-    ],
-    subtitle: [
-      { text: "Relatórios e " },
-      { text: "dashboards", emphasize: true },
-      { text: " em " },
-      { text: "tempo real", emphasize: true },
-    ],
-  },
-  {
-    id: 2,
     videoUrl: fullbanner02,
     title: [
       { text: "Automatize\n" },
@@ -49,6 +34,20 @@ const slides: VideoSlide[] = [
       { text: "produtividade", emphasize: true },
       { text: " e menos " },
       { text: "trabalho manual", emphasize: true },
+    ],
+  },
+  {
+    id: 2,
+    videoUrl: banner,
+    title: [
+      { text: "Decisões\n" },
+      { text: "Baseadas em Dados", emphasize: true },
+    ],
+    subtitle: [
+      { text: "Relatórios e " },
+      { text: "dashboards", emphasize: true },
+      { text: " em " },
+      { text: "tempo real", emphasize: true },
     ],
   },
 ]

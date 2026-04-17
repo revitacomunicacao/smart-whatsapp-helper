@@ -23,10 +23,6 @@ const Hero = () => {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${heroBackground})` }}
       />
-      <div
-        className="absolute inset-0 bg-black/55 dark:bg-black/60"
-        aria-hidden
-      />
 
       <div className="relative z-10 w-full container mx-auto px-4">
         <div className="max-w-4xl mr-auto text-left space-y-8">
@@ -47,9 +43,16 @@ const Hero = () => {
             style={{ animationDelay: "0.1s" }}
           >
             <span className="block lg:translate-x-1">
-              <span className="text-white">DuBrasil Nexa</span>
-              <span className="mt-3 block text-2xl font-medium text-[#68767d] max-md:text-balance md:mt-3 md:text-3xl lg:text-3xl">
-                Atendimento multicanal para vender e atender com mais controle e agilidade
+              <span className="text-[#7A94A2]">DuBrasil Nexa</span>
+              <span className="mt-3 block text-2xl font-medium text-primary max-md:text-balance md:mt-3 md:text-3xl lg:text-3xl">
+                <span className="block">
+                  Atendimento{" "}
+                  <span className="font-extrabold text-white">multicanal para vender e</span>
+                </span>
+                <span className="block">
+                  <span className="font-extrabold text-white">atender</span>
+                  <span> com mais controle e agilidade</span>
+                </span>
               </span>
             </span>
           </h1>
@@ -71,7 +74,7 @@ const Hero = () => {
             <div className="lg:-translate-y-2">
               <Button
                 size="lg"
-                className="shadow-glow px-8 text-base max-md:min-h-12 max-md:w-full max-md:max-w-sm"
+                className="px-8 text-base shadow-none max-md:min-h-12 max-md:w-full max-md:max-w-sm"
                 asChild
               >
                 <a href="#contato">

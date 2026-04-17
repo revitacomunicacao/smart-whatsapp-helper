@@ -1,5 +1,5 @@
 import { Inbox, Route, Zap, ShieldCheck } from "lucide-react";
-import bgMesh from "@/assets/bg-mesh-dark.jpg";
+import bgMesh from "@/assets/bgBenefits.jpeg";
 
 const blocks = [
   {
@@ -65,11 +65,14 @@ const Benefits = () => {
 
       <div className="container relative z-10 mx-auto px-4">
         <div className="mb-14 mx-auto max-w-4xl text-center max-md:mb-10">
-          <h2 className="text-3xl font-semibold tracking-tight text-white max-md:text-balance md:text-4xl lg:text-5xl">
+          <h2 className="animate-fade-in text-4xl font-bold leading-tight text-white max-md:text-balance md:text-5xl lg:text-6xl">
             Estrutura para atender com padrão, velocidade e visibilidade
           </h2>
-          <p className="mt-5 text-lg text-white/80">
-            Multicanal de verdade, operação no controle e automação sem prometer "milagre".
+          <p
+            className="animate-fade-in mx-auto mt-5 w-full max-w-3xl text-lg leading-relaxed text-[#7A94A2] md:text-xl"
+            style={{ animationDelay: "0.2s" }}
+          >
+            Multicanal de verdade, operação no controle e<br /> automação sem prometer "milagre".
           </p>
         </div>
 
@@ -82,9 +85,9 @@ const Benefits = () => {
               className="scroll-mt-24 animate-fade-in rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-5 md:p-6 transition-transform hover:-translate-y-0.5"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="flex items-start gap-4">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white/10 border border-white/15">
-                  <block.icon className="h-6 w-6 text-white/80" strokeWidth={1.5} />
+              <div className="flex items-start gap-6">
+                <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-[#7A94A2] border border-white/10">
+                  <block.icon className="h-10 w-10 text-white/80" strokeWidth={1.5} />
                 </div>
                 <div className="min-w-0 flex-1">
                   <h3 className="text-lg font-semibold text-white">{block.title}</h3>
@@ -113,8 +116,8 @@ const Benefits = () => {
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="flex flex-col items-center text-center gap-4">
-                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-white/10 border border-white/15">
-                  <block.icon className="h-7 w-7 text-white/80" strokeWidth={1.5} />
+                <div className="flex h-[5.25rem] w-[5.25rem] shrink-0 items-center justify-center rounded-full bg-[#7A94A2] border border-white/10">
+                  <block.icon className="h-11 w-11 text-white/80" strokeWidth={1.5} />
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold text-white text-balance">

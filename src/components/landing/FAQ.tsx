@@ -1,5 +1,5 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import bgMesh from "@/assets/bg-mesh-dark.jpg";
+import bgMesh from "@/assets/bgfaq.jpeg";
 
 const faqs = [
   {
@@ -46,45 +46,49 @@ const faqs = [
 
 const FAQ = () => {
   return (
-    <section id="faq" className="relative py-20 max-md:py-14 md:py-28 overflow-hidden">
+    <section id="faq" className="relative flex min-h-[850px] flex-col overflow-hidden py-20 max-md:py-14 md:py-28">
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${bgMesh})` }}
       />
-      <div className="absolute inset-0 bg-brand-surface/50" />
 
-      <div className="container relative z-10 mx-auto px-4">
-        <div className="mx-auto mb-12 max-w-3xl text-center max-md:mb-8">
-          <h2 className="text-3xl font-semibold tracking-tight text-white max-md:text-balance md:text-4xl lg:text-5xl">
-            Perguntas frequentes
-          </h2>
-          <p className="mt-4 text-lg text-white/70">
-            Respostas objetivas para entender como a Nexa ajuda na prática.
-          </p>
-        </div>
+      <div className="relative z-10 flex w-full flex-1 flex-col justify-center">
+        <div className="container mx-auto px-4">
+          <div className="mx-auto max-w-4xl rounded-2xl border border-white/25 bg-[#08284f] px-5 py-10 shadow-lg shadow-black/10 backdrop-blur-md max-md:px-4 max-md:py-8 md:px-10 md:py-12">
+          <div className="mx-auto mb-10 max-w-3xl text-center max-md:mb-8">
+            <h2 className="animate-fade-in text-4xl font-bold leading-tight text-[#7A94A2] max-md:text-balance md:text-5xl lg:text-6xl">
+              Perguntas frequentes
+            </h2>
+            <p
+              className="animate-fade-in mx-auto mt-5 w-full max-w-3xl text-lg leading-relaxed text-white/90 md:text-xl"
+              style={{ animationDelay: "0.2s" }}
+            >
+              Respostas objetivas para entender como a Nexa ajuda na prática.
+            </p>
+          </div>
 
-        <div className="max-w-4xl mx-auto">
           <Accordion
             type="single"
             collapsible
-            className="w-full rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm px-4 shadow-card max-md:px-3 md:px-6"
+            className="w-full rounded-xl border border-white/25 bg-white/15 px-3 backdrop-blur-md max-md:px-2 md:px-5"
           >
             {faqs.map((item, idx) => (
-              <AccordionItem key={item.q} value={`faq-${idx}`} className="border-white/10">
-                <AccordionTrigger className="text-left text-base text-white max-md:min-h-14 max-md:py-4 max-md:text-[0.95rem] md:text-lg hover:no-underline">
+              <AccordionItem key={item.q} value={`faq-${idx}`} className="border-white/20">
+                <AccordionTrigger className="text-left text-base text-white max-md:min-h-14 max-md:py-4 max-md:text-[0.95rem] md:text-lg hover:no-underline hover:text-white [&>svg]:text-white/70">
                   {item.q}
                 </AccordionTrigger>
-                <AccordionContent className="text-white/70">
+                <AccordionContent className="text-white/85">
                   <div className="space-y-3 text-base leading-relaxed">
                     {item.a.map((p) => (
                       <p key={p}>{p}</p>
                     ))}
-                    <p className="pt-1 text-sm font-medium text-white/90">{item.microcopy}</p>
+                    <p className="pt-1 text-sm font-medium text-white">{item.microcopy}</p>
                   </div>
                 </AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>
+          </div>
         </div>
       </div>
     </section>

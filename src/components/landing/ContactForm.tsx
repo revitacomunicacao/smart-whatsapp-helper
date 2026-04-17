@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Send } from "lucide-react";
-import bgMeshAlt from "@/assets/bgcontact.png";
+import bgMeshAlt from "@/assets/bgcontact.jpeg";
 
 const WHATSAPP_NUMBER = "5534996367430";
 
@@ -59,25 +59,29 @@ const ContactForm = () => {
 
   return (
     <section
-      className="relative py-24 max-md:py-16 overflow-hidden"
-      style={{ backgroundImage: `url(${bgMeshAlt})`, backgroundSize: "cover", backgroundPosition: "center" }}
       id="contato"
+      className="relative flex min-h-[850px] flex-col overflow-hidden py-24 max-md:py-16"
     >
-      <div className="absolute inset-0 bg-brand-surface/50" />
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${bgMeshAlt})` }}
+      />
 
-      <div className="container relative z-10 mx-auto px-4">
-        <div className="grid items-stretch gap-10 lg:grid-cols-12 lg:gap-12">
+      <div className="relative z-10 flex w-full flex-1 flex-col justify-center">
+        <div className="container mx-auto px-4">
+          <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-12">
           {/* Textos */}
-          <div className="lg:col-span-6 flex h-full flex-col items-center justify-center">
+          <div className="lg:col-span-6 flex flex-col items-center justify-center lg:items-start">
             <div className="w-full max-w-2xl text-left">
-              <h2 className="mt-2 text-4xl font-semibold tracking-tight text-white max-md:text-balance md:text-5xl lg:text-6xl">
-                Pronto para <span className="text-primary">transformar</span> seu atendimento?
+              <h2 className="mt-2 text-4xl leading-[1.05] tracking-tight text-white max-md:text-balance md:text-5xl lg:text-6xl">
+                <span className="font-light">Pronto para </span>
+                <span className="font-extrabold text-primary">transformar</span>
+                <span className="font-light"> <br /> seu atendimento?</span>
               </h2>
-
-              <h3 className="mt-5 text-4xl font-semibold leading-[1.05] tracking-tight text-white max-md:text-balance md:text-5xl lg:text-6xl">
-                <span className="block">Vamos</span>
+              <h3 className="mt-20 text-4xl leading-[1.05] tracking-tight text-white max-md:text-balance md:text-5xl lg:text-6xl">
+                <span className="block font-light">Vamos</span>
                 <span className="block font-extrabold">construir</span>
-                <span className="block">essa história?</span>
+                <span className="block font-light">essa história?</span>
               </h3>
             </div>
           </div>
@@ -143,7 +147,7 @@ const ContactForm = () => {
               <Button
                 type="submit"
                 size="lg"
-                className="w-full min-h-12 bg-white text-brand-surface hover:bg-white/90 font-semibold max-md:text-base"
+                className="w-full min-h-12 font-semibold max-md:text-base"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? (
@@ -156,9 +160,10 @@ const ContactForm = () => {
                 )}
               </Button>
             </form>
+            </div>
+          </div>
           </div>
         </div>
-      </div>
       </div>
     </section>
   );

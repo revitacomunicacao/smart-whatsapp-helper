@@ -48,8 +48,7 @@ const ContactFloat = () => {
       <Button
         type="button"
         size="icon"
-        variant="outline"
-        className="h-11 w-11 rounded-full border-border bg-background/80 shadow-lg backdrop-blur md:h-10 md:w-10"
+        className="h-11 w-11 rounded-full bg-[#7A94A2] shadow-none hover:bg-[#6b8595] md:h-10 md:w-10"
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         aria-label="Voltar ao topo"
         title="Voltar ao topo"
@@ -59,7 +58,7 @@ const ContactFloat = () => {
 
       <Button
         type="button"
-        className="h-12 rounded-full px-4 text-sm max-md:max-w-[min(19rem,calc(100vw-2rem))] md:h-14 md:px-6 md:text-base"
+        className="h-12 rounded-full bg-[#7A94A2] px-4 text-sm shadow-none hover:bg-[#6b8595] max-md:max-w-[min(19rem,calc(100vw-2rem))] md:h-14 md:px-6 md:text-base"
         onClick={scrollToContato}
         aria-label="Ir para o formulário de contato"
         title="Falar com especialista"
