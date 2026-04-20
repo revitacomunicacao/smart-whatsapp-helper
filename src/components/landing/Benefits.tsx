@@ -1,10 +1,13 @@
-import { Inbox, Route, Zap, ShieldCheck } from "lucide-react";
 import bgMesh from "@/assets/bgBenefits.jpeg";
+import Icon01 from "@/assets/01.png";
+import Icon02 from "@/assets/02.png";
+import Icon03 from "@/assets/03.png";
+import Icon04 from "@/assets/04.png";
 
 const blocks = [
   {
     id: "multicanal",
-    icon: Inbox,
+    icon: Icon01,
     title: "Atenda seus clientes onde eles estão em um único painel",
     description:
       "Reúna canais como WhatsApp e redes sociais em uma inbox centralizada, com histórico por cliente e visão do que está acontecendo em tempo real.",
@@ -16,7 +19,7 @@ const blocks = [
   },
   {
     id: "operacao",
-    icon: Route,
+    icon: Icon02,
     title: "Distribuição inteligente e fila organizada (sem \u201Cquem responde?\u201D)",
     description:
       "Estruture departamentos/setores e distribua atendimentos para manter fluidez, padronização e produtividade especialmente quando o volume cresce.",
@@ -28,7 +31,7 @@ const blocks = [
   },
   {
     id: "automacao",
-    icon: Zap,
+    icon: Icon03,
     title: "Automação para acelerar e humano quando importa",
     description:
       "Use chatbots/automação para perguntas frequentes, triagem e respostas iniciais, mantendo sua equipe focada no que realmente exige decisão humana.",
@@ -40,7 +43,7 @@ const blocks = [
   },
   {
     id: "whatsapp-api",
-    icon: ShieldCheck,
+    icon: Icon04,
     title: "WhatsApp em escala com mais segurança",
     description:
       "Para operação profissional, o ideal é trabalhar com estrutura de atendimento escalável e boas práticas incluindo possibilidade de API oficial, multiatendimento no mesmo número e conformidade de uso.",
@@ -86,8 +89,15 @@ const Benefits = () => {
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="flex items-start gap-6">
-                <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-[#7A94A2] border border-white/10">
-                  <block.icon className="h-10 w-10 text-white/80" strokeWidth={1.5} />
+                <div className="flex h-20 w-20 shrink-0 items-center justify-center">
+                  <img
+                    src={block.icon}
+                    alt=""
+                    aria-hidden="true"
+                    className="h-20 w-20 object-contain"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
                 <div className="min-w-0 flex-1">
                   <h3 className="text-lg font-semibold text-white">{block.title}</h3>
@@ -116,8 +126,15 @@ const Benefits = () => {
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="flex flex-col items-center text-center gap-4">
-                <div className="flex h-[5.25rem] w-[5.25rem] shrink-0 items-center justify-center rounded-full bg-[#7A94A2] border border-white/10">
-                  <block.icon className="h-11 w-11 text-white/80" strokeWidth={1.5} />
+                <div className="flex h-[5.25rem] w-[5.25rem] shrink-0 items-center justify-center">
+                  <img
+                    src={block.icon}
+                    alt=""
+                    aria-hidden="true"
+                    className="h-[5.25rem] w-[5.25rem] object-contain"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
                 <div>
                   <h3 className="text-xl font-semibold text-white text-balance">

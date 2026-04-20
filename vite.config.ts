@@ -4,10 +4,10 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 export default defineConfig(({ mode }) => {
-  // Produção será servida em: https://revitacomunicacao.com.br/nexa/
+  // Produção será servida em: https://revitacomunicacao.com.br/projetos/nexa/
   // Você pode sobrescrever via variável: VITE_BASE
   const env = loadEnv(mode, process.cwd(), "");
-  const base = env.VITE_BASE || (mode === "production" ? "/nexa/" : "/");
+  const base = env.VITE_BASE || (mode === "production" ? "/projetos/nexa/" : "/");
 
   return {
     base,
