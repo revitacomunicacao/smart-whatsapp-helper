@@ -73,7 +73,7 @@ const Footer = () => {
                 : "opacity-0 translate-y-3",
             ].join(" ")}
           >
-            <p className="text-sm font-semibold uppercase tracking-wider text-primary">
+            <p className="text-base font-semibold uppercase tracking-wider text-primary">
               Contato
             </p>
 
@@ -102,7 +102,7 @@ const Footer = () => {
                 : "opacity-0 translate-y-3",
             ].join(" ")}
           >
-            <p className="text-sm font-semibold uppercase tracking-wider text-primary">
+            <p className="text-base font-semibold uppercase tracking-wider text-primary">
               Endereço
             </p>
 
@@ -123,7 +123,7 @@ const Footer = () => {
                 : "opacity-0 translate-y-3",
             ].join(" ")}
           >
-            <p className="text-sm font-semibold uppercase tracking-wider text-primary">
+            <p className="text-base font-semibold uppercase tracking-wider text-primary">
               Redes sociais
             </p>
 
