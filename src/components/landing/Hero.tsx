@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Sparkles } from "lucide-react";
-import heroBackground from "@/assets/background DuBrasil Nexa Atendimento.jpeg";
+import heroBackground from "@/assets/ilustra_bloco04.jpg.jpeg";
 
 const WHATSAPP_NUMBER = "5534996367430";
 

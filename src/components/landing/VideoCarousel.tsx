@@ -1,8 +1,8 @@
 // src/components/VideoCarousel.tsx
 import { useState, useEffect, useRef } from "react"
 import { ChevronLeft, ChevronRight, Play, Pause } from "lucide-react"
-import banner from "@/assets/nexa.jpeg"
-import fullbanner02 from "@/assets/background - fullbanner02.jpg.jpeg"
+import banner from "@/assets/fullbanner04.jpeg"
+import fullbanner02 from "@/assets/fullbanner02.jpeg"
 
 type CarouselTextPart = {
   text: string
@@ -149,7 +149,7 @@ const VideoCarousel = () => {
 
   return (
     <section
-      className="relative h-[56vh] w-full overflow-hidden max-md:mt-16 max-md:pt-0 md:pt-16 max-md:max-h-[720px] max-md:min-h-[320px] md:h-screen"
+      className="mt-12 relative h-[56vh] w-full overflow-hidden max-md:mt-16 max-md:pt-0 md:pt-16 max-md:max-h-[720px] max-md:min-h-[320px] md:h-screen"
       style={{ maxWidth: "100vw" }}
     >
       {/* Swipe layer (evita overflow horizontal) */}
@@ -198,7 +198,7 @@ const VideoCarousel = () => {
             {isVideo ? (
               <video
                 ref={(el) => (videoRefs.current[index] = el)}
-                className="absolute inset-0 w-full h-full object-cover brightness-75"
+                className="absolute inset-0 z-0 w-full h-full object-cover"
                 src={slide.videoUrl}
                 muted
                 loop
@@ -210,17 +210,25 @@ const VideoCarousel = () => {
                 <img
                   src={slide.videoUrl}
                   alt={slide.title.map((p) => p.text).join("")}
-                  className="absolute inset-0 w-full h-full object-cover brightness-50"
+                  className="absolute inset-0 z-0 w-full h-full object-cover"
                   loading="lazy"
                 />
               </>
             )}
 
-            <div className="absolute inset-0 bg-brand-surface/75" />
+            {/* Gradiente para legibilidade do texto (escuro na esquerda, some até metade) */}
+            <div
+              className="absolute inset-0 z-10 pointer-events-none"
+              style={{
+                background:
+                  "linear-gradient(90deg, rgba(6,37,76,0.92) 0%, rgba(6,37,76,0.78) 50%, rgba(6,37,76,0.60) 60%, rgba(6,37,76,0.0) 70%)",
+              }}
+              aria-hidden="true"
+            />
 
             <div className="relative z-30 flex h-full items-center overflow-hidden">
               <div className="container mx-auto max-w-full px-6 max-md:px-4 max-md:pb-16">
-                <div className="mx-auto max-w-3xl text-center pointer-events-auto lg:max-w-5xl">
+                <div className="max-w-3xl text-left pointer-events-auto lg:max-w-5xl">
                   <h1
                     className={`whitespace-pre-line font-display text-4xl font-extrabold leading-[1.08] tracking-tight max-md:text-balance md:text-6xl lg:text-8xl mb-4 md:mb-6 transition-all duration-700 ${index === currentSlide
                       ? "translate-y-0 opacity-100"
@@ -299,11 +307,6 @@ const VideoCarousel = () => {
         </div>
       </div>
 
-      <div className="absolute bottom-8 right-8 z-40 hidden md:flex flex-col items-center gap-2 text-primary-foreground/60 pointer-events-none">
-        <div className="w-px h-12 bg-primary-foreground/30 relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-1/2 bg-accent animate-[slide-down_1.5s_ease-in-out_infinite]" />
-        </div>
-      </div>
     </section>
   )
 }
