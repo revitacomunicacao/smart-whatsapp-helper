@@ -2,35 +2,38 @@ import demoInbox from "@/assets/demo-inbox.jpeg";
 import demoQueue from "@/assets/demo-queue.jpeg";
 import demoAutomation from "@/assets/demo-automation.jpeg";
 import bgMeshAlt from "@/assets/bg-mesh-dark-alt.jpg";
-import bgMeshDemo from "@/assets/bghow.jpeg";
-import { ClipboardList, Settings, GraduationCap, SlidersHorizontal } from "lucide-react";
+import bgMeshDemo from "@/assets/ilustra-como-funciona.jpeg";
+import iconMapeamento from "@/assets/mapeamento.png";
+import iconConfig from "@/assets/config.png";
+import iconTreinamento from "@/assets/treinamento.png";
+import iconAjustes from "@/assets/ajustes.png";
 import { useState } from "react";
 
 const steps = [
   {
     number: "01",
-    icon: ClipboardList,
+    icon: iconMapeamento,
     title: "Mapeamento do fluxo de atendimento e vendas",
     description:
       "Desenhamos o caminho real do seu time (da primeira mensagem à conclusão) para a Nexa virar rotina.",
   },
   {
     number: "02",
-    icon: Settings,
+    icon: iconConfig,
     title: "Configuração de canais, filas e padrões",
     description:
       "Organização por setores, regras de distribuição e padronização para reduzir retrabalho e tempo de resposta.",
   },
   {
     number: "03",
-    icon: GraduationCap,
+    icon: iconTreinamento,
     title: "Treinamento do time (atendente + liderança)",
     description:
       'Treinamento objetivo para quem opera e para quem acompanha indicadores sem "depender do mais experiente".',
   },
   {
     number: "04",
-    icon: SlidersHorizontal,
+    icon: iconAjustes,
     title: "Ajustes finos nas primeiras semanas",
     description:
       "Acompanhamento inicial para estabilizar e deixar o processo redondo com o volume real de mensagens.",
@@ -128,6 +131,14 @@ const HowItWorks = () => {
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${bgMeshDemo})` }}
         />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "rgba(6, 21, 45, 0.72)",
+          }}
+          aria-hidden="true"
+        />
         <div className="relative z-10 flex w-full flex-1 flex-col justify-center">
           <div id="demo" className="scroll-mt-24 w-full">
             <div className="px-4 md:px-6">
@@ -162,6 +173,14 @@ const HowItWorks = () => {
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${bgMeshAlt})` }}
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "rgba(6, 21, 45, 0.72)",
+          }}
+          aria-hidden="true"
         />
 
         <div className="relative z-10 flex w-full flex-1 flex-col justify-center">
@@ -199,7 +218,14 @@ const HowItWorks = () => {
                 >
                   <div className="relative">
                     <div className="flex h-20 w-20 items-center justify-center rounded-full bg-[#7A94A2] border border-white/10 shadow-lg">
-                      <step.icon className="h-9 w-9 text-white/80" strokeWidth={1.5} />
+                      <img
+                        src={step.icon}
+                        alt=""
+                        aria-hidden="true"
+                        className="h-12 w-12 object-contain"
+                        loading="lazy"
+                        decoding="async"
+                      />
                     </div>
                     <span className="absolute -top-1 -right-1 w-7 h-7 rounded-full bg-white/20 backdrop-blur-sm border border-white/20 flex items-center justify-center text-xs font-bold text-white">
                       {step.number}

@@ -25,7 +25,7 @@ const Hero = () => {
       />
 
       <div className="relative z-10 w-full container mx-auto px-4">
-        <div className="max-w-4xl mr-auto text-left space-y-8">
+        <div className="max-w-4xl mr-auto text-left space-y-8 lg:-translate-x-6 xl:-translate-x-10">
           <div className="animate-fade-in">
             <div className="lg:-translate-y-3">
               <Badge
@@ -62,8 +62,8 @@ const Hero = () => {
             style={{ animationDelay: "0.2s" }}
           >
             <span className="block lg:translate-y-1">
-              Centralize conversas em um só lugar, distribua atendimentos por equipe e acelere
-              respostas com automações mantendo histórico, padrão e visibilidade da operação.
+              Centralize conversas em um só lugar, distribua atendimentos <br />por equipe e acelere
+              respostas com automações mantendo <br />histórico, padrão e visibilidade da operação.
             </span>
           </p>
 

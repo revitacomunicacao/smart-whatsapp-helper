@@ -1,12 +1,15 @@
 import { motion } from "framer-motion"
-import { ArrowRight, Headphones, Clock, MessageCircle } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import bgMeshCta from "@/assets/bg-mesh-cta.jpg"
+import iconSuporte from "@/assets/suporte.png"
+import iconRespostaAgil from "@/assets/resposta agil.png"
+import iconSemBurocracia from "@/assets/sem burocracia.png"
 
 const highlights = [
-  { icon: Headphones, label: "Suporte dedicado" },
-  { icon: Clock, label: "Resposta ágil" },
-  { icon: MessageCircle, label: "Sem burocracia" },
+  { icon: iconSuporte, label: "Suporte dedicado" },
+  { icon: iconRespostaAgil, label: "Resposta ágil" },
+  { icon: iconSemBurocracia, label: "Sem burocracia" },
 ]
 
 const SuporteHumanizadoAlt = () => {
@@ -99,7 +102,14 @@ const SuporteHumanizadoAlt = () => {
                 style={{ animationDelay: `${i * 0.1}s` }}
               >
                 <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-full bg-[#08284f] border border-white/20">
-                  <item.icon className="h-10 w-10 text-white/80" strokeWidth={1.5} />
+                  <img
+                    src={item.icon}
+                    alt=""
+                    aria-hidden="true"
+                    className="h-12 w-12 object-contain"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
                 <span className="text-lg font-medium text-white">{item.label}</span>
               </div>

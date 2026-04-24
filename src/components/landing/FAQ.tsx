@@ -1,5 +1,5 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import bgMesh from "@/assets/bgfaq.jpeg";
+import bgMesh from "@/assets/ilustra-faq.jpeg";
 
 const faqs = [
   {
@@ -51,12 +51,19 @@ const FAQ = () => {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${bgMesh})` }}
       />
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "rgba(6, 21, 45, 0.72)",
+        }}
+        aria-hidden="true"
+      />
 
       <div className="relative z-10 flex w-full flex-1 flex-col justify-center">
         <div className="container mx-auto px-4">
-          <div className="mx-auto max-w-4xl rounded-2xl border border-white/25 bg-[#08284f] px-5 py-10 shadow-lg shadow-black/10 backdrop-blur-md max-md:px-4 max-md:py-8 md:px-10 md:py-12">
           <div className="mx-auto mb-10 max-w-3xl text-center max-md:mb-8">
-            <h2 className="animate-fade-in text-4xl font-bold leading-tight text-[#7A94A2] max-md:text-balance md:text-5xl lg:text-6xl">
+            <h2 className="animate-fade-in text-4xl font-bold leading-tight text-white max-md:text-balance md:text-5xl lg:text-6xl">
               Perguntas frequentes
             </h2>
             <p
@@ -70,7 +77,7 @@ const FAQ = () => {
           <Accordion
             type="single"
             collapsible
-            className="w-full rounded-xl border border-white/25 bg-white/15 px-3 backdrop-blur-md max-md:px-2 md:px-5"
+            className="mx-auto w-full max-w-4xl rounded-2xl border border-white/25 bg-[#08284f]/40 px-5 py-4 shadow-lg shadow-black/10 backdrop-blur-md max-md:px-4 md:px-10"
           >
             {faqs.map((item, idx) => (
               <AccordionItem key={item.q} value={`faq-${idx}`} className="border-white/20">
@@ -88,7 +95,6 @@ const FAQ = () => {
               </AccordionItem>
             ))}
           </Accordion>
-          </div>
         </div>
       </div>
     </section>

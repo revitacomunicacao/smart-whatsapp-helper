@@ -255,25 +255,17 @@ const VideoCarousel = () => {
         )
       })}
 
-      {/* Arrows (hidden on mobile) */}
-      <button
-        onClick={prevSlide}
-        className="hidden md:flex absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-40 w-8 h-8 bg-primary-foreground/10 hover:bg-primary-foreground/20 backdrop-blur-sm rounded-full items-center justify-center transition-all group pointer-events-auto"
-        aria-label="Slide anterior"
-      >
-        <ChevronLeft className="w-6 h-6 text-primary-foreground group-hover:scale-110 transition-transform" />
-      </button>
-
-      <button
-        onClick={nextSlide}
-        className="hidden md:flex absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-40 w-8 h-8 bg-primary-foreground/10 hover:bg-primary-foreground/20 backdrop-blur-sm rounded-full items-center justify-center transition-all group pointer-events-auto"
-        aria-label="Próximo slide"
-      >
-        <ChevronRight className="w-6 h-6 text-primary-foreground group-hover:scale-110 transition-transform" />
-      </button>
-
       {/* Bottom Controls */}
       <div className="pointer-events-auto absolute bottom-4 left-1/2 z-40 flex max-md:max-w-[calc(100vw-1rem)] -translate-x-1/2 items-center gap-4 max-md:px-1 md:bottom-8 md:gap-6 max-md:pb-[env(safe-area-inset-bottom,0px)]">
+        <button
+          type="button"
+          onClick={prevSlide}
+          className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary-foreground/10 backdrop-blur-sm transition-all hover:bg-primary-foreground/20 md:h-10 md:w-10"
+          aria-label="Slide anterior"
+        >
+          <ChevronLeft className="h-5 w-5 text-primary-foreground" />
+        </button>
+
         <button
           type="button"
           onClick={togglePlay}
@@ -305,6 +297,15 @@ const VideoCarousel = () => {
             </button>
           ))}
         </div>
+
+        <button
+          type="button"
+          onClick={nextSlide}
+          className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary-foreground/10 backdrop-blur-sm transition-all hover:bg-primary-foreground/20 md:h-10 md:w-10"
+          aria-label="Próximo slide"
+        >
+          <ChevronRight className="h-5 w-5 text-primary-foreground" />
+        </button>
       </div>
 
     </section>

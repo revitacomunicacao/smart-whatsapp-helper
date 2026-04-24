@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Send } from "lucide-react";
-import bgMeshAlt from "@/assets/bgcontact.jpeg";
+import bgMeshAlt from "@/assets/ilustra-bloco-form.jpeg";
 
 const WHATSAPP_NUMBER = "5534996367430";
 
@@ -66,6 +66,14 @@ const ContactForm = () => {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${bgMeshAlt})` }}
       />
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(180deg, rgba(0,0,0,0.62) 0%, rgba(0,0,0,0.52) 40%, rgba(0,0,0,0.72) 100%)",
+        }}
+        aria-hidden="true"
+      />
 
       <div className="relative z-10 flex w-full flex-1 flex-col justify-center">
         <div className="container mx-auto px-4">
@@ -75,8 +83,8 @@ const ContactForm = () => {
             <div className="w-full max-w-2xl text-left">
               <h2 className="mt-2 text-4xl leading-[1.05] tracking-tight text-white max-md:text-balance md:text-5xl lg:text-6xl">
                 <span className="font-light">Pronto para </span>
-                <span className="font-extrabold text-primary">transformar</span>
-                <span className="font-light"> <br /> seu atendimento?</span>
+                <span className="block font-extrabold">transformar</span>
+                <span className="font-light">seu atendimento?</span>
               </h2>
               <h3 className="mt-20 text-4xl leading-[1.05] tracking-tight text-white max-md:text-balance md:text-5xl lg:text-6xl">
                 <span className="block font-light">Vamos</span>

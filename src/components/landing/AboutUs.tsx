@@ -1,12 +1,12 @@
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import bgMesh from "@/assets/bgabout2.jpeg";
+import bgMesh from "@/assets/ilustra_bloco03b.jpeg";
 
 const AboutUs = () => {
   return (
     <section
       id="resolve"
-      className="relative scroll-mt-24 overflow-hidden py-20 max-md:py-14 md:py-28 lg:h-[850px] lg:py-0"
+      className="relative scroll-mt-24 overflow-hidden py-20 max-md:py-14 md:py-28 lg:h-[900px] lg:py-0"
     >
       <div
         role="img"
