@@ -2,7 +2,7 @@
 import { useState, useEffect, useRef } from "react"
 import { ChevronLeft, ChevronRight, Play, Pause } from "lucide-react"
 import banner from "@/assets/fullbanner04.jpeg"
-import fullbanner02 from "@/assets/fullbanner02.jpeg"
+import fullbanner02 from "@/assets/bgBanner.jpeg"
 
 type CarouselTextPart = {
   text: string
