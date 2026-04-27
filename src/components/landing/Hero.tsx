@@ -25,7 +25,7 @@ const Hero = () => {
       />
 
       <div className="relative z-10 w-full container mx-auto px-4">
-        <div className="max-w-4xl mr-auto text-left space-y-8 lg:-translate-x-6 xl:-translate-x-10">
+        <div className="max-w-4xl mr-auto text-left space-y-8 lg:-translate-x-6 xl:-translate-x-10 2xl:-translate-x-14">
           <div className="animate-fade-in">
             <div className="lg:-translate-y-3">
               <Badge

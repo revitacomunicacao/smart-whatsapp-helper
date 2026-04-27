@@ -228,7 +228,7 @@ const VideoCarousel = () => {
 
             <div className="relative z-30 flex h-full items-center overflow-hidden">
               <div className="container mx-auto max-w-full px-6 max-md:px-4 max-md:pb-16">
-                <div className="max-w-3xl text-left pointer-events-auto lg:max-w-5xl">
+                <div className="max-w-3xl text-left pointer-events-auto lg:max-w-5xl 2xl:translate-x-6">
                   <h1
                     className={`whitespace-pre-line font-display text-4xl font-extrabold leading-[1.08] tracking-tight max-md:text-balance md:text-6xl lg:text-8xl mb-4 md:mb-6 transition-all duration-700 ${index === currentSlide
                       ? "translate-y-0 opacity-100"
