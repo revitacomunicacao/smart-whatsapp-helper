@@ -1,6 +1,7 @@
 import demoInbox from "@/assets/demo-inbox.jpeg";
 import demoQueue from "@/assets/demo-queue.jpeg";
 import demoAutomation from "@/assets/demo-automation.jpeg";
+import demoNexaPrint from "@/assets/nexa print.jpeg";
 import bgMeshAlt from "@/assets/bg-mesh-dark-alt.jpg";
 import bgMeshDemo from "@/assets/ilustra-como-funciona.jpeg";
 import iconMapeamento from "@/assets/mapeamento.png";
@@ -41,9 +42,10 @@ const steps = [
 ];
 
 const demoItems = [
-  { title: "Inbox centralizada", image: demoInbox },
+  { title: "Inbox centralizada", image: demoNexaPrint },
   { title: "Estatísticas dos atendimentos", image: demoQueue },
   { title: "Dados em tempo real", image: demoAutomation },
+  { title: "Visão do atendimento", image: demoQueue },
 ];
 
 function clamp(n: number, min: number, max: number) {
@@ -147,11 +149,11 @@ const HowItWorks = () => {
               </h2>
             </div>
 
-            <div className="mt-10 grid w-full grid-cols-1 gap-2 px-4 md:grid-cols-3 md:gap-3 md:px-6">
+            <div className="mt-10 grid w-full grid-cols-1 gap-2 px-4 md:grid-cols-2 md:gap-3 md:px-6">
               {demoItems.map((item) => (
                 <div
                   key={item.title}
-                  className="group relative h-[280px] overflow-hidden rounded-sm max-md:min-h-[220px] md:h-[260px]"
+                  className="group relative h-[320px] overflow-hidden rounded-sm max-md:min-h-[240px] md:h-[320px]"
                 >
                   <ZoomOnHover src={item.image} alt={item.title} />
                   <div className="absolute left-0 right-0 bottom-0 z-30">

@@ -16,9 +16,9 @@ const AboutUs = () => {
       />
 
       <div className="container relative z-10 mx-auto px-4">
-        <div className="mx-auto max-w-4xl space-y-6 text-center lg:ml-auto lg:mr-0 lg:flex lg:h-[850px] lg:max-w-3xl lg:flex-col lg:justify-center lg:text-left">
+        <div className="mx-auto max-w-4xl space-y-6 text-center lg:ml-auto lg:mr-0 lg:flex lg:h-[850px] lg:max-w-3xl lg:flex-col lg:justify-center lg:text-left lg:-mr-8">
           <h2
-            className="animate-fade-in mx-auto w-full max-w-3xl text-4xl font-bold leading-tight text-white max-md:text-balance md:text-5xl lg:mx-0 lg:text-6xl"
+            className="animate-fade-in mx-auto w-full max-w-3xl text-4xl font-bold leading-tight text-white max-md:text-balance md:text-5xl lg:mx-0 lg:max-w-[43rem] lg:text-6xl"
             style={{ animationDelay: "0.1s" }}
           >
             <span className="block lg:translate-x-1 text-[#07244c]">
@@ -28,7 +28,7 @@ const AboutUs = () => {
             </span>
           </h2>
           <p
-            className="animate-fade-in mx-auto w-full max-w-3xl text-lg text-white/80 leading-relaxed md:text-xl lg:mx-0"
+            className="animate-fade-in mx-auto w-full max-w-3xl text-lg text-white/80 leading-relaxed md:text-xl lg:mx-0 lg:max-w-[43rem]"
             style={{ animationDelay: "0.2s" }}
           >
             Quando o atendimento fica espalhado (celular de atendente, direct, e-mail, web), a empresa
