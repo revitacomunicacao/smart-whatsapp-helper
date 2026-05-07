@@ -15,10 +15,10 @@ const AboutUs = () => {
         style={{ backgroundImage: `url(${bgMesh})` }}
       />
 
-      <div className="container relative z-10 mx-auto px-4">
-        <div className="mx-auto max-w-4xl space-y-6 text-center lg:ml-auto lg:mr-0 lg:flex lg:h-[850px] lg:max-w-3xl lg:flex-col lg:justify-center lg:text-left lg:-mr-8">
+      <div className="container relative z-10 mx-auto px-4 lg:pr-0">
+        <div className="mx-auto max-w-4xl space-y-6 text-center lg:ml-auto lg:mr-0 lg:-mr-6 lg:flex lg:h-[850px] lg:max-w-xl lg:flex-col lg:justify-center lg:text-left">
           <h2
-            className="animate-fade-in mx-auto w-full max-w-3xl text-4xl font-bold leading-tight text-white max-md:text-balance md:text-5xl lg:mx-0 lg:max-w-[43rem] lg:text-6xl"
+            className="animate-fade-in mx-auto w-full max-w-3xl text-4xl font-bold leading-tight text-white max-md:text-balance md:text-5xl lg:mx-0 lg:text-6xl"
             style={{ animationDelay: "0.1s" }}
           >
             <span className="block lg:translate-x-1 text-[#07244c]">
