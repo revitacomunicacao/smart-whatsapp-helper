@@ -42,29 +42,32 @@ const Hero = () => {
             className="animate-fade-in text-4xl font-bold leading-tight max-md:text-balance md:text-5xl lg:text-6xl"
             style={{ animationDelay: "0.1s" }}
           >
-            <span className="block lg:translate-x-1">
-              <span className="text-[#7A94A2]">DuBrasil Nexa</span>
-              <span className="mt-3 block text-2xl font-medium text-primary max-md:text-balance md:mt-3 md:text-3xl lg:text-3xl">
-                <span className="block">
-                  Atendimento{" "}
-                  <span className="font-extrabold text-white">multicanal para vender e</span>
-                </span>
-                <span className="block">
-                  <span className="font-extrabold text-white">atender</span>
-                  <span> com mais controle e agilidade</span>
-                </span>
-              </span>
+            <span className="block lg:translate-x-1 text-[#7A94A2]">
+              A Nexa organiza,
+              <br />
+              centraliza e aplica
+              <br />
+              <span className="text-white">inteligência</span> ao
+              <br />
+              atendimento.
             </span>
           </h1>
 
           <p
-            className="max-w-2xl animate-fade-in text-lg text-white max-md:text-balance md:text-xl"
+            className="max-w-2xl animate-fade-in text-lg text-white/90 max-md:text-balance md:text-xl"
             style={{ animationDelay: "0.2s" }}
           >
             <span className="block lg:translate-y-1">
-              Centralize conversas em um só lugar, distribua atendimentos <br />por equipe e acelere
-              respostas com automações mantendo <br />histórico, padrão e visibilidade da operação.
+              Plataforma multicanais com foco em WhatsApp, agentes de IA, automações de fluxos e integração entre
+              Atendimento, CRM e ERP, sem abrir mão do humanizado.
             </span>
+          </p>
+
+          <p
+            className="max-w-2xl animate-fade-in text-base font-semibold text-white/80 max-md:text-balance md:text-lg"
+            style={{ animationDelay: "0.25s" }}
+          >
+            Mais do que atender, a Nexa conecta processos, setores e experiência do cliente.
           </p>
 
           <div
