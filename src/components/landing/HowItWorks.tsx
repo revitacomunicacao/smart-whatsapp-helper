@@ -2,6 +2,7 @@ import demoInbox from "@/assets/demo-inbox.jpeg";
 import demoQueue from "@/assets/demo-queue.jpeg";
 import demoAutomation from "@/assets/demo-automation.jpeg";
 import demoNexaPrint from "@/assets/nexa print.jpeg";
+import demoChatbot from "@/assets/chatbot.png";
 import bgMeshAlt from "@/assets/bg-mesh-dark-alt.jpg";
 import bgMeshDemo from "@/assets/ilustra-como-funciona.jpeg";
 import iconMapeamento from "@/assets/mapeamento.png";
@@ -45,7 +46,7 @@ const demoItems = [
   { title: "Inbox centralizada", image: demoNexaPrint },
   { title: "Estatísticas dos atendimentos", image: demoQueue },
   { title: "Dados em tempo real", image: demoAutomation },
-  { title: "Visão do atendimento", image: demoQueue },
+  { title: "Chatbot", image: demoChatbot },
 ];
 
 function clamp(n: number, min: number, max: number) {
