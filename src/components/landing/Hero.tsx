@@ -20,7 +20,7 @@ const Hero = () => {
       <div
         role="img"
         aria-label="Painel da Nexa com inbox centralizada e fila de atendimento"
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat max-lg:bg-[right_32%]"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat max-lg:bg-[right_30%]"
         style={{ backgroundImage: `url(${heroBackground})` }}
       />
       <div
