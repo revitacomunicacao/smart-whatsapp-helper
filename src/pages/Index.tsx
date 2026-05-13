@@ -13,7 +13,7 @@ import FAQ from "@/components/landing/FAQ";
 
 const Index = () => {
   return (
-    <main className="min-h-screen overflow-x-hidden">
+    <main className="min-h-screen overflow-x-hidden max-lg:scroll-pt-20">
       <Navbar />
       <VideoCarousel />
       <Hero />

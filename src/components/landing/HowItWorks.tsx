@@ -91,7 +91,7 @@ function ZoomOnHover({ src, alt, lensSize = 260, zoom = 1.65 }: { src: string; a
       <img
         src={src}
         alt={alt}
-        className="absolute inset-0 h-full w-full object-cover object-center"
+        className="absolute inset-0 h-full w-full object-cover object-center max-lg:object-[52%_center]"
         loading="lazy"
         onLoad={(e) => {
           const img = e.currentTarget;
@@ -129,9 +129,9 @@ const HowItWorks = () => {
   return (
     <section id="implantacao" className="relative overflow-hidden">
       {/* Demo section - dark bg */}
-      <div className="relative flex min-h-[850px] flex-col py-20 max-md:py-14 md:py-28">
+      <div className="relative flex min-h-[850px] flex-col py-20 max-md:py-14 max-lg:min-h-0 md:py-28">
         <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat max-lg:bg-[center_26%]"
           style={{ backgroundImage: `url(${bgMeshDemo})` }}
         />
         <div
@@ -142,15 +142,19 @@ const HowItWorks = () => {
           }}
           aria-hidden="true"
         />
+        <div
+          className="pointer-events-none absolute inset-0 z-[1] hidden bg-black/10 max-lg:block"
+          aria-hidden="true"
+        />
         <div className="relative z-10 flex w-full flex-1 flex-col justify-center">
           <div id="demo" className="scroll-mt-24 w-full">
             <div className="px-4 md:px-6">
-              <h2 className="animate-fade-in text-center text-4xl font-bold leading-tight text-white max-md:px-1 max-md:text-balance md:text-5xl lg:text-6xl">
+              <h2 className="animate-fade-in text-center text-4xl font-bold leading-tight text-white max-md:px-1 max-md:text-balance max-lg:text-[clamp(1.55rem,4.5vw,2.1rem)] md:text-5xl lg:text-6xl">
                 Como funciona na prática
               </h2>
             </div>
 
-            <div className="mt-10 grid w-full grid-cols-1 gap-2 px-4 md:grid-cols-2 md:gap-3 md:px-6">
+            <div className="mt-10 grid w-full grid-cols-1 gap-2 px-4 max-lg:gap-3 md:grid-cols-2 md:gap-3 md:px-6">
               {demoItems.map((item) => (
                 <div
                   key={item.title}
@@ -172,9 +176,9 @@ const HowItWorks = () => {
       </div>
 
       {/* Implantação section - dark mesh bg */}
-      <div className="relative flex min-h-[850px] flex-col py-20 max-md:py-14 md:py-28">
+      <div className="relative flex min-h-[850px] flex-col py-20 max-md:py-14 max-lg:min-h-0 md:py-28">
         <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat max-lg:bg-[center_24%]"
           style={{ backgroundImage: `url(${bgMeshAlt})` }}
         />
         <div
@@ -185,6 +189,10 @@ const HowItWorks = () => {
           }}
           aria-hidden="true"
         />
+        <div
+          className="pointer-events-none absolute inset-0 z-[1] hidden bg-black/10 max-lg:block"
+          aria-hidden="true"
+        />
 
         <div className="relative z-10 flex w-full flex-1 flex-col justify-center">
           <div className="mx-auto w-full max-w-5xl px-4">
@@ -192,11 +200,11 @@ const HowItWorks = () => {
               <span className="animate-fade-in text-sm font-semibold uppercase tracking-wider text-[#7A94A2]">
                 Diferencial DuBrasil
               </span>
-              <h3 className="animate-fade-in mt-4 text-4xl font-bold leading-tight text-white max-md:text-balance md:text-5xl lg:text-6xl">
+              <h3 className="animate-fade-in mt-4 text-4xl font-bold leading-tight text-white max-md:text-balance max-lg:text-[clamp(1.5rem,4.2vw,2rem)] md:text-5xl lg:text-6xl">
                 Nexa funciona porque a implantação é orientada
               </h3>
               <p
-                className="animate-fade-in mx-auto mt-5 w-full max-w-3xl text-lg leading-relaxed text-[#7A94A2] md:text-xl"
+                className="animate-fade-in mx-auto mt-5 w-full max-w-3xl text-lg leading-relaxed text-[#7A94A2] max-lg:text-base max-lg:leading-relaxed md:text-xl"
                 style={{ animationDelay: "0.2s" }}
               >
                 A DuBrasil entra para garantir que a plataforma vire rotina real
@@ -205,7 +213,7 @@ const HowItWorks = () => {
               </p>
             </div>
 
-            <div className="mt-10 grid w-full grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="mt-10 grid w-full grid-cols-1 gap-8 max-lg:gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {steps.map((step, index) => (
               <div
                 key={step.number}
@@ -235,8 +243,8 @@ const HowItWorks = () => {
                     </span>
                   </div>
                   <div>
-                    <p className="text-base font-semibold text-white">{step.title}</p>
-                    <p className="mt-2 text-sm text-white/60 leading-relaxed">{step.description}</p>
+                    <p className="text-base font-semibold text-white max-lg:text-sm">{step.title}</p>
+                    <p className="mt-2 text-sm text-white/60 leading-relaxed max-lg:text-[0.8125rem] max-lg:leading-relaxed">{step.description}</p>
                   </div>
                 </div>
               </div>

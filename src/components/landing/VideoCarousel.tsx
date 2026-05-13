@@ -149,7 +149,7 @@ const VideoCarousel = () => {
 
   return (
     <section
-      className="mt-12 relative h-[56vh] w-full overflow-hidden max-md:mt-16 max-md:pt-0 md:pt-16 max-md:max-h-[720px] max-md:min-h-[320px] md:h-screen"
+      className="relative mt-12 h-[56vh] w-full overflow-hidden max-md:mt-16 max-md:max-h-[720px] max-md:min-h-[320px] max-md:pt-0 max-lg:mt-14 max-lg:h-auto max-lg:min-h-[min(72vh,640px)] max-lg:py-10 lg:h-screen lg:pt-16"
       style={{ maxWidth: "100vw" }}
     >
       {/* Swipe layer (evita overflow horizontal) */}
@@ -198,7 +198,7 @@ const VideoCarousel = () => {
             {isVideo ? (
               <video
                 ref={(el) => (videoRefs.current[index] = el)}
-                className="absolute inset-0 z-0 w-full h-full object-cover"
+                className="absolute inset-0 z-0 h-full w-full object-cover max-lg:object-[58%_center]"
                 src={slide.videoUrl}
                 muted
                 loop
@@ -210,7 +210,7 @@ const VideoCarousel = () => {
                 <img
                   src={slide.videoUrl}
                   alt={slide.title.map((p) => p.text).join("")}
-                  className="absolute inset-0 z-0 w-full h-full object-cover"
+                  className="absolute inset-0 z-0 h-full w-full object-cover max-lg:object-[58%_center]"
                   loading="lazy"
                 />
               </>
@@ -226,11 +226,16 @@ const VideoCarousel = () => {
               aria-hidden="true"
             />
 
+            <div
+              className="pointer-events-none absolute inset-0 z-[9] hidden bg-black/15 max-lg:block"
+              aria-hidden="true"
+            />
+
             <div className="relative z-30 flex h-full items-center overflow-hidden">
-              <div className="container mx-auto max-w-full px-6 max-md:px-4 max-md:pb-16">
-                <div className="max-w-3xl text-left pointer-events-auto lg:max-w-5xl 2xl:translate-x-6">
+              <div className="container mx-auto max-w-full px-6 max-md:px-4 max-md:pb-16 max-lg:px-4 max-lg:pb-20">
+                <div className="max-w-3xl text-left pointer-events-auto max-lg:max-w-[min(100%,28rem)] lg:max-w-5xl 2xl:translate-x-6">
                   <h1
-                    className={`whitespace-pre-line font-display text-4xl font-extrabold leading-[1.08] tracking-tight max-md:text-balance md:text-6xl lg:text-8xl mb-4 md:mb-6 transition-all duration-700 ${index === currentSlide
+                    className={`whitespace-pre-line font-display text-4xl font-extrabold leading-[1.08] tracking-tight max-md:text-balance max-lg:text-[clamp(1.7rem,6vw,2.4rem)] max-lg:leading-tight md:text-6xl lg:text-8xl mb-4 md:mb-6 transition-all duration-700 ${index === currentSlide
                       ? "translate-y-0 opacity-100"
                       : "translate-y-10 opacity-0"
                       }`}
@@ -240,7 +245,7 @@ const VideoCarousel = () => {
                   </h1>
 
                   <p
-                    className={`font-display text-xl font-medium leading-relaxed tracking-wide max-md:text-balance md:text-4xl mb-6 md:mb-10 transition-all duration-700 ${index === currentSlide
+                    className={`font-display text-xl font-medium leading-relaxed tracking-wide max-md:text-balance max-lg:text-lg max-lg:leading-snug md:text-4xl mb-6 md:mb-10 transition-all duration-700 ${index === currentSlide
                       ? "translate-y-0 opacity-100"
                       : "translate-y-10 opacity-0"
                       }`}
@@ -256,7 +261,7 @@ const VideoCarousel = () => {
       })}
 
       {/* Bottom Controls */}
-      <div className="pointer-events-auto absolute bottom-4 left-1/2 z-40 flex max-md:max-w-[calc(100vw-1rem)] -translate-x-1/2 items-center gap-4 max-md:px-1 md:bottom-8 md:gap-6 max-md:pb-[env(safe-area-inset-bottom,0px)]">
+      <div className="pointer-events-auto absolute bottom-4 left-1/2 z-40 flex max-md:max-w-[calc(100vw-1rem)] max-lg:bottom-5 max-lg:max-w-[calc(100vw-1.5rem)] max-lg:gap-2 max-lg:px-2 -translate-x-1/2 items-center gap-4 max-md:px-1 md:bottom-8 md:gap-6 max-md:pb-[env(safe-area-inset-bottom,0px)]">
         <button
           type="button"
           onClick={prevSlide}

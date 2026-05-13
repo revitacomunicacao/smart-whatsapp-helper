@@ -16,21 +16,25 @@ function buildWhatsappLink() {
 
 const Hero = () => {
   return (
-    <section className="relative flex min-h-screen items-center justify-center overflow-hidden pt-8 pb-12 max-md:px-1 md:pt-10 md:pb-16">
+    <section className="relative flex min-h-screen items-center justify-center overflow-hidden pt-8 pb-12 max-md:px-1 max-lg:pt-24 md:pt-10 md:pb-16">
       <div
         role="img"
         aria-label="Painel da Nexa com inbox centralizada e fila de atendimento"
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat max-lg:bg-[right_32%]"
         style={{ backgroundImage: `url(${heroBackground})` }}
+      />
+      <div
+        className="pointer-events-none absolute inset-0 z-[1] hidden bg-black/60 max-lg:block"
+        aria-hidden="true"
       />
 
       <div className="relative z-10 w-full container mx-auto px-4">
-        <div className="max-w-4xl mr-auto text-left space-y-8 lg:-translate-x-6 xl:-translate-x-10 2xl:-translate-x-14">
+        <div className="max-w-4xl mr-auto text-left space-y-8 max-lg:space-y-6 lg:-translate-x-6 xl:-translate-x-10 2xl:-translate-x-14">
           <div className="animate-fade-in">
             <div className="lg:-translate-y-3">
               <Badge
                 variant="secondary"
-                className="inline-flex items-center gap-2 px-3 py-1.5 text-left text-[0.7rem] font-medium leading-snug md:px-4 md:py-2 md:text-sm"
+                className="inline-flex max-w-full items-center gap-2 px-3 py-1.5 text-left text-[0.7rem] font-medium leading-snug max-lg:text-[0.68rem] md:px-4 md:py-2 md:text-sm"
               >
                 <Sparkles className="h-3.5 w-3.5 shrink-0 text-primary md:h-4 md:w-4" />
                 <span>RESPOSTA RÁPIDA • IMPLANTAÇÃO ORIENTADA • TIME NO CONTROLE</span>
@@ -39,7 +43,7 @@ const Hero = () => {
           </div>
 
           <h1
-            className="animate-fade-in text-4xl font-bold leading-tight max-md:text-balance md:text-5xl lg:text-6xl"
+            className="animate-fade-in text-4xl font-bold leading-tight max-md:text-balance max-lg:text-[clamp(1.65rem,5.2vw,2.15rem)] max-lg:leading-snug md:text-5xl lg:text-6xl"
             style={{ animationDelay: "0.1s" }}
           >
             <span className="block lg:translate-x-1 text-[#7A94A2]">
@@ -54,7 +58,7 @@ const Hero = () => {
           </h1>
 
           <p
-            className="max-w-2xl animate-fade-in text-lg text-white/90 max-md:text-balance md:text-xl"
+            className="max-w-2xl animate-fade-in text-lg text-white/90 max-md:text-balance max-lg:text-base max-lg:leading-relaxed md:text-xl"
             style={{ animationDelay: "0.2s" }}
           >
             <span className="block lg:translate-y-1">
@@ -64,7 +68,7 @@ const Hero = () => {
           </p>
 
           <p
-            className="max-w-2xl animate-fade-in text-base font-semibold text-white/80 max-md:text-balance md:text-lg"
+            className="max-w-2xl animate-fade-in text-base font-semibold text-white/80 max-md:text-balance max-lg:text-sm md:text-lg"
             style={{ animationDelay: "0.25s" }}
           >
             Mais do que atender, a Nexa conecta processos, setores e experiência do cliente.

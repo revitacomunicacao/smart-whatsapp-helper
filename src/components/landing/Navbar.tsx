@@ -24,6 +24,7 @@ const Navbar = () => {
               width={219}
               height={60}
               decoding="async"
+              className="h-auto w-auto max-lg:max-w-[min(200px,52vw)]"
             />
           </a>
 

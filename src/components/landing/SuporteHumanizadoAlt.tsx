@@ -16,17 +16,21 @@ const SuporteHumanizadoAlt = () => {
   return (
     <section
       id="suporte"
-      className="relative flex min-h-[850px] items-center overflow-hidden py-10 max-md:py-8 md:py-12"
+      className="relative flex min-h-[850px] items-center overflow-hidden py-10 max-md:py-8 max-lg:min-h-0 max-lg:py-16 md:py-12"
     >
       <div
-        className="absolute inset-0 -scale-x-100 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 -scale-x-100 bg-cover bg-center bg-no-repeat max-lg:bg-[62%_center]"
         style={{ backgroundImage: `url(${bgMeshCta})` }}
+      />
+      <div
+        className="pointer-events-none absolute inset-0 z-[1] hidden bg-black/20 max-lg:block"
+        aria-hidden="true"
       />
 
       <div className="container relative z-10 mx-auto w-full px-4">
-        <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-12">
+        <div className="grid items-center gap-12 max-lg:gap-10 lg:grid-cols-12 lg:gap-12">
           {/* Left - Text content */}
-          <div className="space-y-6 max-md:text-center lg:col-span-7">
+          <div className="space-y-6 max-lg:text-center max-md:text-center lg:col-span-7">
             <motion.p
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -42,7 +46,7 @@ const SuporteHumanizadoAlt = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.05 }}
-              className="text-4xl font-bold leading-tight text-white max-md:text-balance md:text-5xl lg:text-6xl"
+              className="text-4xl font-bold leading-tight text-white max-md:text-balance max-lg:text-[clamp(1.55rem,4.8vw,2.1rem)] max-lg:leading-snug md:text-5xl lg:text-6xl"
             >
               <span className="text-[#7A94A2]">
                 Atendimento
@@ -58,7 +62,7 @@ const SuporteHumanizadoAlt = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="max-w-3xl text-lg leading-relaxed text-[#7A94A2] max-md:mx-auto max-md:text-balance md:text-xl lg:mx-0"
+              className="max-w-3xl text-lg leading-relaxed text-[#7A94A2] max-md:mx-auto max-md:text-balance max-lg:text-base max-lg:leading-relaxed md:text-xl lg:mx-0"
             >
               Um suporte próximo e eficiente para garantir tranquilidade na rotina: orientação, acompanhamento e
               respostas claras, sem burocracia.

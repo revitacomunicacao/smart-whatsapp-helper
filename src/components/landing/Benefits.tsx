@@ -61,18 +61,22 @@ const Benefits = () => {
       className="relative py-20 max-md:py-14 md:py-28 overflow-hidden"
     >
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat max-lg:bg-[center_22%]"
         style={{ backgroundImage: `url(${bgMesh})` }}
       />
       <div className="absolute inset-0 bg-brand-surface/50" />
+      <div
+        className="pointer-events-none absolute inset-0 z-[1] hidden bg-black/10 max-lg:block"
+        aria-hidden="true"
+      />
 
       <div className="container relative z-10 mx-auto px-4">
-        <div className="mb-14 mx-auto max-w-4xl text-center max-md:mb-10">
-          <h2 className="animate-fade-in text-4xl font-bold leading-tight text-white max-md:text-balance md:text-5xl lg:text-6xl">
+        <div className="mb-14 mx-auto max-w-4xl text-center max-md:mb-10 max-lg:mb-12">
+          <h2 className="animate-fade-in text-4xl font-bold leading-tight text-white max-md:text-balance max-lg:text-[clamp(1.6rem,4.5vw,2.25rem)] md:text-5xl lg:text-6xl">
             Estrutura para atender com padrão, velocidade e visibilidade
           </h2>
           <p
-            className="animate-fade-in mx-auto mt-5 w-full max-w-3xl text-lg leading-relaxed text-[#7A94A2] md:text-xl"
+            className="animate-fade-in mx-auto mt-5 w-full max-w-3xl text-lg leading-relaxed text-[#7A94A2] max-lg:text-base max-lg:leading-relaxed md:text-xl"
             style={{ animationDelay: "0.2s" }}
           >
             Multicanal de verdade, operação no controle e<br /> automação sem prometer "milagre".
@@ -122,7 +126,7 @@ const Benefits = () => {
             <div
               key={block.id}
               id={`${block.id}-mobile`}
-              className="scroll-mt-24 animate-fade-in rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-6"
+              className="scroll-mt-24 animate-fade-in rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 max-lg:p-5"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="flex flex-col items-center text-center gap-4">
@@ -137,10 +141,10 @@ const Benefits = () => {
                   />
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-white text-balance">
+                  <h3 className="text-xl font-semibold text-white text-balance max-lg:text-lg">
                     {block.title}
                   </h3>
-                  <p className="mt-3 text-white/70 leading-relaxed">
+                  <p className="mt-3 text-white/70 leading-relaxed max-lg:text-sm max-lg:leading-relaxed">
                     {block.description}
                   </p>
                   <ul className="mt-4 space-y-2 text-sm text-white/60">

@@ -60,6 +60,7 @@ const Footer = () => {
               width={219}
               height={60}
               decoding="async"
+              className="h-auto w-auto max-lg:max-w-[min(220px,70vw)]"
             />
             <img src={qrcode} alt="DuBrasil Soluções" className="w-[40%] max-w-[180px] max-md:w-1/2" />
           </div>

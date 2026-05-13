@@ -60,10 +60,10 @@ const ContactForm = () => {
   return (
     <section
       id="contato"
-      className="relative flex min-h-[850px] flex-col overflow-hidden py-24 max-md:py-16"
+      className="relative flex min-h-[850px] flex-col overflow-hidden py-24 max-md:py-16 max-lg:min-h-0 max-lg:py-20"
     >
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat max-lg:bg-[center_22%]"
         style={{ backgroundImage: `url(${bgMeshAlt})` }}
       />
       <div
@@ -74,19 +74,23 @@ const ContactForm = () => {
         }}
         aria-hidden="true"
       />
+      <div
+        className="pointer-events-none absolute inset-0 z-[1] hidden bg-black/15 max-lg:block"
+        aria-hidden="true"
+      />
 
       <div className="relative z-10 flex w-full flex-1 flex-col justify-center">
         <div className="container mx-auto px-4">
-          <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-12">
+          <div className="grid items-center gap-10 max-lg:gap-8 lg:grid-cols-12 lg:gap-12">
           {/* Textos */}
-          <div className="lg:col-span-6 flex flex-col items-center justify-center lg:items-start">
-            <div className="w-full max-w-2xl text-left">
-              <h2 className="mt-2 text-4xl leading-[1.05] tracking-tight text-white max-md:text-balance md:text-5xl lg:text-6xl">
+          <div className="lg:col-span-6 flex flex-col items-center justify-center max-lg:mb-2 lg:items-start">
+            <div className="w-full max-w-2xl text-left max-lg:text-center lg:text-left">
+              <h2 className="mt-2 text-4xl leading-[1.05] tracking-tight text-white max-md:text-balance max-lg:text-[clamp(1.55rem,4.5vw,2.1rem)] md:text-5xl lg:text-6xl">
                 <span className="font-light">Pronto para </span>
                 <span className="block font-extrabold">transformar</span>
                 <span className="font-light">seu atendimento?</span>
               </h2>
-              <h3 className="mt-20 text-4xl leading-[1.05] tracking-tight text-white max-md:text-balance md:text-5xl lg:text-6xl">
+              <h3 className="mt-20 text-4xl leading-[1.05] tracking-tight text-white max-md:text-balance max-lg:mt-10 max-lg:text-[clamp(1.45rem,4.2vw,1.95rem)] md:text-5xl lg:text-6xl">
                 <span className="block font-light">Vamos</span>
                 <span className="block font-extrabold">construir</span>
                 <span className="block font-light">essa história?</span>
@@ -96,7 +100,7 @@ const ContactForm = () => {
 
           {/* Formulário */}
           <div className="lg:col-span-6">
-            <div className="rounded-2xl border border-white/15 bg-white/5 backdrop-blur-sm p-6 shadow-card max-md:p-5 md:p-8">
+            <div className="rounded-2xl border border-white/15 bg-white/5 backdrop-blur-sm p-6 shadow-card max-md:p-5 max-lg:p-5 md:p-8">
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
               <div>
                 <label htmlFor="name" className="mb-2 block text-sm font-medium text-white">
