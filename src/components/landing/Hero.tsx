@@ -24,7 +24,7 @@ const Hero = () => {
         style={{ backgroundImage: `url(${heroBackground})` }}
       />
       <div
-        className="pointer-events-none absolute inset-0 z-[1] hidden bg-black/60 max-lg:block"
+        className="pointer-events-none absolute inset-0 z-[1] hidden bg-black/70 max-lg:block"
         aria-hidden="true"
       />
 

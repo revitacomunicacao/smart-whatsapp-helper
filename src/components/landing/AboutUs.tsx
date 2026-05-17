@@ -15,7 +15,7 @@ const AboutUs = () => {
         style={{ backgroundImage: `url(${bgMesh})` }}
       />
       <div
-        className="pointer-events-none absolute inset-0 z-[1] hidden bg-black/55 max-lg:block"
+        className="pointer-events-none absolute inset-0 z-[1] hidden bg-black/65 max-lg:block"
         aria-hidden="true"
       />
 
@@ -25,7 +25,7 @@ const AboutUs = () => {
             className="animate-fade-in mx-auto w-full max-w-3xl text-4xl font-bold leading-tight text-white max-md:text-balance max-lg:text-[clamp(1.55rem,4.8vw,2rem)] md:text-5xl lg:mx-0 lg:text-6xl"
             style={{ animationDelay: "0.1s" }}
           >
-            <span className="block lg:translate-x-1 text-[#07244c] max-lg:text-white max-lg:[text-shadow:0_1px_14px_rgba(0,0,0,0.55)]">
+            <span className="block lg:translate-x-1 text-[#07244c]">
               Pare de perder conversa,
               <br />
               tempo e oportunidades
