@@ -1,4 +1,3 @@
-import demoInbox from "@/assets/demo-inbox.jpeg";
 import demoQueue from "@/assets/demo-queue.jpeg";
 import demoAutomation from "@/assets/demo-automation.jpeg";
 import demoNexaPrint from "@/assets/nexa print.jpeg";
