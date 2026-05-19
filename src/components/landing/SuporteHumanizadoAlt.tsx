@@ -1,18 +1,14 @@
 import { motion } from "framer-motion"
 import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import bgMeshCta from "@/assets/bg-mesh-cta.jpg"
-import iconSuporte from "@/assets/suporte.png"
-import iconRespostaAgil from "@/assets/resposta agil.png"
-import iconSemBurocracia from "@/assets/sem burocracia.png"
+import { SuporteTitle } from "@/lib/cms/formatText"
+import type { HomeSuporteContent } from "@/types/homeContent"
 
-const highlights = [
-  { icon: iconSuporte, label: "Suporte dedicado" },
-  { icon: iconRespostaAgil, label: "Resposta ágil" },
-  { icon: iconSemBurocracia, label: "Sem burocracia" },
-]
+type SuporteHumanizadoAltProps = {
+  content: HomeSuporteContent
+}
 
-const SuporteHumanizadoAlt = () => {
+const SuporteHumanizadoAlt = ({ content }: SuporteHumanizadoAltProps) => {
   return (
     <section
       id="suporte"
@@ -20,7 +16,7 @@ const SuporteHumanizadoAlt = () => {
     >
       <div
         className="absolute inset-0 -scale-x-100 bg-cover bg-center bg-no-repeat max-lg:bg-[62%_center]"
-        style={{ backgroundImage: `url(${bgMeshCta})` }}
+        style={{ backgroundImage: `url(${content.backgroundImage})` }}
       />
       <div
         className="pointer-events-none absolute inset-0 z-[1] hidden bg-black/20 max-lg:block"
@@ -29,7 +25,6 @@ const SuporteHumanizadoAlt = () => {
 
       <div className="container relative z-10 mx-auto w-full px-4">
         <div className="grid items-center gap-12 max-lg:gap-10 lg:grid-cols-12 lg:gap-12">
-          {/* Left - Text content */}
           <div className="space-y-6 max-lg:text-center max-md:text-center lg:col-span-7">
             <motion.p
               initial={{ opacity: 0, y: 16 }}
@@ -38,7 +33,7 @@ const SuporteHumanizadoAlt = () => {
               transition={{ duration: 0.5 }}
               className="text-sm font-semibold uppercase tracking-wider text-[#7A94A2]"
             >
-              Suporte humanizado
+              {content.label}
             </motion.p>
 
             <motion.h2
@@ -48,13 +43,7 @@ const SuporteHumanizadoAlt = () => {
               transition={{ duration: 0.5, delay: 0.05 }}
               className="text-4xl font-bold leading-tight text-white max-md:text-balance max-lg:text-[clamp(1.55rem,4.8vw,2.1rem)] max-lg:leading-snug md:text-5xl lg:text-6xl"
             >
-              <span className="text-[#7A94A2]">
-                Atendimento
-                <br />
-                de verdade,
-              </span>
-              <br />
-              quando você precisar
+              <SuporteTitle subtitle={content.subtitle} />
             </motion.h2>
 
             <motion.p
@@ -64,8 +53,7 @@ const SuporteHumanizadoAlt = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="max-w-3xl text-lg leading-relaxed text-[#7A94A2] max-md:mx-auto max-md:text-balance max-lg:text-base max-lg:leading-relaxed md:text-xl lg:mx-0"
             >
-              Um suporte próximo e eficiente para garantir tranquilidade na rotina: orientação, acompanhamento e
-              respostas claras, sem burocracia.
+              {content.description}
             </motion.p>
 
             <motion.div
@@ -80,15 +68,14 @@ const SuporteHumanizadoAlt = () => {
                 className="rounded-full px-8 text-base shadow-none max-md:mx-auto max-md:min-h-12 max-md:w-full max-md:max-w-sm"
                 asChild
               >
-                <a href="#implantacao" className="inline-flex items-center justify-center gap-2">
-                  Entender como funciona
+                <a href={content.button.href} className="inline-flex items-center justify-center gap-2">
+                  {content.button.text}
                   <ArrowRight className="h-5 w-5 shrink-0" />
                 </a>
               </Button>
             </motion.div>
           </div>
 
-          {/* Right - Feature cards */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -96,7 +83,7 @@ const SuporteHumanizadoAlt = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="space-y-8 max-md:max-w-sm max-md:mx-auto lg:col-span-5"
           >
-            {highlights.map((item, i) => (
+            {content.highlights.map((item, i) => (
               <div
                 key={item.label}
                 className={[

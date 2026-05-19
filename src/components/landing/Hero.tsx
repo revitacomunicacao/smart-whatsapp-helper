@@ -1,27 +1,26 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Sparkles } from "lucide-react";
-import heroBackground from "@/assets/ilustra_bloco04.jpg.jpeg";
+import { HeroTitle } from "@/lib/cms/formatText";
+import { splitParagraphs } from "@/lib/cms/normalize";
+import type { HomeHeroContent } from "@/types/homeContent";
 
-const WHATSAPP_NUMBER = "5534996367430";
+type HeroProps = {
+  content: HomeHeroContent;
+};
 
-function buildWhatsappLink() {
-  const message =
-    "Oi! Quero centralizar meu atendimento com a DuBrasil Nexa.\n" +
-    "Canais: ( ) WhatsApp ( ) Instagram ( ) Webchat ( ) E-mail ( ) outros\n" +
-    "Nº de atendentes: ___ | Objetivo: ( ) vendas ( ) suporte ( ) ambos";
+const Hero = ({ content }: HeroProps) => {
+  const descriptionParagraphs = splitParagraphs(content.description);
+  const primaryDescription = descriptionParagraphs[0] ?? "";
+  const secondaryDescription = descriptionParagraphs.slice(1).join("\n\n");
 
-  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-}
-
-const Hero = () => {
   return (
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden pt-8 pb-12 max-md:px-1 max-lg:pt-24 md:pt-10 md:pb-16">
       <div
         role="img"
         aria-label="Painel da Nexa com inbox centralizada e fila de atendimento"
         className="absolute inset-0 bg-cover bg-center bg-no-repeat max-lg:bg-[right_30%]"
-        style={{ backgroundImage: `url(${heroBackground})` }}
+        style={{ backgroundImage: `url(${content.backgroundImage})` }}
       />
       <div
         className="pointer-events-none absolute inset-0 z-[1] hidden bg-black/70 max-lg:block"
@@ -37,7 +36,7 @@ const Hero = () => {
                 className="inline-flex max-w-full items-center gap-2 px-3 py-1.5 text-left text-[0.7rem] font-medium leading-snug max-lg:text-[0.68rem] md:px-4 md:py-2 md:text-sm"
               >
                 <Sparkles className="h-3.5 w-3.5 shrink-0 text-primary md:h-4 md:w-4" />
-                <span>RESPOSTA RÁPIDA • IMPLANTAÇÃO ORIENTADA • TIME NO CONTROLE</span>
+                <span>{content.badge}</span>
               </Badge>
             </div>
           </div>
@@ -46,33 +45,26 @@ const Hero = () => {
             className="animate-fade-in text-4xl font-bold leading-tight max-md:text-balance max-lg:text-[clamp(1.65rem,5.2vw,2.15rem)] max-lg:leading-snug md:text-5xl lg:text-6xl"
             style={{ animationDelay: "0.1s" }}
           >
-            <span className="block lg:translate-x-1 text-[#7A94A2]">
-              A Nexa organiza,
-              <br />
-              centraliza e aplica
-              <br />
-              <span className="text-white">inteligência</span> ao
-              <br />
-              atendimento.
-            </span>
+            <HeroTitle subtitle={content.subtitle} />
           </h1>
 
-          <p
-            className="max-w-2xl animate-fade-in text-lg text-white/90 max-md:text-balance max-lg:text-base max-lg:leading-relaxed md:text-xl"
-            style={{ animationDelay: "0.2s" }}
-          >
-            <span className="block lg:translate-y-1">
-              Plataforma multicanais com foco em WhatsApp, agentes de IA, automações de fluxos e integração entre
-              Atendimento, CRM e ERP, sem abrir mão do humanizado.
-            </span>
-          </p>
+          {primaryDescription && (
+            <p
+              className="max-w-2xl animate-fade-in text-lg text-white/90 max-md:text-balance max-lg:text-base max-lg:leading-relaxed md:text-xl"
+              style={{ animationDelay: "0.2s" }}
+            >
+              <span className="block lg:translate-y-1">{primaryDescription}</span>
+            </p>
+          )}
 
-          <p
-            className="max-w-2xl animate-fade-in text-base font-semibold text-white/80 max-md:text-balance max-lg:text-sm md:text-lg"
-            style={{ animationDelay: "0.25s" }}
-          >
-            Mais do que atender, a Nexa conecta processos, setores e experiência do cliente.
-          </p>
+          {secondaryDescription && (
+            <p
+              className="max-w-2xl animate-fade-in text-base font-semibold text-white/80 max-md:text-balance max-lg:text-sm md:text-lg"
+              style={{ animationDelay: "0.25s" }}
+            >
+              {secondaryDescription}
+            </p>
+          )}
 
           <div
             className="flex animate-fade-in flex-col justify-start gap-4 max-md:w-full sm:flex-row"
@@ -84,8 +76,8 @@ const Hero = () => {
                 className="px-8 text-base shadow-none max-md:min-h-12 max-md:w-full max-md:max-w-sm"
                 asChild
               >
-                <a href="#contato">
-                  Quero centralizar meu atendimento
+                <a href={content.button.href}>
+                  {content.button.text}
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </a>
               </Button>

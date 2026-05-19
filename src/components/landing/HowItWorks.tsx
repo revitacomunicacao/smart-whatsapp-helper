@@ -1,52 +1,10 @@
-import demoQueue from "@/assets/demo-queue.jpeg";
-import demoAutomation from "@/assets/demo-automation.jpeg";
-import demoNexaPrint from "@/assets/nexa print.jpeg";
-import demoChatbot from "@/assets/chatbot.png";
-import bgMeshAlt from "@/assets/bg-mesh-dark-alt.jpg";
-import bgMeshDemo from "@/assets/ilustra-como-funciona.jpeg";
-import iconMapeamento from "@/assets/mapeamento.png";
-import iconConfig from "@/assets/config.png";
-import iconTreinamento from "@/assets/treinamento.png";
-import iconAjustes from "@/assets/ajustes.png";
+import { MultilineText } from "@/lib/cms/formatText";
+import type { HomeHowItWorksContent } from "@/types/homeContent";
 import { useState } from "react";
 
-const steps = [
-  {
-    number: "01",
-    icon: iconMapeamento,
-    title: "Mapeamento do fluxo de atendimento e vendas",
-    description:
-      "Desenhamos o caminho real do seu time (da primeira mensagem à conclusão) para a Nexa virar rotina.",
-  },
-  {
-    number: "02",
-    icon: iconConfig,
-    title: "Configuração de canais, filas e padrões",
-    description:
-      "Organização por setores, regras de distribuição e padronização para reduzir retrabalho e tempo de resposta.",
-  },
-  {
-    number: "03",
-    icon: iconTreinamento,
-    title: "Treinamento do time (atendente + liderança)",
-    description:
-      'Treinamento objetivo para quem opera e para quem acompanha indicadores sem "depender do mais experiente".',
-  },
-  {
-    number: "04",
-    icon: iconAjustes,
-    title: "Ajustes finos nas primeiras semanas",
-    description:
-      "Acompanhamento inicial para estabilizar e deixar o processo redondo com o volume real de mensagens.",
-  },
-];
-
-const demoItems = [
-  { title: "Inbox centralizada", image: demoNexaPrint },
-  { title: "Estatísticas dos atendimentos", image: demoQueue },
-  { title: "Dados em tempo real", image: demoAutomation },
-  { title: "Chatbot", image: demoChatbot },
-];
+type HowItWorksProps = {
+  content: HomeHowItWorksContent;
+};
 
 function clamp(n: number, min: number, max: number) {
   return Math.min(max, Math.max(min, n));
@@ -124,14 +82,17 @@ function ZoomOnHover({ src, alt, lensSize = 260, zoom = 1.65 }: { src: string; a
   );
 }
 
-const HowItWorks = () => {
+const HowItWorks = ({ content }: HowItWorksProps) => {
+  const { demo, implantacao } = content;
+  const steps = implantacao.steps;
+
   return (
     <section id="implantacao" className="relative overflow-hidden">
       {/* Demo section - dark bg */}
       <div className="relative flex min-h-[850px] flex-col py-20 max-md:py-14 max-lg:min-h-0 md:py-28">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat max-lg:bg-[center_26%]"
-          style={{ backgroundImage: `url(${bgMeshDemo})` }}
+          style={{ backgroundImage: `url(${demo.backgroundImage})` }}
         />
         <div
           className="absolute inset-0"
@@ -149,12 +110,12 @@ const HowItWorks = () => {
           <div id="demo" className="scroll-mt-24 w-full">
             <div className="px-4 md:px-6">
               <h2 className="animate-fade-in text-center text-4xl font-bold leading-tight text-white max-md:px-1 max-md:text-balance max-lg:text-[clamp(1.55rem,4.5vw,2.1rem)] md:text-5xl lg:text-6xl">
-                Como funciona na prática
+                {demo.title}
               </h2>
             </div>
 
             <div className="mt-10 grid w-full grid-cols-1 gap-2 px-4 max-lg:gap-3 md:grid-cols-2 md:gap-3 md:px-6">
-              {demoItems.map((item) => (
+              {demo.items.map((item) => (
                 <div
                   key={item.title}
                   className="group relative h-[320px] overflow-hidden rounded-sm max-md:min-h-[240px] md:h-[320px]"
@@ -178,7 +139,7 @@ const HowItWorks = () => {
       <div className="relative flex min-h-[850px] flex-col py-20 max-md:py-14 max-lg:min-h-0 md:py-28">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat max-lg:bg-[center_24%]"
-          style={{ backgroundImage: `url(${bgMeshAlt})` }}
+          style={{ backgroundImage: `url(${implantacao.backgroundImage})` }}
         />
         <div
           className="absolute inset-0"
@@ -197,20 +158,17 @@ const HowItWorks = () => {
           <div className="mx-auto w-full max-w-5xl px-4">
             <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
               <span className="animate-fade-in text-sm font-semibold uppercase tracking-wider text-[#7A94A2]">
-                Diferencial DuBrasil
+                {implantacao.label}
               </span>
               <h3 className="animate-fade-in mt-4 text-4xl font-bold leading-tight text-white max-md:text-balance max-lg:text-[clamp(1.5rem,4.2vw,2rem)] md:text-5xl lg:text-6xl">
-                Nexa funciona porque a implantação é orientada
+                {implantacao.title}
               </h3>
               <p
                 className="animate-fade-in mx-auto mt-5 w-full max-w-3xl text-lg leading-relaxed text-[#7A94A2] max-lg:text-base max-lg:leading-relaxed md:text-xl"
                 style={{ animationDelay: "0.2s" }}
               >
-                A DuBrasil entra para garantir que a plataforma vire rotina real
-                <br />
-                com ajuste fino nas primeiras semanas.
-              </p>
-            </div>
+                <MultilineText text={implantacao.description} />
+              </p>            </div>
 
             <div className="mt-10 grid w-full grid-cols-1 gap-8 max-lg:gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {steps.map((step, index) => (
