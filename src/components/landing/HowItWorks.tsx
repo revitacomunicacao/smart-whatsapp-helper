@@ -1,5 +1,10 @@
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import { MultilineText } from "@/lib/cms/formatText";
-import type { HomeHowItWorksContent } from "@/types/homeContent";
+import type { HomeDemoItem, HomeHowItWorksContent } from "@/types/homeContent";
 import { useState } from "react";
 
 type HowItWorksProps = {
@@ -10,7 +15,20 @@ function clamp(n: number, min: number, max: number) {
   return Math.min(max, Math.max(min, n));
 }
 
-function ZoomOnHover({ src, alt, lensSize = 260, zoom = 1.65 }: { src: string; alt: string; lensSize?: number; zoom?: number }) {
+function ZoomOnHover({
+  src,
+  alt,
+  lensSize = 260,
+  zoom = 1.65,
+  mobileObjectPosition = "max-lg:object-[52%_center]",
+}: {
+  src: string;
+  alt: string;
+  lensSize?: number;
+  zoom?: number;
+  /** Classes de object-position aplicadas apenas abaixo de lg */
+  mobileObjectPosition?: string;
+}) {
   const [active, setActive] = useState(false);
   const [pos, setPos] = useState({ x: 0, y: 0 });
   const [natural, setNatural] = useState<{ w: number; h: number } | null>(null);
@@ -48,7 +66,7 @@ function ZoomOnHover({ src, alt, lensSize = 260, zoom = 1.65 }: { src: string; a
       <img
         src={src}
         alt={alt}
-        className="absolute inset-0 h-full w-full object-cover object-center max-lg:object-[52%_center]"
+        className={`absolute inset-0 h-full w-full object-cover object-center ${mobileObjectPosition}`}
         loading="lazy"
         onLoad={(e) => {
           const img = e.currentTarget;
@@ -82,9 +100,78 @@ function ZoomOnHover({ src, alt, lensSize = 260, zoom = 1.65 }: { src: string; a
   );
 }
 
+function DemoImageLightbox({
+  item,
+  open,
+  onOpenChange,
+}: {
+  item: HomeDemoItem | null;
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
+}) {
+  return (
+    <Dialog open={open} onOpenChange={onOpenChange}>
+      <DialogContent className="max-h-[92vh] max-w-[min(calc(100vw-1.5rem),42rem)] gap-3 overflow-hidden border-white/15 bg-[#06152d] p-3 shadow-2xl [&>button]:text-white [&>button]:hover:opacity-100">
+        {item && (
+          <>
+            <DialogTitle className="text-center text-base font-semibold text-white">
+              {item.title}
+            </DialogTitle>
+            <div className="flex max-h-[calc(92vh-4rem)] items-center justify-center overflow-auto">
+              <img
+                src={item.image}
+                alt={item.title}
+                className="max-h-[calc(92vh-5rem)] w-full object-contain"
+              />
+            </div>
+          </>
+        )}
+      </DialogContent>
+    </Dialog>
+  );
+}
+
+function DemoPrintCard({
+  item,
+  index,
+  onMobileZoom,
+}: {
+  item: HomeDemoItem;
+  index: number;
+  onMobileZoom: (item: HomeDemoItem) => void;
+}) {
+  return (
+    <div
+      className="group relative h-[320px] overflow-hidden rounded-sm max-md:min-h-[240px] md:h-[320px]"
+    >
+      <ZoomOnHover
+        src={item.image}
+        alt={item.title}
+        mobileObjectPosition={
+          index === 0 ? "max-md:object-left md:object-center" : "max-lg:object-[52%_center]"
+        }
+      />
+      <button
+        type="button"
+        className="absolute inset-x-0 top-0 bottom-14 z-20 cursor-zoom-in md:hidden"
+        onClick={() => onMobileZoom(item)}
+        aria-label={`Ampliar imagem: ${item.title}`}
+      />
+      <div className="pointer-events-none absolute left-0 right-0 bottom-0 z-30">
+        <div className="h-15 w-full bg-[#7A94A2]/80 px-4 py-3 max-md:py-3 md:px-6 md:py-3">
+          <p className="text-xl font-semibold leading-tight text-white max-md:text-balance md:text-2xl">
+            {item.title}
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 const HowItWorks = ({ content }: HowItWorksProps) => {
   const { demo, implantacao } = content;
   const steps = implantacao.steps;
+  const [lightboxItem, setLightboxItem] = useState<HomeDemoItem | null>(null);
 
   return (
     <section id="implantacao" className="relative overflow-hidden">
@@ -115,22 +202,23 @@ const HowItWorks = ({ content }: HowItWorksProps) => {
             </div>
 
             <div className="mt-10 grid w-full grid-cols-1 gap-2 px-4 max-lg:gap-3 md:grid-cols-2 md:gap-3 md:px-6">
-              {demo.items.map((item) => (
-                <div
+              {demo.items.map((item, index) => (
+                <DemoPrintCard
                   key={item.title}
-                  className="group relative h-[320px] overflow-hidden rounded-sm max-md:min-h-[240px] md:h-[320px]"
-                >
-                  <ZoomOnHover src={item.image} alt={item.title} />
-                  <div className="absolute left-0 right-0 bottom-0 z-30">
-                    <div className="h-15 w-full bg-[#7A94A2]/80 px-4 py-3 max-md:py-3 md:px-6 md:py-3">
-                      <p className="text-xl font-semibold leading-tight text-white max-md:text-balance md:text-2xl">
-                        {item.title}
-                      </p>
-                    </div>
-                  </div>
-                </div>
+                  item={item}
+                  index={index}
+                  onMobileZoom={setLightboxItem}
+                />
               ))}
             </div>
+
+            <DemoImageLightbox
+              item={lightboxItem}
+              open={lightboxItem !== null}
+              onOpenChange={(open) => {
+                if (!open) setLightboxItem(null);
+              }}
+            />
           </div>
         </div>
       </div>
@@ -138,7 +226,7 @@ const HowItWorks = ({ content }: HowItWorksProps) => {
       {/* Implantação section - dark mesh bg */}
       <div className="relative flex min-h-[850px] flex-col py-20 max-md:py-14 max-lg:min-h-0 md:py-28">
         <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat max-lg:bg-[center_24%]"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat max-lg:bg-[right_24%]"
           style={{ backgroundImage: `url(${implantacao.backgroundImage})` }}
         />
         <div
@@ -150,7 +238,7 @@ const HowItWorks = ({ content }: HowItWorksProps) => {
           aria-hidden="true"
         />
         <div
-          className="pointer-events-none absolute inset-0 z-[1] hidden bg-black/10 max-lg:block"
+          className="pointer-events-none absolute inset-0 z-[1] hidden max-md:block bg-black/25"
           aria-hidden="true"
         />
 

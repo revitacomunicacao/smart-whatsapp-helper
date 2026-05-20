@@ -21,7 +21,7 @@ const AboutUs = ({ content }: AboutUsProps) => {
       />
 
       <div
-        className="pointer-events-none absolute inset-0 z-[1] hidden bg-black/65 max-lg:block"
+        className="pointer-events-none absolute inset-0 z-[1] hidden bg-black/75 max-lg:block"
         aria-hidden="true"
       />
 
@@ -31,7 +31,10 @@ const AboutUs = ({ content }: AboutUsProps) => {
             className="animate-fade-in mx-auto w-full max-w-3xl text-4xl font-bold leading-tight text-white max-md:text-balance max-lg:text-[clamp(1.55rem,4.8vw,2rem)] md:text-5xl lg:mx-0 lg:text-6xl"
             style={{ animationDelay: "0.1s" }}
           >
-            <MultilineText text={content.title} className="block lg:translate-x-1 text-[#07244c]" />
+            <MultilineText
+              text={content.title}
+              className="block lg:translate-x-1 text-[#7A94A2] lg:text-[#07244c]"
+            />
           </h2>
           <p
             className="animate-fade-in mx-auto w-full max-w-3xl text-lg text-white/80 leading-relaxed max-lg:text-base max-lg:leading-relaxed md:text-xl lg:mx-0 lg:max-w-[43rem]"
