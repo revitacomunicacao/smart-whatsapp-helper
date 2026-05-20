@@ -44,7 +44,7 @@ const ContactFloat = () => {
   if (!show) return null;
 
   return (
-    <div className="fixed bottom-4 right-4 z-[60] flex flex-col items-end gap-2 max-md:max-w-[calc(100vw-1.25rem)] max-md:pb-[env(safe-area-inset-bottom,8px)] max-md:pr-[env(safe-area-inset-right,0px)] max-lg:bottom-24 max-lg:right-3 md:bottom-6 md:right-6 md:gap-3">
+    <div className="fixed right-4 z-[60] flex flex-col items-end gap-2 max-md:bottom-[calc(1rem+env(safe-area-inset-bottom,0px))] max-md:max-w-[calc(100vw-1.25rem)] max-md:pr-[env(safe-area-inset-right,0px)] md:bottom-6 md:right-6 md:gap-3">
       <Button
         type="button"
         size="icon"
